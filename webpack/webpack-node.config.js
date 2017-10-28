@@ -27,6 +27,7 @@ export default env => {
           use: {
             loader: 'babel-loader',
             options: {
+              forceEnv: 'NODE_ENV',
               presets: [
                 'react',
                 [

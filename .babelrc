@@ -1,16 +1,3 @@
 {
-  "presets": [
-    "react",
-    [
-      "env",
-      {
-        "targets": {
-          "browsers": ["last 2 versions"],
-          "node": "8.8.1"
-        },
-        "forceAllTransforms": true,
-        "useBuiltIns": true
-      }
-    ]
-  ]
+  "presets": ["react", "env"]
 }
