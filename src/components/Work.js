@@ -5,20 +5,8 @@ const ListItem = require('./work/ListItem')
 const Detail = require('./work/Detail')
 
 class Work extends React.Component {
-  constructor (props) {
-    super(props)
-
-    this.state = {
-      isDetail: props.isDetail
-    }
-  }
-
-  componentWillMount () {
-
-  }
-
   render () {
-    if (this.state.isDetail) {
+    if (this.props.isDetail) {
       const seo = this.props.router.match.params.seo
       const work = this.props.works.find(w => w.seo === seo)
 

@@ -1,11 +1,5 @@
 <%- include('header', {
-  title: initialData.title,
-  metaDescription: initialData.metaDescription,
-  metaKeywords: initialData.metaKeywords,
-  ogTitle: initialData.ogTitle,
-  ogDescription: initialData.ogDescription,
-  baseUrl: initialData.baseUrl,
-  url: initialData.url,
+  data: initialData,
   styles: styles
 }) -%>
 
@@ -13,10 +7,10 @@
     window.initialData = <%- JSON.stringify(initialData) -%>;
   </script>
 
-  <div id="main">
-    <%- initialMarkup -%>
-  </div>
-  
+  <!-- IMPORTANT: remove all spaces around markup to avoid isomorphic react complaints -->
+  <div id="main"><%- initialMarkup -%></div>
+  <!-- remove all spaces! -->
+
   <!--Assets + vendors-->
   <script src="<%- initialData.baseUrl -%>/assets/js/vendors/jquery/jquery-3.2.1.slim.min.js"></script>
   <!-- <script src="<%- initialData.url -%>assets/js/vendors/scrollmagic/minified/ScrollMagic.min.js"></script> -->

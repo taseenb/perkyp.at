@@ -2162,24 +2162,16 @@ var Detail = __webpack_require__(106);
 var Work = function (_React$Component) {
   _inherits(Work, _React$Component);
 
-  function Work(props) {
+  function Work() {
     _classCallCheck(this, Work);
 
-    var _this = _possibleConstructorReturn(this, (Work.__proto__ || Object.getPrototypeOf(Work)).call(this, props));
-
-    _this.state = {
-      isDetail: props.isDetail
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (Work.__proto__ || Object.getPrototypeOf(Work)).apply(this, arguments));
   }
 
   _createClass(Work, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {}
-  }, {
     key: 'render',
     value: function render() {
-      if (this.state.isDetail) {
+      if (this.props.isDetail) {
         var seo = this.props.router.match.params.seo;
         var work = this.props.works.find(function (w) {
           return w.seo === seo;
@@ -34336,7 +34328,6 @@ var App = function (_React$Component) {
       return _react2.default.createElement(
         'div',
         null,
-        _react2.default.createElement(_Nav2.default, { isBrowser: this.state.isBrowser, contactHtml: this.state.pages.contact }),
         _react2.default.createElement(
           _reactRouterDom.Switch,
           null,
@@ -34353,7 +34344,8 @@ var App = function (_React$Component) {
               return _react2.default.createElement(_Bio2.default, { html: _this2.state.pages.bio });
             } }),
           _react2.default.createElement(_reactRouterDom.Route, { component: _2.default })
-        )
+        ),
+        _react2.default.createElement(_Nav2.default, { contactHtml: this.state.pages.contact })
       );
     }
   }]);
@@ -34389,19 +34381,23 @@ module.exports = Bio;
 "use strict";
 
 
-var React = __webpack_require__(0);
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Page = function Page(props) {
-  return React.createElement(
+  return _react2.default.createElement(
     'div',
     { id: '404', className: 'page' },
-    React.createElement(
+    _react2.default.createElement(
       'div',
       { className: 'absolute-center' },
-      React.createElement(
+      _react2.default.createElement(
         'h1',
         { className: 'title' },
-        '404'
+        '404 | Not found'
       )
     )
   );
@@ -34594,8 +34590,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// const Nav = () => (
-
 var Nav = function (_React$Component) {
   _inherits(Nav, _React$Component);
 
@@ -34689,18 +34683,18 @@ var _modernizr2 = _interopRequireDefault(_modernizr);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var checkSupport = function checkSupport(resolve, reject) {
-  // Browser / Server
+  // Browser or Server?
   var isBrowser = typeof window !== 'undefined';
 
   if (isBrowser) {
     // Check if it's mobile
     _modernizr2.default.on('videoautoplay', function (result) {
       var isMobile = !result;
-      if ($(window).width < 1024 && _modernizr2.default.touchevents) {
+      if (window.innerWidth < 1024 && _modernizr2.default.touchevents) {
         isMobile = true;
       }
       if (isMobile) {
-        $('html').addClass('mobile');
+        document.documentElement.className += ' mobile';
       }
 
       resolve({ isMobile: isMobile, isBrowser: isBrowser });

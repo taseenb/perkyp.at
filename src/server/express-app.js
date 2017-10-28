@@ -3,7 +3,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const compression = require('compression')
 // const debug = require('debug')('app:main')// Site router
-const siteRouter = require('./routers/site')
+const siteRouter = require('./site')
 
 const app = express()
 
@@ -18,12 +18,7 @@ if (config.env === 'production') {
 // Static files
 app.use('/assets', express.static('public/assets'))
 
+// React app (routing is managed by React router, including 404)
 app.use('/', siteRouter)
-
-// 404
-app.get('*', (req, res) => {
-  res.status(404).render('404', { title: '404 - Not found' })
-  res.end()
-})
 
 module.exports = app

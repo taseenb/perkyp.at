@@ -1,18 +1,18 @@
 import Modernizr from 'modernizr'
 
 const checkSupport = (resolve, reject) => {
-  // Browser / Server
+  // Browser or Server?
   const isBrowser = typeof window !== 'undefined'
 
   if (isBrowser) {
     // Check if it's mobile
     Modernizr.on('videoautoplay', result => {
       let isMobile = !result
-      if ($(window).width < 1024 && Modernizr.touchevents) {
+      if (window.innerWidth < 1024 && Modernizr.touchevents) {
         isMobile = true
       }
       if (isMobile) {
-        $('html').addClass('mobile')
+        document.documentElement.className += ' mobile'
       }
 
       resolve({ isMobile, isBrowser })

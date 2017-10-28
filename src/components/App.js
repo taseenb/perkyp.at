@@ -27,8 +27,6 @@ class App extends React.Component {
   render () {
     return (
       <div>
-        <Nav isBrowser={this.state.isBrowser} contactHtml={this.state.pages.contact} />
-
         <Switch>
           <Route exact path='/' component={() => <Works works={this.state.works} />} />
           <Route
@@ -38,6 +36,7 @@ class App extends React.Component {
           <Route exact path='/bio' component={() => <Bio html={this.state.pages.bio} />} />
           <Route component={NotFound} />
         </Switch>
+        <Nav contactHtml={this.state.pages.contact} />
       </div>
     )
   }
