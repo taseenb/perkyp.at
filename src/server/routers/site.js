@@ -48,7 +48,8 @@ router.get(frontendRoutes, (req, res) => {
     res.render('index', {
       initialMarkup,
       initialData,
-      bundle: config.env === 'production' ? 'bundle.js' : 'bundle.min.js'
+      bundle: config.env === 'production' ? 'bundle.min.js' : 'bundle.js',
+      styles: config.env === 'production' ? 'style.min.css' : 'style.css'
     })
     res.end()
   }

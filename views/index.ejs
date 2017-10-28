@@ -5,7 +5,8 @@
   ogTitle: initialData.ogTitle,
   ogDescription: initialData.ogDescription,
   baseUrl: initialData.baseUrl,
-  url: initialData.url
+  url: initialData.url,
+  styles: styles
 }) -%>
 
   <script>
@@ -25,6 +26,6 @@
   <!-- <script src="<%- initialData.url -%>assets/js/vendors/three/OBJLoader.js"></script> -->
   <!-- <script src="<%- initialData.url -%>assets/js/vendors/greensock-js/src/minified/TweenMax.min.js"></script> -->
 
-  <script src="<%- initialData.baseUrl -%>/assets/js/bundle.js"></script>
+  <script src="<%- initialData.baseUrl -%>/assets/js/<%- bundle -%>"></script>
 
   <%- include('footer') -%>
