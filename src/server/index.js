@@ -10,7 +10,7 @@ const app = require('./express-app')
 
 // const server = http.createServer(app)
 
-app.set('port', config.port)
+app.set('port', (process.env.PORT || 8088))
 
 app.listen(app.get('port'), () => {
   // const addr = server.address()
