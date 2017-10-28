@@ -1,0 +1,42 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: white;
+  // font-family: 'Scope One', serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  font-size: $defaultFontSize;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+#main {
+  position: relative;
+  height: 100%;
+  min-height: 100%;
+
+  > [data-reactroot] {
+    position: relative;
+    height: 100%;
+  }
+
+  a,
+  .link {
+    cursor: pointer;
+    color: $darkGrey;
+    text-decoration: none;
+    transition-duration: 1s;
+    transition-property: color;
+
+    .no-touchevents & {
+      &:hover {
+        text-decoration: underline;
+        color: $black;
+      }
+    }
+  }
+}

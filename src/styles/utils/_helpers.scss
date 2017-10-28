@@ -1,0 +1,39 @@
+.invisible {
+  visibility: hidden;
+}
+
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.fullscreen {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.inner-container {
+  padding: $smallContentPadding;
+  width: $maxWidth;
+  box-sizing: border-box;
+
+  @media #{$landscape-phone} {
+    padding: $contentPadding;
+  }
+
+  @media #{$tablet-and-above} {
+    padding: $contentPadding;
+    width: $maxWidthMedium;
+  }
+
+  @media #{$above-tablet} {
+    
+  }
+
+  @media #{$above-desktop} {
+    
+  }
+}

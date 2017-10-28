@@ -1,0 +1,30 @@
+<%- include('header', {
+  title: initialData.title,
+  metaDescription: initialData.metaDescription,
+  metaKeywords: initialData.metaKeywords,
+  ogTitle: initialData.ogTitle,
+  ogDescription: initialData.ogDescription,
+  baseUrl: initialData.baseUrl,
+  url: initialData.url
+}) -%>
+
+  <script>
+    window.initialData = <%- JSON.stringify(initialData) -%>;
+  </script>
+
+  <div id="main">
+    <%- initialMarkup -%>
+  </div>
+  
+  <!--Assets + vendors-->
+  <script src="<%- initialData.baseUrl -%>/assets/js/vendors/jquery/jquery-3.2.1.slim.min.js"></script>
+  <!-- <script src="<%- initialData.url -%>assets/js/vendors/scrollmagic/minified/ScrollMagic.min.js"></script> -->
+  <!-- <script src="<%- initialData.url -%>assets/js/vendors/scrollmagic/minified/plugins/animation.gsap.min.js"></script> -->
+  <!-- <script src="<%- initialData.url -%>assets/js/vendors/scrollmagic/minified/plugins/debug.addIndicators.min.js"></script> -->
+  <!-- <script src="<%- initialData.url -%>assets/js/vendors/three/three.min.js"></script> -->
+  <!-- <script src="<%- initialData.url -%>assets/js/vendors/three/OBJLoader.js"></script> -->
+  <!-- <script src="<%- initialData.url -%>assets/js/vendors/greensock-js/src/minified/TweenMax.min.js"></script> -->
+
+  <script src="<%- initialData.baseUrl -%>/assets/js/bundle.js"></script>
+
+  <%- include('footer') -%>

@@ -1,0 +1,164 @@
+#nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  user-select: none;
+  z-index: $navZ;
+
+  &.open {
+    height: 100%;
+    .popup {
+      transform: translate3D(0, 0, 0);
+    }
+    .switch .icon {
+      transform: rotate(45deg);
+    }
+    .cover {
+      display: block;
+    }
+  }
+
+  .cover {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: none;
+  }
+
+  .switch {
+    position: absolute;
+    z-index: 10;
+    top: $smallMarginX;
+    right: $smallMarginX;
+    cursor: pointer;
+    // padding: $smallMarginX;
+    // box-sizing: border-box;
+
+    @media #{$tablet-and-above} {
+      top: $marginX;
+      right: $marginX;
+    }
+
+    .icon {
+      $iconSize: 25px;
+      font-size: $iconSize;
+      height: $iconSize;
+      line-height: $iconSize;
+      width: $iconSize;
+      fill: $darkGrey;
+
+      position: relative;
+      background-color: white;
+      border-radius: 50%;
+      padding: $spacer * 0.5;
+      display: inline-block;
+      text-align: center;
+      transform: rotate(0deg);
+      transition-duration: 0.4s;
+      backface-visibility: hidden;
+
+      @media #{$tablet-and-above} {
+        $iconSize: 15px;
+        font-size: $iconSize;
+        height: $iconSize;
+        line-height: $iconSize;
+        width: $iconSize;
+        fill: $darkGrey;
+        padding: 10px;
+        box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+      }
+    }
+
+    &:hover {
+      .icon {
+        @media #{$tablet-and-above} {
+          box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+        }
+      }
+    }
+  }
+
+  .popup {
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    transform: translate3D(0, -100%, 0);
+    transition-duration: 0.4s;
+    transition-property: transform;
+    backface-visibility: hidden;
+    overflow: hidden;
+    margin-top: $spacer * 0.5; // align to + icon (only mobile)
+
+    @media #{$landscape-phone} {
+      margin-top: $spacer * 0.5; // align to + icon (only mobile)
+    }
+
+    @media #{$tablet-and-above} {
+      margin-top: 0;
+    }
+
+    .inner {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.9);
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 1) 50%,
+        rgba(255, 255, 255, 0.9) 75%,
+        rgba(255, 255, 255, 0) 100%
+      ); /* W3C */
+      padding: $smallMarginX;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+      top: 0;
+
+      @media #{$tablet-and-above} {
+        padding: $marginX;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0.9) 25%,
+          rgba(255, 255, 255, 0) 100%
+        ); /* W3C */
+      }
+    }
+  }
+
+  .link {
+    display: block;
+    margin: 0 10px 0 0;
+    font-size: 36px;
+    line-height: 36px;
+    padding-bottom: 36px;
+
+    @media #{$landscape-phone} {
+      display: inline-block;
+      margin-right: $spacer;
+    }
+
+    @media #{$tablet-and-above} {
+      font-size: 22px;
+      line-height: 22px;
+      padding-bottom: 22px;
+    }
+  }
+
+  .contact {
+    padding: $spacer 0;
+    font-size: 18px;
+
+    @media #{$landscape-phone} {
+      font-size: 15px;
+    }
+
+    @media #{$tablet-and-above} {
+      font-size: $defaultFontSize;
+    }
+  }
+}

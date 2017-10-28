@@ -1,0 +1,62 @@
+// Devices
+//$below-tablet: 'only screen and (max-width : #{$tabletMinWidth}-1px), only screen and (max-height : #{$tabletMinHeight}-1px)';
+$tablet-and-above: 'only screen and (min-width : #{$tabletMinWidth})';
+$above-tablet: 'only screen and (min-width : #{$desktopMinWidth})';
+$above-desktop: 'only screen and (min-width : #{$largeDektopMinWitdth})';
+
+$landscape-phone: 'only screen and (max-height : #{$tabletMinHeight - 1}) and (orientation: landscape)';
+$iphone4: 'only screen and (max-width : #{$iphone4MaxSize}) and (max-height : #{$iphone4MaxSize})';
+
+
+// High density displays (like retina)
+$retina: 'only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 192dpi),
+only screen and (min-resolution: 2dppx)';
+
+
+@media #{$retina} {
+  // high density images here
+}
+
+.only-tablet,
+.only-above-tablet,
+.only-tablet-and-above {
+  display: none;
+}
+
+@media #{$landscape-phone} {
+
+}
+
+@media #{$iphone4} {
+
+}
+
+@media #{$tablet-and-above} {
+  .only-mobile,
+  .only-above-tablet {
+    display: none;
+  }
+  .only-tablet,
+  .only-tablet-and-below,
+  .only-tablet-and-above {
+    display: block;
+  }
+}
+
+@media #{$above-tablet} {
+  .only-mobile,
+  .only-tablet,
+  .only-tablet-and-below,
+  .only-mobile-and-tablet {
+    display: none !important;
+  }
+
+  .only-above-tablet,
+  .only-tablet-and-above {
+    display: block;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "verbose": true,
+  "watch": ["src/server", "src/components/**", "data/**", "views/**"],
+  "env": {
+    "NODE_ENV": "development",
+    "DEBUG": "app,app:*",
+    "DEBUG_COLORS": 1
+  },
+  "ext": "js json hbs html ejs",
+  "execMap": {
+    "js": "node --trace-sync-io"
+  },
+  "delay": "0ms"
+}

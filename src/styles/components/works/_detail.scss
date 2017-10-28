@@ -1,0 +1,13 @@
+.detail {
+  z-index: $contentZ;
+  min-height: 100%;
+  position: relative;
+
+  // Standard style
+  @import 'detail/base';
+}
+
+// Custom style
+@import 'detail/the-airport-of-the-future';
+@import 'detail/w152';
+@import 'detail/fan-beat';

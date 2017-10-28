@@ -1,0 +1,50 @@
+// Colors
+$superLightGrey: #f2f2f2;
+$mediumLightGrey: #ddd;
+$lightGrey: #dedede;
+$mediumGrey: #ccc;
+$mediumDarkGrey: #999;
+$darkGrey: #666;
+$black: #333;
+
+// Fonts
+$defaultFontSize: 13px;
+
+// Size
+$maxWidth: 100%;
+$maxWidthMedium: 75%;
+$maxWidthLarge: 75%;
+
+// Margins mobile
+$smallSpacer: 15px;
+$smallMarginX: $smallSpacer * 2;
+$smallMarginY: $smallSpacer;
+$smallHeaderHeight: $smallSpacer * 6;
+$smallContentPadding: $smallMarginX $smallMarginX $smallMarginX $smallMarginX;
+
+// Margins tablet + desktop
+$spacer: 30px;
+$marginX: $spacer * 2;
+$marginY: $spacer;
+$headerHeight: $spacer * 4;
+$contentPadding: $marginX $marginX $marginX $marginX;
+
+// Grid
+$cols: 12;
+$rows: 12;
+$col: 100% * (1/$cols);
+$colV: 100vw * (1/$cols);
+$row: 100% * (1/$rows);
+$rowV: 100vh * (1/$rows);
+
+
+// Paths
+$img-path: '../assets/img/';
+$fonts-path: '../assets/fonts/';
+
+// Responsive
+$tabletMinHeight: 740px;
+$tabletMinWidth: 740px;
+$desktopMinWidth: 1060px;
+$largeDektopMinWitdth: 1280px;
+$iphone4MaxSize: 480px;

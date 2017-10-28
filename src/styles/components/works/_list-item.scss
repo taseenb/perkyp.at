@@ -1,0 +1,128 @@
+a.list-item {
+  width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  background-color: white;
+  backface-visibility: hidden;
+  cursor: pointer;
+  display: block;
+
+  .no-touchevents & {
+    &:hover {
+      // .image-wrapper {
+      //   filter: blur(0);
+      // }
+      .image-wrapper img {
+        filter: blur(0);
+      }
+      .details {
+        .name,
+        .year,
+        .intro {
+          transform: translate3D(15px, 0, 0);
+        }
+
+        .name {
+          color: black;
+        }
+
+        .intro {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @media #{$landscape-phone} {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+    height: calc(1% * 45);
+    margin-right: 10%;
+    margin-bottom: calc(1% * 10);
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+
+  @media #{$tablet-and-above} {
+    display: inline-block;
+    vertical-align: top;
+    width: 45%;
+    height: calc(1% * 45);
+    margin-right: 10%;
+    margin-bottom: calc(1% * 10);
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+
+  @media #{$above-tablet} {
+    width: 30%; // equal to 30% of width
+    height: calc(1% * 30); // same as width
+    margin-right: 5%; // equal to 5% of width
+    margin-bottom: calc(1% * 5); // same as margin-right
+
+    &:nth-child(2n + 2) {
+      margin-right: calc(100% / 100 * 5);
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+
+  .image-wrapper {
+    display: block;
+    overflow: hidden;
+    z-index: 5;
+    position: relative;
+
+    img {
+      display: block;
+      width: 100%;
+
+      filter: blur(50px);
+      will-change: filter;
+      transition-property: filter;
+      transition-duration: 0.3s;
+      backface-visibility: hidden;
+      transition-timing-function: linear;
+    }
+  }
+
+  .details {
+    display: block;
+    padding: 10px 0;
+    z-index: 10;
+    position: relative;
+
+    .name,
+    .year,
+    .intro {
+      transition-duration: 0.4s;
+      backface-visibility: hidden;
+      font-size: 13px;
+      display: block;
+    }
+
+    .name {
+      color: $darkGrey;
+    }
+
+    .intro {
+      color: $mediumGrey;
+      transition-delay: 0.2s;
+
+      .no-touchevents & {
+        opacity: 0;
+      }
+    }
+
+    .year {
+      display: none;
+    }
+  }
+}
