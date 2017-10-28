@@ -19,21 +19,23 @@ export default options => {
         {
           test: /\.js?$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              'react',
-              [
-                'env',
-                {
-                  targets: {
-                    browsers: ['last 2 versions']
-                  },
-                  forceAllTransforms: true,
-                  useBuiltIns: true
-                }
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                'react',
+                [
+                  'env',
+                  {
+                    targets: {
+                      browsers: ['last 2 versions']
+                    },
+                    forceAllTransforms: true,
+                    useBuiltIns: true
+                  }
+                ]
               ]
-            ]
+            }
           }
         },
         {

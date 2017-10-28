@@ -11,7 +11,7 @@ export default env => {
       path: path.join(__dirname, '/../server'),
       filename: 'index.js'
     },
-    devtool: 'source-map',
+    // devtool: 'source-map',
     target: 'node',
     externals: [nodeExternals()],
     resolve: {
@@ -24,19 +24,21 @@ export default env => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              'react',
-              [
-                'env',
-                {
-                  targets: {
-                    node: process.versions.node
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                'react',
+                [
+                  'env',
+                  {
+                    targets: {
+                      node: process.versions.node
+                    }
                   }
-                }
+                ]
               ]
-            ]
+            }
           }
         },
         { test: /\.(glsl|frag|vert|vs|fs)$/, use: 'raw-loader', exclude: /node_modules/ },
