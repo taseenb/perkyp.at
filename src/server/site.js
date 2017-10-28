@@ -11,47 +11,47 @@ const ReactDOMServer = require('react-dom/server')
 const StaticRouter = require('react-router').StaticRouter
 const App = require('../components/App.js')
 
+console.log('starting node')
+
 // Router
 const router = express.Router()
 router.get('*', (req, res) => {
-  // const context = {}
+  const context = {}
 
-  res.send('Hello World!')
+  const initialMarkup = ReactDOMServer.renderToString(
+    <StaticRouter location={req.url} context={context}>
+      <App initialData={initialData} />
+    </StaticRouter>
+  )
 
-  // const initialMarkup = ReactDOMServer.renderToString(
-  //   <StaticRouter location={req.url} context={context}>
-  //     <App initialData={initialData} />
-  //   </StaticRouter>
-  // )
+  // Base url
+  const baseUrl = config.serverUrl
 
-  // // Base url
-  // const baseUrl = config.serverUrl
+  console.log(baseUrl)
+  console.log(req.path, context)
 
-  // debug(baseUrl)
-  // debug(req.path, context)
+  if (context.url) {
+    res.writeHead(301, {
+      Location: context.url
+    })
+    res.end()
+  } else {
+    // Add the requested id if present
+    initialData.requestedId = req.params.id
 
-  // if (context.url) {
-  //   res.writeHead(301, {
-  //     Location: context.url
-  //   })
-  //   res.end()
-  // } else {
-  //   // Add the requested id if present
-  //   initialData.requestedId = req.params.id
+    // Add url and path information
+    initialData.baseUrl = baseUrl
+    initialData.path = req.path
+    initialData.url = baseUrl + req.path
 
-  //   // Add url and path information
-  //   initialData.baseUrl = baseUrl
-  //   initialData.path = req.path
-  //   initialData.url = baseUrl + req.path
-
-  //   res.render('index', {
-  //     initialMarkup,
-  //     initialData,
-  //     bundle: config.env === 'production' ? 'bundle.min.js' : 'bundle.js',
-  //     styles: config.env === 'production' ? 'style.min.css' : 'style.css'
-  //   })
-  //   res.end()
-  // }
+    res.render('index', {
+      initialMarkup,
+      initialData,
+      bundle: config.env === 'production' ? 'bundle.min.js' : 'bundle.js',
+      styles: config.env === 'production' ? 'style.min.css' : 'style.css'
+    })
+    res.end()
+  }
 })
 
 module.exports = router
