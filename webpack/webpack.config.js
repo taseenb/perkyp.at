@@ -19,7 +19,22 @@ export default options => {
         {
           test: /\.js?$/,
           exclude: /node_modules/,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              'react',
+              [
+                'env',
+                {
+                  targets: {
+                    browsers: ['last 2 versions']
+                  },
+                  forceAllTransforms: true,
+                  useBuiltIns: true
+                }
+              ]
+            ]
+          }
         },
         {
           test: /\.(scss|sass)/,

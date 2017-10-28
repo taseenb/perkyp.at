@@ -21,7 +21,24 @@ export default env => {
     },
     module: {
       loaders: [
-        { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              'react',
+              [
+                'env',
+                {
+                  targets: {
+                    node: process.versions.node
+                  }
+                }
+              ]
+            ]
+          }
+        },
         { test: /\.(glsl|frag|vert|vs|fs)$/, use: 'raw-loader', exclude: /node_modules/ },
         { test: /\.(glsl|frag|vert|vs|fs)$/, loader: 'glslify-loader', exclude: /node_modules/ },
         { test: /\.modernizrrc.js$/, loader: 'modernizr-loader' },
