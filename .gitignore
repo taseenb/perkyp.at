@@ -58,5 +58,6 @@ build/Release
 node_modules
 .env
 
+# perkypat-node-static specific
 server/index.js
 server/index.js.map
