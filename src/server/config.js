@@ -1,5 +1,7 @@
 const env = process.env
 
+console.log(process.env)
+
 module.exports = {
   // mongodbUri: 'mongodb://localhost:27017/test',
   env: env.NODE_ENV || 'development',
