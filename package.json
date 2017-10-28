@@ -15,7 +15,7 @@
     "dev:serve": "nodemon --exec babel-node --inspect server/index.js",
     "build": "run-p build:*",
     "build:front": "babel-node ./node_modules/.bin/webpack --config ./webpack/webpack-prod.config.js --colors",
-    "build:back": "babel-node ./node_modules/.bin/webpack --config ./webpack/webpack-node.config.js --env production --colors",
+    "build:back": "babel-node ./node_modules/.bin/webpack --config ./webpack/webpack-node.config.js --env production --colors --verbose --progress",
     "heroku-postbuild": "yarn run build",
     "pushall": "git add --all . && git commit -m \"update\" && git push",
     "ncu": "npm-check-updates",
