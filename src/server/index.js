@@ -1,4 +1,4 @@
-require('source-map-support').install()
+// require('source-map-support').install()
 const config = require('./config')
 const siteRouter = require('./routers/site')
 const app = require('./express-app')
