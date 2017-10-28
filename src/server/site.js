@@ -14,42 +14,44 @@ const App = require('../components/App.js')
 // Router
 const router = express.Router()
 router.get('*', (req, res) => {
-  const context = {}
+  // const context = {}
 
-  const initialMarkup = ReactDOMServer.renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <App initialData={initialData} />
-    </StaticRouter>
-  )
+  res.send('Hello World!')
 
-  // Base url
-  const baseUrl = config.serverUrl
+  // const initialMarkup = ReactDOMServer.renderToString(
+  //   <StaticRouter location={req.url} context={context}>
+  //     <App initialData={initialData} />
+  //   </StaticRouter>
+  // )
 
-  debug(baseUrl)
-  debug(req.path, context)
+  // // Base url
+  // const baseUrl = config.serverUrl
 
-  if (context.url) {
-    res.writeHead(301, {
-      Location: context.url
-    })
-    res.end()
-  } else {
-    // Add the requested id if present
-    initialData.requestedId = req.params.id
+  // debug(baseUrl)
+  // debug(req.path, context)
 
-    // Add url and path information
-    initialData.baseUrl = baseUrl
-    initialData.path = req.path
-    initialData.url = baseUrl + req.path
+  // if (context.url) {
+  //   res.writeHead(301, {
+  //     Location: context.url
+  //   })
+  //   res.end()
+  // } else {
+  //   // Add the requested id if present
+  //   initialData.requestedId = req.params.id
 
-    res.render('index', {
-      initialMarkup,
-      initialData,
-      bundle: config.env === 'production' ? 'bundle.min.js' : 'bundle.js',
-      styles: config.env === 'production' ? 'style.min.css' : 'style.css'
-    })
-    res.end()
-  }
+  //   // Add url and path information
+  //   initialData.baseUrl = baseUrl
+  //   initialData.path = req.path
+  //   initialData.url = baseUrl + req.path
+
+  //   res.render('index', {
+  //     initialMarkup,
+  //     initialData,
+  //     bundle: config.env === 'production' ? 'bundle.min.js' : 'bundle.js',
+  //     styles: config.env === 'production' ? 'style.min.css' : 'style.css'
+  //   })
+  //   res.end()
+  // }
 })
 
 module.exports = router
