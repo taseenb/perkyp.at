@@ -8,6 +8,8 @@ const app = express()
 
 app.set('port', (process.env.PORT || 8088))
 
+app.enable('trust proxy') // needed to correctly detext http or https in requests
+
 app.set('view engine', 'ejs')
 
 if (config.env === 'production') {
