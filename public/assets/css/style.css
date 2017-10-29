@@ -807,11 +807,16 @@ a.list-item {
           filter: blur(0);
 }
 
+.no-touchevents a.list-item:hover .details {
+  text-decoration: none !important;
+}
+
 .no-touchevents a.list-item:hover .details .name,
 .no-touchevents a.list-item:hover .details .year,
 .no-touchevents a.list-item:hover .details .intro {
   -webkit-transform: translate3D(15px, 0, 0);
           transform: translate3D(15px, 0, 0);
+  text-decoration: none;
 }
 
 .no-touchevents a.list-item:hover .details .name {

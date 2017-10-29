@@ -3,15 +3,13 @@ const express = require('express')
 const debug = require('debug')('app:site')
 
 // Data
-const initialData = require('../../data/initialData')
+const initialData = require('../data/initialData')
 
 // React
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 const StaticRouter = require('react-router').StaticRouter
 const App = require('../components/App.js')
-
-console.log('starting node')
 
 // Router
 const router = express.Router()
@@ -24,12 +22,6 @@ router.get('*', (req, res) => {
     </StaticRouter>
   )
 
-  // Base url
-  const baseUrl = config.serverUrl
-
-  console.log(baseUrl)
-  console.log(req.path, context)
-
   if (context.url) {
     res.writeHead(301, {
       Location: context.url
@@ -40,9 +32,19 @@ router.get('*', (req, res) => {
     initialData.requestedId = req.params.id
 
     // Add url and path information
-    initialData.baseUrl = baseUrl
-    initialData.path = req.path
-    initialData.url = baseUrl + req.path
+
+    // Base url
+    const protocol = req.protocol // http or https
+    const hostname = req.headers.host // hostname = 'localhost:8080'
+    const path = req.path // url.parse(req.url).pathname // pathname = '/MyApp'
+    const url = protocol + '://' + hostname + path
+
+    debug(url, context)
+
+    initialData.protocol = protocol
+    initialData.hostname = hostname
+    initialData.path = path
+    initialData.url = url
 
     res.render('index', {
       initialMarkup,

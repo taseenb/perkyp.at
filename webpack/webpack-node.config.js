@@ -1,12 +1,11 @@
-import path from 'path'
-import webpack from 'webpack'
-import nodeExternals from 'webpack-node-externals'
+const path = require('path')
+const nodeExternals = require('webpack-node-externals')
 
-export default env => {
+module.exports = env => {
   return {
     entry: './src/server/index.js',
     output: {
-      path: path.join(__dirname, '/../server'),
+      path: path.join(__dirname, '../'),
       filename: 'index.js'
     },
     // devtool: 'source-map',
@@ -41,11 +40,10 @@ export default env => {
             }
           }
         },
-        { test: /\.(glsl|frag|vert|vs|fs)$/, use: 'raw-loader', exclude: /node_modules/ },
+        { test: /\.(glsl|frag|vert|vs|fs|txt|html)$/, use: 'raw-loader', exclude: /node_modules/ },
         { test: /\.(glsl|frag|vert|vs|fs)$/, loader: 'glslify-loader', exclude: /node_modules/ },
         { test: /\.modernizrrc.js$/, loader: 'modernizr-loader' },
-        { test: /\.modernizrrc(\.json)?$/, loader: 'modernizr-loader!json-loader' },
-        { test: /\.txt|html/, use: 'raw-loader', exclude: /node_modules/ }
+        { test: /\.modernizrrc(\.json)?$/, loader: 'modernizr-loader!json-loader' }
       ]
     },
     plugins: []

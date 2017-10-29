@@ -1,9 +1,9 @@
-import path from 'path'
-import webpack from 'webpack'
-import ExtractTextPlugin from 'extract-text-webpack-plugin'
-import WriteFilePlugin from 'write-file-webpack-plugin'
+const path = require('path')
+const webpack = require('webpack')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const WriteFilePlugin = require('write-file-webpack-plugin')
 
-export default options => {
+module.exports = options => {
   const env = JSON.stringify(options.isProduction ? 'production' : 'development')
   const ExtractSASS = new ExtractTextPlugin(`css/${options.cssFileName}`)
 
@@ -49,9 +49,8 @@ export default options => {
         },
         { test: /\.modernizrrc.js$/, loader: 'modernizr-loader' },
         { test: /\.modernizrrc(\.json)?$/, loader: 'modernizr-loader!json-loader' },
-        { test: /\.(glsl|frag|vert|vs|fs)$/, use: 'raw-loader', exclude: /node_modules/ },
-        { test: /\.(glsl|frag|vert|vs|fs)$/, loader: 'glslify-loader', exclude: /node_modules/ },
-        { test: /\.txt|html/, use: 'raw-loader', exclude: /node_modules/ }
+        { test: /\.(glsl|frag|vert|vs|fs|txt|html)$/, use: 'raw-loader', exclude: /node_modules/ },
+        { test: /\.(glsl|frag|vert|vs|fs)$/, loader: 'glslify-loader', exclude: /node_modules/ }
       ]
     },
     resolve: {

@@ -1,6 +1,6 @@
-import cfg from './webpack.config.js'
+const cfg = require('./webpack.config.js')
 
-export default cfg({
+module.exports = cfg({
   isProduction: false,
   devtool: 'cheap-module-source-map',
   sassLoader: 'sass-loader?outputStyle=expanded&sourceMap=true',

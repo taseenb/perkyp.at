@@ -16,10 +16,12 @@ a.list-item {
         filter: blur(0);
       }
       .details {
+        text-decoration: none !important;
         .name,
         .year,
         .intro {
           transform: translate3D(15px, 0, 0);
+          text-decoration: none;
         }
 
         .name {
