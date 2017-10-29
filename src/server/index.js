@@ -4,7 +4,7 @@ var app = express()
 // Arguments from the command line
 // var args = process.argv.slice(2);
 
-var indexFile = '/public/index.html'
+// var indexFile = '/public/index.html'
 
 app.set('port', process.env.PORT || 5000)
 

@@ -3,8 +3,6 @@ import webpack from 'webpack'
 import nodeExternals from 'webpack-node-externals'
 
 export default env => {
-  console.log('ENVIRONMENT:', env)
-
   return {
     entry: './src/server/index.js',
     output: {
@@ -13,6 +11,7 @@ export default env => {
     },
     // devtool: 'source-map',
     target: 'node',
+    node: false,
     externals: [nodeExternals()],
     resolve: {
       alias: {
@@ -49,10 +48,6 @@ export default env => {
         { test: /\.txt|html/, use: 'raw-loader', exclude: /node_modules/ }
       ]
     },
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env': { NODE_ENV: JSON.stringify(env) }
-      })
-    ]
+    plugins: []
   }
 }

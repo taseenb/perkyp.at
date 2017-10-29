@@ -9,7 +9,7 @@
   },
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node ./server/index.js",
     "dev": "run-p dev:*",
     "dev:front": "babel-node ./node_modules/.bin/webpack-dev-server --config ./webpack/webpack-dev.config.js --colors",
     "dev:back": "babel-node ./node_modules/.bin/webpack --config ./webpack/webpack-node.config.js --env development --colors --watch",
