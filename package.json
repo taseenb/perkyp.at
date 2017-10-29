@@ -19,8 +19,7 @@
     "build:back": "babel-node ./node_modules/.bin/webpack --config ./webpack/webpack-node.config.js --env production --colors --verbose --progress",
     "heroku-postbuild": "yarn run build",
     "pushall": "git add --all . && git commit -m \"update\" && git push",
-    "ncu": "npm-check-updates",
-    "fb": "firebase"
+    "ncu": "npm-check-updates"
   },
   "author": "@taseenb",
   "license": "ISC",

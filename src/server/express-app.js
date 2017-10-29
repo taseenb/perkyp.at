@@ -7,6 +7,8 @@ const siteRouter = require('./site')
 
 const app = express()
 
+app.set('port', (process.env.PORT || 8088))
+
 app.set('view engine', 'ejs')
 // app.use(bodyParser.json())
 
