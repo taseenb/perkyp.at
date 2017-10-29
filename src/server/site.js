@@ -34,12 +34,12 @@ router.get('*', (req, res) => {
     // Add url and path information
 
     // Base url
-    const protocol = req.protocol // http or https
+    const protocol = req.protocol // protocol = http or https
     const hostname = req.headers.host // hostname = 'localhost:8080'
-    const path = req.path // url.parse(req.url).pathname // pathname = '/MyApp'
-    const url = protocol + '://' + hostname + path
+    const path = req.path // pathname = '/MyApp'
+    const url = protocol + '://' + hostname + '/'
 
-    console.log(url, context)
+    debug(url, context)
 
     initialData.protocol = protocol
     initialData.hostname = hostname

@@ -16,7 +16,7 @@ class Nav extends React.Component {
     // Render email address
     const emailLink = $('.rj4kj325jn88dJ3HwwlP')[0]
     if (emailLink) {
-      const email = emailLink.rel.replace('/', '@')
+      let email = emailLink.rel.replace('/', '@').replace('*', '.')
       const part = ['m', 'a', 'i', 'l', 't', 'o', ':']
       emailLink.href = part.join('') + email
       $(emailLink).text(email)

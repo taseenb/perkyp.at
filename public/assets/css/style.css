@@ -802,13 +802,13 @@ a.list-item {
   display: block;
 }
 
+.no-touchevents a.list-item:hover {
+  text-decoration: none !important;
+}
+
 .no-touchevents a.list-item:hover .image-wrapper img {
   -webkit-filter: blur(0);
           filter: blur(0);
-}
-
-.no-touchevents a.list-item:hover .details {
-  text-decoration: none !important;
 }
 
 .no-touchevents a.list-item:hover .details .name,
@@ -816,7 +816,6 @@ a.list-item {
 .no-touchevents a.list-item:hover .details .intro {
   -webkit-transform: translate3D(15px, 0, 0);
           transform: translate3D(15px, 0, 0);
-  text-decoration: none;
 }
 
 .no-touchevents a.list-item:hover .details .name {

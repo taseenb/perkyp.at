@@ -34612,7 +34612,7 @@ var Nav = function (_React$Component) {
       // Render email address
       var emailLink = $('.rj4kj325jn88dJ3HwwlP')[0];
       if (emailLink) {
-        var email = emailLink.rel.replace('/', '@');
+        var email = emailLink.rel.replace('/', '@').replace('*', '.');
         var part = ['m', 'a', 'i', 'l', 't', 'o', ':'];
         emailLink.href = part.join('') + email;
         $(emailLink).text(email);

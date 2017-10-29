@@ -241,6 +241,8 @@ const app = express();
 
 app.set('port', process.env.PORT || 8088);
 
+app.enable('trust proxy'); // needed to correctly detext http or https in requests
+
 app.set('view engine', 'ejs');
 
 if (config.env === 'production') {
@@ -305,10 +307,10 @@ router.get('*', (req, res) => {
     // Add url and path information
 
     // Base url
-    const protocol = req.protocol; // http or https
+    const protocol = req.protocol; // protocol = http or https
     const hostname = req.headers.host; // hostname = 'localhost:8080'
-    const path = req.path; // url.parse(req.url).pathname // pathname = '/MyApp'
-    const url = protocol + '://' + hostname + path;
+    const path = req.path; // pathname = '/MyApp'
+    const url = protocol + '://' + hostname + '/';
 
     debug(url, context);
 
@@ -470,7 +472,7 @@ module.exports = "<div class='inner inner-container'>\n  <!-- <h1 className='tit
 /* 20 */
 /***/ (function(module, exports) {
 
-module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\n<a href=\"#\" rel=\"mail/perkyp.at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\n<a href=\"https://goo.gl/maps/FZZzQtZFhLF2\" target=\"_blank\">London E8</a>\n<br>\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\">Linkedin</a>"
+module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\n<a href=\"#\" rel=\"mail/perkyp*at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\n<a href=\"https://goo.gl/maps/FZZzQtZFhLF2\" target=\"_blank\">London E8</a>\n<br>\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\">Linkedin</a>"
 
 /***/ }),
 /* 21 */
@@ -780,7 +782,7 @@ class Nav extends _react2.default.Component {
     // Render email address
     const emailLink = $('.rj4kj325jn88dJ3HwwlP')[0];
     if (emailLink) {
-      const email = emailLink.rel.replace('/', '@');
+      let email = emailLink.rel.replace('/', '@').replace('*', '.');
       const part = ['m', 'a', 'i', 'l', 't', 'o', ':'];
       emailLink.href = part.join('') + email;
       $(emailLink).text(email);
