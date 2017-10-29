@@ -86,7 +86,7 @@ const env = process.env;
 
 module.exports = {
   env: env.NODE_ENV || 'development',
-  port: env.PORT || 8088,
+  port: env.PORT || 8888,
   host: env.HOST || '0.0.0.0'
 };
 
@@ -463,7 +463,7 @@ module.exports = "<div class='inner inner-container'>\n  <!-- <h1 className='tit
 /* 20 */
 /***/ (function(module, exports) {
 
-module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\n<a href=\"#\" rel=\"mail/perkyp*at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\n<a href=\"https://goo.gl/maps/FZZzQtZFhLF2\" target=\"_blank\">London E8</a>\n<br>\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\">Linkedin</a>"
+module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\n<a href=\"#\" rel=\"mail/perkyp*at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\nLondon\n<br><br>\n<a href=\"https://twitter.com/perkyp_at\">@perkyp_at</a> (NEW)\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\" target=\"_blank\">Linkedin</a>"
 
 /***/ }),
 /* 21 */
