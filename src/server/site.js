@@ -39,7 +39,7 @@ router.get('*', (req, res) => {
     const path = req.path // url.parse(req.url).pathname // pathname = '/MyApp'
     const url = protocol + '://' + hostname + path
 
-    debug(url, context)
+    console.log(url, context)
 
     initialData.protocol = protocol
     initialData.hostname = hostname
