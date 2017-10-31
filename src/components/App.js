@@ -24,14 +24,26 @@ class App extends React.Component {
     // });
   }
 
+  onRouterChange (e) {
+    console.log(e)
+  }
+
   render () {
     return (
       <div>
-        <Switch>
+        <Switch onChange={this.onRouterChange}>
           <Route exact path='/' component={() => <Works works={this.state.works} />} />
           <Route
             path='/work/:seo'
-            component={router => <Work router={router} works={this.state.works} isDetail />}
+            component={router => (
+              <Work
+                router={router}
+                works={this.state.works}
+                isDetail
+                isBrowser={this.props.isBrowser}
+                isMobile={this.props.isMobile}
+              />
+            )}
           />
           <Route exact path='/bio' component={() => <Bio html={this.state.pages.bio} />} />
           <Route component={NotFound} />

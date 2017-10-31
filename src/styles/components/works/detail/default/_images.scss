@@ -1,0 +1,23 @@
+.images {
+  .art {
+    &.vimeo {
+      width: 100%;
+      iframe {
+        max-width: 100%;
+        width: 600px !important;
+        height: 400px !important;
+      }
+    }
+    &.image {
+      padding-bottom: $spacer;
+      .image {
+        padding-bottom: $spacer;
+      }
+
+      img {
+        display: inline-block;
+        max-width: 100%;
+      }
+    }
+  }
+}

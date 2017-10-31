@@ -10,7 +10,7 @@ class Work extends React.Component {
       const seo = this.props.router.match.params.seo
       const work = this.props.works.find(w => w.seo === seo)
 
-      return <Detail seo={seo} data={work} />
+      return <Detail seo={seo} data={work} {...this.props} />
     } else {
       return <ListItem {...this.props} />
     }

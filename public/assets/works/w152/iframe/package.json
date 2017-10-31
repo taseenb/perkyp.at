@@ -1,0 +1,25 @@
+{
+  "name": "w152",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "yarn run dev",
+    "dev": "npm-run-all -p dev:*",
+    "build": "npm-run-all build:*",
+    "dev:js": "budo ./src/js/index.js:js/bundle.js --live --dir ./",
+    "dev:sass": "node-sass -w ./src/sass -o ./css",
+    "buildDEBUG:js": "browserify ./src/js/index.js  > ./js/bundle.js",
+    "build:js": "browserify -t stripify ./src/js/index.js  > ./js/bundle.js",
+    "build:compress": "uglifyjs -m -c -o ./js/bundle.min.js -- ./js/bundle.js",
+    "build:sass": "./node_modules/.bin/node-sass --output-style compressed ./src/sass/style.scss > ./css/style.css"
+  },
+  "author": "@taseenb",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^14.5.0",
+    "budo": "^10.0.4",
+    "node-sass": "^4.5.3",
+    "npm-run-all": "^4.1.1",
+    "stripify": "^6.0.0",
+    "uglify-js": "^3.1.6"
+  }
+}
