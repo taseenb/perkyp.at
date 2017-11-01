@@ -12,6 +12,10 @@
 // Vendor
 @import 'vendor/dat-gui';
 
+// Common
+@import 'components/common/animations';
+@import 'components/common/svg-icon';
+
 // Components
 @import 'components/main';
 @import 'components/nav';
@@ -21,3 +25,4 @@
 @import 'components/works/detail';
 @import 'components/webgl';
 @import 'components/pages/bio';
+

@@ -34686,7 +34686,7 @@ var Nav = function (_React$Component) {
           { className: this.updateBackClass(path) + ' back', to: '/' },
           _react2.default.createElement(
             'svg',
-            { className: 'icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
+            { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
             _react2.default.createElement('polygon', { points: '40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' })
           )
         ),
@@ -34695,7 +34695,7 @@ var Nav = function (_React$Component) {
           { className: 'switch', onClick: this.toggleNav },
           _react2.default.createElement(
             'svg',
-            { className: 'icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
+            { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
             _react2.default.createElement('path', { d: 'M50,28.57H28.57V50H21.43V28.57H0V21.43H21.43V0h7.14V21.43H50Z' })
           )
         ),

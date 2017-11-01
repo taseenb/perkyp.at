@@ -1,0 +1,63 @@
+.header {
+  position: absolute;
+  top: 25%;
+  left: 0; //  $smallMarginX;
+  z-index: 20;
+  padding: $smallSpacer ($smallSpacer * 4) $smallSpacer ($smallSpacer * 4);
+  box-sizing: border-box;
+  width: 100%;
+  user-select: none;
+  // max-width: 66%;
+  // background-color: white;
+
+  @media #{$tablet-and-above} {
+    // top: $marginY * 4;
+    // left: $marginX;
+    padding: $spacer ($spacer * 4) $spacer ($spacer * 4);
+  }
+
+  > h1 {
+    font-size: 36px;
+    padding: 0;
+    margin: 0;
+
+    &.white {
+      color: white;
+    }
+
+    > span {
+      display: none;
+      font-size: 13px;
+      color: $mediumGrey;
+    }
+
+    @media #{$tablet-and-above} {
+      font-size: 48px;
+      > span {
+        // display: inline;
+        padding: 0 ($spacer * 0.5);
+      }
+    }
+
+    @media #{$above-tablet} {
+      font-size: 72px;
+    }
+  }
+
+  .description {
+    font-size: $defaultFontSize;
+  }
+
+  // &::after {
+  //   content: '';
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   width: 400px;
+  //   height: 100%;
+  //   background-image: url(../img/credits-corner.png);
+  //   background-position: top right;
+  //   background-repeat: no-repeat;
+  //   transform: translateX(100%) rotate(180deg);
+  // }
+}

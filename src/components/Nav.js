@@ -42,12 +42,12 @@ class Nav extends React.Component {
     return (
       <nav id='nav' className={this.state.open ? 'open' : null}>
         <Link className={this.updateBackClass(path) + ' back'} to='/'>
-          <svg className='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>
+          <svg className='svg-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>
             <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />
           </svg>
         </Link>
         <div className='switch' onClick={this.toggleNav}>
-          <svg className='icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>
+          <svg className='svg-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>
             <path d='M50,28.57H28.57V50H21.43V28.57H0V21.43H21.43V0h7.14V21.43H50Z' />
           </svg>
         </div>

@@ -11,7 +11,7 @@
     .popup {
       transform: translate3D(0, 0, 0);
     }
-    .switch .icon {
+    .switch .svg {
       transform: rotate(45deg);
     }
     .cover {
@@ -26,7 +26,7 @@
     height: 100%;
     display: none;
   }
-  
+
   .back {
     right: $smallMarginX * 3 !important;
     opacity: 1;
@@ -57,42 +57,14 @@
       right: $marginX;
     }
 
-    &:hover {
-      .icon {
-        @media #{$tablet-and-above} {
-          box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    .no-touchevents & {
+      &:hover {
+        .svg-icon {
+          @media #{$tablet-and-above} {
+            box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+          }
         }
       }
-    }
-  }
-
-  .icon {
-    $iconSize: 25px;
-    font-size: $iconSize;
-    height: $iconSize;
-    line-height: $iconSize;
-    width: $iconSize;
-    fill: $darkGrey;
-
-    position: relative;
-    background-color: white;
-    border-radius: 50%;
-    padding: $spacer * 0.5;
-    display: inline-block;
-    text-align: center;
-    transform: rotate(0deg);
-    transition-duration: 0.4s;
-    backface-visibility: hidden;
-
-    @media #{$tablet-and-above} {
-      $iconSize: 15px;
-      font-size: $iconSize;
-      height: $iconSize;
-      line-height: $iconSize;
-      width: $iconSize;
-      fill: $darkGrey;
-      padding: 10px;
-      box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
     }
   }
 

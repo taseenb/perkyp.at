@@ -1,0 +1,14 @@
+@keyframes scroll-down-anim {
+  0% {
+    transform: translate(-50%, 0);
+    // opacity: 0.6;
+  }
+  50% {
+    transform: translate(-50%, 10px);
+    // opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 0);
+    // opacity: 0;
+  }
+}
