@@ -57,14 +57,19 @@ class Nav extends React.Component {
         </div>
 
         <div className='popup' onClick={this.toggleNav}>
-          <div className='inner'>
-            <Link className='link' to='/'>
-              Work
-            </Link>
-            <Link className='link' to='/bio'>
-              Bio
-            </Link>
-            <div className='contact' dangerouslySetInnerHTML={{ __html: this.props.contactHtml }} />
+          <div className='row no-gutters py-md-4 px-md-4 px-2 py-2'>
+            <div className='col-12 col-md-8'>
+              <Link className='link' to='/'>
+                Work
+              </Link>
+              <Link className='link' to='/bio'>
+                Bio
+              </Link>
+              <div
+                className='contact'
+                dangerouslySetInnerHTML={{ __html: this.props.contactHtml }}
+              />
+            </div>
           </div>
         </div>
 

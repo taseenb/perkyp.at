@@ -5479,7 +5479,7 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-
           transform: translate3D(0, 0, 0);
 }
 
-#nav.open .switch .svg {
+#nav.open .switch .svg-icon {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
@@ -5525,8 +5525,7 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-
   position: absolute;
   z-index: 2;
   width: 100%;
-  height: 100vh;
-  max-height: 100vh;
+  height: 600px;
   -webkit-transform: translate3D(0, -100%, 0);
           transform: translate3D(0, -100%, 0);
   -webkit-transition-duration: 0.4s;
@@ -5542,37 +5541,6 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-
   background: -webkit-gradient(linear, left top, left bottom, from(white), color-stop(50%, white), color-stop(75%, rgba(255, 255, 255, 0.9)), to(rgba(255, 255, 255, 0)));
   background: linear-gradient(to bottom, white 0%, white 50%, rgba(255, 255, 255, 0.9) 75%, rgba(255, 255, 255, 0) 100%);
   /* W3C */
-}
-
-@media (min-width: 800px) {
-  #nav .popup {
-    background: -webkit-gradient(linear, left top, right top, from(white), color-stop(25%, rgba(255, 255, 255, 0.9)), to(rgba(255, 255, 255, 0)));
-    background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0.9) 25%, rgba(255, 255, 255, 0) 100%);
-    /* W3C */
-  }
-}
-
-@media only screen and (max-height: 739px) and (orientation: landscape) {
-  #nav .popup {
-    margin-top: 15px;
-  }
-}
-
-#nav .popup .inner {
-  position: absolute;
-  padding: 30px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  top: 15px;
-}
-
-@media only screen and (max-height: 739px) and (orientation: landscape) {
-  #nav .popup .inner {
-    top: 15px;
-  }
 }
 
 #nav .link {
@@ -5734,7 +5702,7 @@ a.list-item .details .year {
 .detail.default .head {
   position: relative;
   overflow: hidden;
-  height: 132vw;
+  height: 124vw;
 }
 
 @media (min-width: 576px) {
@@ -6027,7 +5995,7 @@ a.list-item .details .year {
 .detail.default .head {
   position: relative;
   overflow: hidden;
-  height: 132vw;
+  height: 124vw;
 }
 
 @media (min-width: 576px) {

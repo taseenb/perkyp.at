@@ -474,7 +474,7 @@ module.exports = {
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class='inner inner-container'>\n  <!-- <h1 className='title'>Bio.</h1> -->\n  <br /> My name is Esteban. I explore visual arts and computational design, mostly through front end, web technologies.\n  <br /> In 2005 I graduated in art and cinema studies at the University of Bologna, Italy. Today I create interactive applications in collaboration with creative studios, designers and artists.\n  <br />\n  <br />\n  <h2>Tech</h2>\n  If you have a project and wonder if I could help, these are the tools and techniques that I use: Javascript, Three.js / WebGL, canvas 2D, D3.js, Node, most typical tools (Babel, Webpack, Gulp, etc) and some frameworks (Backbone and React).\n  <br />\n  <br />\n  <h2>WORK</h2>\n  In the last years I have worked with:\n  <ul>\n    <li>\n      <a href='http://www.field.io/' target='_blank'>Field.io, London</a>\n    </li>\n    <li>\n      <a href='http://www.theguardian.com/uk/' target='_blank'>The Guardian, London</a>\n    </li>\n    <li>\n      <a href='http://signal-noise.co.uk/' target='_blank'>Signal | Noise, London</a>\n      <ul>\n        <li>The Economist</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.toasterltd.com/' target='_blank'>Toaster, London</a>\n      <ul>\n        <li>Google</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.artificialrome.com/' target='_blank'>Artificial Rome, Berlin</a>\n      <ul>\n        <li>Siemens, Sennheiser</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.agencepoupeesrusses.com/' target='_blank'>Poupées Russes, Paris</a>\n      <ul>\n        <li>Guerlain, Dior</li>\n      </ul>\n    </li>\n    <li>\n      La Moulade, London\n      <ul>\n        <li>\n          <a href='http://www.christianlouboutin.com/' target='_blank'>Christian Louboutin</a>,\n          <a href='http://www.industrialfacility.com/' target='_blank'>Industrial Facility</a>,\n          <a href='http://www.wastberg.com/' target='_blank'>Wastberg</a>\n        </li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.mazarine.com/' target='_blank'>Mazarine Digital, Paris</a>\n      <ul>\n        <li>Chanel, Dior, Caroll, Carven, Biotherm, Club Med, etc.</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.betc-life.com/fr/' target='_blank'>BETC, Paris</a>\n      <ul>\n        <li>Peugeot, Canal +, Pages Jaunes, Sixt, etc.</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.buzzman.fr/' target='_blank'>Buzzman, Paris</a>\n      <ul>\n        <li>Microsoft Bing, MTV, Cannes Lions, etc.</li>\n      </ul>\n    </li>\n\n    <li>\n      <a href='http://www.heineken.fr/' target='_blank'>Heineken France, Paris</a>\n    </li>\n    <li>\n      <a href='http://www.alaincharlesperrot.com/' target='_blank'>Alain Charles Perrot, Architecte - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.mademoisellechapeaux.com/' target='_blank'>Mademoiselle Chapeaux - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.galeriecharlot.com/' target='_blank'>Galerie Charlot - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.ponctuelle.fr/' target='_blank'>Ponctuelle Light Design - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.dancityfestival.com/' target='_blank'>Dancity Festival - Italy</a>\n    </li>\n  </ul>\n</div>"
+module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n  <div class=\"col-12\">\n\n    <div class=\"row no-gutters\">\n      <div class=\"col-12 col-md-8\">\n        <h1 className='title'>Bio</h1>\n        <br /> My name is Esteban. I explore visual arts and computational design, mostly through front end, web technologies.\n        <br /> In 2005 I graduated in art and cinema studies at the University of Bologna, Italy. Today I create interactive applications in collaboration with creative studios, designers and artists.\n        <br />\n        <br />\n        <h2>Tech</h2>\n        If you have a project and wonder if I could help, these are the tools and techniques that I use: Javascript, Three.js / WebGL, canvas 2D, D3.js, Node, most typical tools (Babel, Webpack, Gulp, etc) and some frameworks (Backbone and React).\n        <br />\n        <br />\n        <h2>WORK</h2>\n        In the last years I have worked with:\n        <ul>\n          <li>\n            <a href='http://www.field.io/' target='_blank'>Field.io, London</a>\n          </li>\n          <li>\n            <a href='http://www.theguardian.com/uk/' target='_blank'>The Guardian, London</a>\n          </li>\n          <li>\n            <a href='http://signal-noise.co.uk/' target='_blank'>Signal | Noise, London</a>\n            <ul>\n              <li>The Economist</li>\n            </ul>\n          </li>\n          <li>\n            <a href='http://www.toasterltd.com/' target='_blank'>Toaster, London</a>\n            <ul>\n              <li>Google</li>\n            </ul>\n          </li>\n          <li>\n            <a href='http://www.artificialrome.com/' target='_blank'>Artificial Rome, Berlin</a>\n            <ul>\n              <li>Siemens, Sennheiser</li>\n            </ul>\n          </li>\n          <li>\n            <a href='http://www.agencepoupeesrusses.com/' target='_blank'>Poupées Russes, Paris</a>\n            <ul>\n              <li>Guerlain, Dior</li>\n            </ul>\n          </li>\n          <li>\n            La Moulade, London\n            <ul>\n              <li>\n                <a href='http://www.christianlouboutin.com/' target='_blank'>Christian Louboutin</a>,\n                <a href='http://www.industrialfacility.com/' target='_blank'>Industrial Facility</a>,\n                <a href='http://www.wastberg.com/' target='_blank'>Wastberg</a>\n              </li>\n            </ul>\n          </li>\n          <li>\n            <a href='http://www.mazarine.com/' target='_blank'>Mazarine Digital, Paris</a>\n            <ul>\n              <li>Chanel, Dior, Caroll, Carven, Biotherm, Club Med, etc.</li>\n            </ul>\n          </li>\n          <li>\n            <a href='http://www.betc-life.com/fr/' target='_blank'>BETC, Paris</a>\n            <ul>\n              <li>Peugeot, Canal +, Pages Jaunes, Sixt, etc.</li>\n            </ul>\n          </li>\n          <li>\n            <a href='http://www.buzzman.fr/' target='_blank'>Buzzman, Paris</a>\n            <ul>\n              <li>Microsoft Bing, MTV, Cannes Lions, etc.</li>\n            </ul>\n          </li>\n\n          <li>\n            <a href='http://www.heineken.fr/' target='_blank'>Heineken France, Paris</a>\n          </li>\n          <li>\n            <a href='http://www.alaincharlesperrot.com/' target='_blank'>Alain Charles Perrot, Architecte - Paris</a>\n          </li>\n          <li>\n            <a href='http://www.mademoisellechapeaux.com/' target='_blank'>Mademoiselle Chapeaux - Paris</a>\n          </li>\n          <li>\n            <a href='http://www.galeriecharlot.com/' target='_blank'>Galerie Charlot - Paris</a>\n          </li>\n          <li>\n            <a href='http://www.ponctuelle.fr/' target='_blank'>Ponctuelle Light Design - Paris</a>\n          </li>\n          <li>\n            <a href='http://www.dancityfestival.com/' target='_blank'>Dancity Festival - Italy</a>\n          </li>\n        </ul>\n      </div>\n    </div>\n\n  </div>\n</div>"
 
 /***/ }),
 /* 22 */
@@ -992,18 +992,25 @@ class Nav extends _react2.default.Component {
         { className: 'popup', onClick: this.toggleNav },
         _react2.default.createElement(
           'div',
-          { className: 'inner' },
+          { className: 'row no-gutters py-md-4 px-md-4 px-2 py-2' },
           _react2.default.createElement(
-            _reactRouterDom.Link,
-            { className: 'link', to: '/' },
-            'Work'
-          ),
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { className: 'link', to: '/bio' },
-            'Bio'
-          ),
-          _react2.default.createElement('div', { className: 'contact', dangerouslySetInnerHTML: { __html: this.props.contactHtml } })
+            'div',
+            { className: 'col-12 col-md-8' },
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { className: 'link', to: '/' },
+              'Work'
+            ),
+            _react2.default.createElement(
+              _reactRouterDom.Link,
+              { className: 'link', to: '/bio' },
+              'Bio'
+            ),
+            _react2.default.createElement('div', {
+              className: 'contact',
+              dangerouslySetInnerHTML: { __html: this.props.contactHtml }
+            })
+          )
         )
       ),
       _react2.default.createElement('div', { className: 'cover', onClick: this.toggleNav })

@@ -34880,18 +34880,25 @@ var Nav = function (_React$Component) {
           { className: 'popup', onClick: this.toggleNav },
           _react2.default.createElement(
             'div',
-            { className: 'inner' },
+            { className: 'row no-gutters py-md-4 px-md-4 px-2 py-2' },
             _react2.default.createElement(
-              _reactRouterDom.Link,
-              { className: 'link', to: '/' },
-              'Work'
-            ),
-            _react2.default.createElement(
-              _reactRouterDom.Link,
-              { className: 'link', to: '/bio' },
-              'Bio'
-            ),
-            _react2.default.createElement('div', { className: 'contact', dangerouslySetInnerHTML: { __html: this.props.contactHtml } })
+              'div',
+              { className: 'col-12 col-md-8' },
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { className: 'link', to: '/' },
+                'Work'
+              ),
+              _react2.default.createElement(
+                _reactRouterDom.Link,
+                { className: 'link', to: '/bio' },
+                'Bio'
+              ),
+              _react2.default.createElement('div', {
+                className: 'contact',
+                dangerouslySetInnerHTML: { __html: this.props.contactHtml }
+              })
+            )
           )
         ),
         _react2.default.createElement('div', { className: 'cover', onClick: this.toggleNav })
