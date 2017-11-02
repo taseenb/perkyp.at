@@ -44,23 +44,24 @@ class Detail extends React.Component {
         const h = $el.data('height') || el.height || $el.width() // original element height
         const parentW = $parent.width()
         const parentH = $parent.height()
-        console.log(parentW, parentH, w, h)
 
         // Get cover size and position
         const cover = createCover(parentW, parentH, w, h)
-        console.log(parentW / parentH, w / h)
-        console.log(cover)
+
+        // Save original size
+        $el.data('width', w)
+        $el.data('height', h)
 
         // Apply cover size and position to video element
         $el.css(cover)
-        // if (
-        //   el instanceof HTMLImageElement ||
-        //   el instanceof HTMLVideoElement ||
-        //   el instanceof HTMLCanvasElement
-        // ) {
-        //   el.width = cover.width
-        //   el.height = cover.height
-        // }
+        if (
+          el instanceof HTMLImageElement ||
+          el instanceof HTMLVideoElement ||
+          el instanceof HTMLCanvasElement
+        ) {
+          el.width = cover.width
+          el.height = cover.height
+        }
       })
     }
   }

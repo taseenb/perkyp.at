@@ -3,11 +3,17 @@
   min-height: 100%;
   position: relative;
 
-  // Standard style
-  @import 'detail/default';
+  // Default style
+  &.default {
+    @import 'detail/default/head';
+    @import 'detail/default/text';
+    @import 'detail/default/images';
+    @import 'detail/default/iframe';
+    @import 'detail/default/credits';
+  }  
 }
 
 // Custom style
-@import 'detail/the-airport-of-the-future';
-@import 'detail/w152';
-@import 'detail/fan-beat';
+@import 'detail/custom/the-airport-of-the-future';
+@import 'detail/custom/w152';
+@import 'detail/custom/fan-beat';

@@ -10,7 +10,6 @@ const createCover = (parentW, parentH, w, h) => {
 
   if (parentRatio > ratio) {
     // fill width
-    console.log('fill width')
     zoomRatio = parentW / w
     height = ~~(h * zoomRatio)
     top = ~~((parentH - height) / 2)
@@ -18,7 +17,6 @@ const createCover = (parentW, parentH, w, h) => {
     width = parentW
   } else {
     // fill height
-    console.log('fill height')
     zoomRatio = parentH / h
     width = ~~(w * zoomRatio)
     left = ~~((parentW - width) / 2)

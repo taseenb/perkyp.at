@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const ListItem = props => {
   return (
-    <Link to={`/work/${props.seo}`} id={`item-${props.seo}`} className='list-item'>
+    <Link to={`/work/${props.seo}`} id={`item-${props.seo}`} className='list-item col-12 col-md-6 col-xl-4'>
       <span className='image-wrapper'>
         <img src={`assets/works/${props.seo}/${props.preview}`} />
       </span>

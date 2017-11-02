@@ -7,7 +7,7 @@ a.list-item {
   cursor: pointer;
   display: block;
 
-  .no-touchevents & {
+  @at-root .no-touchevents & {
     &:hover {
       text-decoration: none !important;
       // .image-wrapper {
@@ -31,47 +31,6 @@ a.list-item {
           opacity: 1;
         }
       }
-    }
-  }
-
-  @media #{$landscape-s} {
-    display: inline-block;
-    vertical-align: top;
-    width: 45%;
-    height: calc(1% * 45);
-    margin-right: 10%;
-    margin-bottom: calc(1% * 10);
-
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
-  }
-
-  @media #{$m} {
-    display: inline-block;
-    vertical-align: top;
-    width: 45%;
-    height: calc(1% * 45);
-    margin-right: 10%;
-    margin-bottom: calc(1% * 10);
-
-    &:nth-child(2n) {
-      margin-right: 0;
-    }
-  }
-
-  @media #{$l} {
-    width: 30%; // equal to 30% of width
-    height: calc(1% * 30); // same as width
-    margin-right: 5%; // equal to 5% of width
-    margin-bottom: calc(1% * 5); // same as margin-right
-
-    &:nth-child(2n + 2) {
-      margin-right: calc(100% / 100 * 5);
-    }
-
-    &:nth-child(3n) {
-      margin-right: 0;
     }
   }
 

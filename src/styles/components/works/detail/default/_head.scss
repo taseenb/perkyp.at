@@ -58,34 +58,27 @@
   }
 
   .video-container,
-  > iframe,
+  .iframe,
   .bg {
     z-index: 1;
     background-size: cover;
     background-position: center center;
     width: 100%;
     height: 100%;
-
-    // @media #{$m} {
-    //   // top: $marginY;
-    //   // left: $marginY;
-    //   // width: calc(100% - #{$marginY});
-    //   // height: 100%; // calc(100% - #{($marginY)});
-    // }
   }
 
-  .border {
-    z-index: 10;
-    // border: 5px solid white;
-    box-sizing: border-box;
+  // .border {
+  //   z-index: 10;
+  //   // border: 5px solid white;
+  //   box-sizing: border-box;
 
-    @media #{$m} {
-      // border-left: $marginY solid white;
-      // border-right: ($marginY) solid white;
-      // border-top: ($marginY) solid white;
-      // border-bottom: 0; // ($marginY) solid white;
-    }
-  }
+  //   @media #{$m} {
+  //     // border-left: $marginY solid white;
+  //     // border-right: ($marginY) solid white;
+  //     // border-top: ($marginY) solid white;
+  //     // border-bottom: 0; // ($marginY) solid white;
+  //   }
+  // }
 
   .pattern {
     z-index: 3;

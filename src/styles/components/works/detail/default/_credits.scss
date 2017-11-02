@@ -1,36 +1,6 @@
 .credits {
-  $p: $spacer * 0.33;
-  z-index: 10;
-  // position: absolute;
-  background: white;
-  color: black;
-  line-height: 22px;
+  // line-height: 1.8;
   user-select: none;
-
-  @media #{$m} {
-    // position: absolute;
-    // padding: $p ($spacer * 2) $p $p;
-    // bottom: 0;
-    // right: 0;
-    // padding: $p;
-    box-sizing: border-box;
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   left: -400px;
-    //   top: 0;
-    //   width: 400px;
-    //   height: 100%;
-    //   background-image: url(../img/credits-corner.png);
-    //   background-position: top right;
-    //   background-repeat: no-repeat;
-    // }
-  }
-
-  @media #{$l} {
-    // padding: $p ($spacer * 3) $p $p;
-  }
 
   h1 {
     font-size: 24px;
@@ -38,12 +8,12 @@
     margin: 0;
     font-weight: normal;
 
-    @media #{$m} {
+    @include media-breakpoint-up(md) {
       font-size: 28px;
       padding: 0 0 14px 0;
     }
 
-    @media #{$l} {
+    @include media-breakpoint-up(xl) {
       font-size: 36px;
       padding: 0 0 18px 0;
     }

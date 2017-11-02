@@ -3,11 +3,13 @@ import PropTypes from 'prop-types'
 import Work from './Work'
 
 const Works = props => (
-  <div id='works' className='grid'>
-    <div className='inner inner-container'>
-      {props.works.map(work => {
-        return <Work key={work.uid} {...work} isDetail={false} />
-      })}
+  <div className='row no-gutters py-md-4 px-md-4 px-2 py-2'>
+    <div id='works' className='col-12 col-md-8'>
+      <div className='inner row'>
+        {props.works.map(work => {
+          return <Work key={work.uid} {...work} isDetail={false} />
+        })}
+      </div>
     </div>
   </div>
 )

@@ -34444,13 +34444,17 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Works = function Works(props) {
   return _react2.default.createElement(
     'div',
-    { id: 'works', className: 'grid' },
+    { className: 'row no-gutters py-md-4 px-md-4 px-2 py-2' },
     _react2.default.createElement(
       'div',
-      { className: 'inner inner-container' },
-      props.works.map(function (work) {
-        return _react2.default.createElement(_Work2.default, _extends({ key: work.uid }, work, { isDetail: false }));
-      })
+      { id: 'works', className: 'col-12 col-md-8' },
+      _react2.default.createElement(
+        'div',
+        { className: 'inner row' },
+        props.works.map(function (work) {
+          return _react2.default.createElement(_Work2.default, _extends({ key: work.uid }, work, { isDetail: false }));
+        })
+      )
     )
   );
 };
@@ -34483,7 +34487,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ListItem = function ListItem(props) {
   return _react2.default.createElement(
     _reactRouterDom.Link,
-    { to: '/work/' + props.seo, id: 'item-' + props.seo, className: 'list-item' },
+    { to: '/work/' + props.seo, id: 'item-' + props.seo, className: 'list-item col-12 col-md-6 col-xl-4' },
     _react2.default.createElement(
       'span',
       { className: 'image-wrapper' },
@@ -34595,23 +34599,20 @@ var Detail = function (_React$Component) {
           var h = $el.data('height') || el.height || $el.width(); // original element height
           var parentW = $parent.width();
           var parentH = $parent.height();
-          console.log(parentW, parentH, w, h);
 
           // Get cover size and position
           var cover = (0, _createCover2.default)(parentW, parentH, w, h);
-          console.log(parentW / parentH, w / h);
-          console.log(cover);
+
+          // Save original size
+          $el.data('width', w);
+          $el.data('height', h);
 
           // Apply cover size and position to video element
           $el.css(cover);
-          // if (
-          //   el instanceof HTMLImageElement ||
-          //   el instanceof HTMLVideoElement ||
-          //   el instanceof HTMLCanvasElement
-          // ) {
-          //   el.width = cover.width
-          //   el.height = cover.height
-          // }
+          if (el instanceof HTMLImageElement || el instanceof HTMLVideoElement || el instanceof HTMLCanvasElement) {
+            el.width = cover.width;
+            el.height = cover.height;
+          }
         });
       }
     }
@@ -34671,7 +34672,6 @@ var createCover = function createCover(parentW, parentH, w, h) {
 
   if (parentRatio > ratio) {
     // fill width
-    console.log('fill width');
     zoomRatio = parentW / w;
     height = ~~(h * zoomRatio);
     top = ~~((parentH - height) / 2);
@@ -34679,7 +34679,6 @@ var createCover = function createCover(parentW, parentH, w, h) {
     width = parentW;
   } else {
     // fill height
-    console.log('fill height');
     zoomRatio = parentH / h;
     width = ~~(w * zoomRatio);
     left = ~~((parentW - width) / 2);
