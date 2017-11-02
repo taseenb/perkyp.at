@@ -5818,12 +5818,12 @@ a.list-item .details .year {
 }
 
 .detail.default .head .bg {
-  z-index: 2;
+  z-index: 1;
 }
 
 .detail.default .head .iframe-container,
 .detail.default .head .video-container {
-  z-index: 1;
+  z-index: 2;
 }
 
 .detail.default .head .video-container {
@@ -5836,10 +5836,6 @@ a.list-item .details .year {
 
 .videoautoplay .detail.default .head .video-container {
   display: block !important;
-}
-
-.videoautoplay .detail.default .head .bg.video-fallback {
-  display: none !important;
 }
 
 .detail.default .head .video-container,
@@ -6111,12 +6107,12 @@ a.list-item .details .year {
 }
 
 .detail.default .head .bg {
-  z-index: 2;
+  z-index: 1;
 }
 
 .detail.default .head .iframe-container,
 .detail.default .head .video-container {
-  z-index: 1;
+  z-index: 2;
 }
 
 .detail.default .head .video-container {
@@ -6129,10 +6125,6 @@ a.list-item .details .year {
 
 .videoautoplay .detail.default .head .video-container {
   display: block !important;
-}
-
-.videoautoplay .detail.default .head .bg.video-fallback {
-  display: none !important;
 }
 
 .detail.default .head .video-container,

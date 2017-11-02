@@ -34557,7 +34557,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var ListItem = function ListItem(props) {
   return _react2.default.createElement(
     _reactRouterDom.Link,
-    { to: '/work/' + props.seo, id: 'item-' + props.seo, className: 'list-item col-12 col-md-6 col-xl-4 mb-2 mb-md-4' },
+    { to: '/work/' + props.seo, id: 'item-' + props.seo, className: 'list-item col-12 col-sm-6 col-xl-4 mb-2 mb-md-4' },
     _react2.default.createElement(
       'span',
       { className: 'image-wrapper' },
