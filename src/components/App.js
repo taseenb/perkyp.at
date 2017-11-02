@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Route, Switch } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import Bio from './pages/Bio'
 import NotFound from './pages/404'
 import Works from './Works'
@@ -24,26 +25,45 @@ class App extends React.Component {
     // });
   }
 
-  onRouterChange (e) {
-    console.log(e)
+  componentDidUpdate (prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.onRouteChanged()
+    }
+  }
+
+  onRouteChanged () {
+    if (this.props.isBrowser) {
+      // Scroll to top
+      window.scrollTo(0, 0)
+    }
   }
 
   render () {
+    const worksSeo = this.state.works.map(w => w.seo)
+
     return (
       <div>
         <Switch onChange={this.onRouterChange}>
           <Route exact path='/' component={() => <Works works={this.state.works} />} />
           <Route
             path='/work/:seo'
-            component={router => (
-              <Work
-                router={router}
-                works={this.state.works}
-                isDetail
-                isBrowser={this.props.isBrowser}
-                isMobile={this.props.isMobile}
-              />
-            )}
+            component={router => {
+              const requestedWork = router.match.params.seo
+
+              if (worksSeo.indexOf(requestedWork) > -1) {
+                return (
+                  <Work
+                    router={router}
+                    works={this.state.works}
+                    isDetail
+                    isBrowser={this.props.isBrowser}
+                    isMobile={this.props.isMobile}
+                  />
+                )
+              } else {
+                return <NotFound />
+              }
+            }}
           />
           <Route exact path='/bio' component={() => <Bio html={this.state.pages.bio} />} />
           <Route component={NotFound} />
@@ -58,4 +78,4 @@ App.propTypes = {
   initialData: PropTypes.object.isRequired
 }
 
-module.exports = App
+module.exports = withRouter(App)

@@ -13,9 +13,9 @@ a.list-item {
       // .image-wrapper {
       //   filter: blur(0);
       // }
-      .image-wrapper img {
-        filter: blur(0);
-      }
+      // .image-wrapper img {
+      //   filter: blur(0);
+      // }
       .details {
         .name,
         .year,
@@ -44,11 +44,8 @@ a.list-item {
       display: block;
       width: 100%;
 
-      filter: blur(50px);
-      will-change: filter;
-      transition-property: filter;
+      // filter: blur(50px);
       transition-duration: 0.3s;
-      backface-visibility: hidden;
       transition-timing-function: linear;
     }
   }

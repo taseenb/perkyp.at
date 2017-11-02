@@ -2,10 +2,10 @@
 //$below-tablet: 'only screen and (max-width : #{$tabletMinWidth}-1px), only screen and (max-height : #{$tabletMinHeight}-1px)';
 
 // small devices is default (mobile first)
-$s: 'only screen and (max-width : #{$mMinWidth - 1})'; // below tablet
-$m: 'only screen and (min-width : #{$mMinWidth})'; // tablet-and-above
-$l: 'only screen and (min-width : #{$lMinWidth})'; // above-tablet
-$xl: 'only screen and (min-width : #{$xlMinWitdth})'; // above-desktop
+// $s: 'only screen and (max-width : #{$mMinWidth - 1})'; // below tablet
+// $m: 'only screen and (min-width : #{$mMinWidth})'; // tablet-and-above
+// $l: 'only screen and (min-width : #{$lMinWidth})'; // above-tablet
+// $xl: 'only screen and (min-width : #{$xlMinWitdth})'; // above-desktop
 
 $landscape-s: 'only screen and (max-height : #{$mMinHeight - 1}) and (orientation: landscape)';
 $iphone4: 'only screen and (max-width : #{$iphone4MaxSize}) and (max-height : #{$iphone4MaxSize})';
@@ -22,16 +22,6 @@ only screen and (min-resolution: 2dppx)';
   // high density images here
 }
 
-.only-m,
-.only-l,
-.only-xl,
-.only-m-l,
-.only-m-l-xl,
-.only-l-xl,
-.only-landscape-s {
-  display: none;
-}
-
 @media #{$landscape-s} {
   .only-landscape-s {
     display: block;
@@ -39,52 +29,4 @@ only screen and (min-resolution: 2dppx)';
 }
 
 @media #{$iphone4} {
-}
-
-@media #{$m} {
-  .only-s,
-  .only-l,
-  .only-landscape-s {
-    display: none;
-  }
-  .only-m,
-  .only-s-m,
-  .only-m-l,
-  .only-m-l-xl {
-    display: block;
-  }
-}
-
-@media #{$l} {
-  .only-s,
-  .only-m,
-  .only-s-m,
-  .only-landscape-s {
-    display: none !important;
-  }
-
-  .only-l,
-  .only-m-l,
-  .only-m-l-xl,
-  .only-l-xl,
-  .only-xl {
-    display: block;
-  }
-}
-
-@media #{$xl} {
-  .only-s,
-  .only-m,
-  .only-s-m,
-  .only-l,
-  .only-m-l,
-  .only-landscape-s {
-    display: none !important;
-  }
-
-  .only-m-l-xl,
-  .only-l-xl,
-  .only-xl {
-    display: block;
-  }
 }

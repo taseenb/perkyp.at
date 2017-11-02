@@ -1,9 +1,11 @@
 import React from 'react'
 
 const Page = props => (
-  <div id='404' className='page'>
-    <div className='absolute-center'>
-      <h1 className='title'>404 | Not found</h1>
+  <div id='page404' className='container-fluid'>
+    <div className='row align-items-center h-100'>
+      <div className='col-12'>
+        <h1 className='title text-center'>404 | Not found</h1>
+      </div>
     </div>
   </div>
 )

@@ -3,7 +3,10 @@
   overflow: hidden;
   height: 132vw;
 
-  // Landscape
+  @include media-breakpoint-up(sm) {
+    height: 100vw;
+  }
+
   @media #{$landscape-s} {
     height: 40vw;
   }
@@ -16,38 +19,39 @@
     height: 40vw;
   }
 
-  // @media #{$m} {
-  //   height: 35vw;
-  // }
-
-  // @media #{$l} {
-  //   height: 40vw;
-  // }
-
   @import 'head/scroll-down';
   @import 'head/video';
   @import 'head/header';
   @import 'head/shadow';
-
-  &.dark {
-    color: white;
-  }
 
   .inner {
     position: relative;
     z-index: 20;
   }
 
-  // Hide video if videoautoplayer is not available (mobile)
-  @at-root .no-videoautoplay & {
-    .video-container {
-      display: none !important;
-    }
-    .bg.video-fallback {
-      display: block !important;
-    }
+  // #######################################
+  // HEAD BACKGROUND, VIDEO or IFRAME
+  // #######################################
+
+  // Z-index
+  .bg {
+    z-index: 2;
   }
 
+  .iframe-container,
+  .video-container {
+    z-index: 1;
+  }
+
+  // Hide video if videoautoplayer by default
+  .video-container {
+    display: none;
+  }
+  .bg.video-fallback {
+    display: block;
+  }
+
+  // If autoplay is available, show video
   @at-root .videoautoplay & {
     .video-container {
       display: block !important;
@@ -58,29 +62,12 @@
   }
 
   .video-container,
-  .iframe,
+  .iframe-container,
   .bg {
-    z-index: 1;
     background-size: cover;
     background-position: center center;
     width: 100%;
     height: 100%;
-  }
-
-  // .border {
-  //   z-index: 10;
-  //   // border: 5px solid white;
-  //   box-sizing: border-box;
-
-  //   @media #{$m} {
-  //     // border-left: $marginY solid white;
-  //     // border-right: ($marginY) solid white;
-  //     // border-top: ($marginY) solid white;
-  //     // border-bottom: 0; // ($marginY) solid white;
-  //   }
-  // }
-
-  .pattern {
-    z-index: 3;
+    position: absolute;
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import createCover from '../../utils/createCover'
+import createCover from '../../utils/create-cover'
 
 class Detail extends React.Component {
   constructor (props) {
@@ -24,6 +24,13 @@ class Detail extends React.Component {
 
   componentDidMount () {
     if (this.props.isBrowser) {
+      // Remove autoplay video on mobile (on iphone they start in fullscreen even if hidden)
+      if (this.props.isMobile) {
+        const videos = document.querySelectorAll(`#${this.props.seo} video[autoplay]`)
+        videos.forEach(v => v.remove())
+      }
+
+      // Add resize and update sizes
       window.addEventListener('resize', this.updatesize)
       this.updatesize()
 

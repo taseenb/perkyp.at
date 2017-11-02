@@ -485,30 +485,66 @@ return ImagesLoaded;
 });
 
 },{"ev-emitter":1}],3:[function(require,module,exports){
+/**
+ * Return position and size of element to cover the entire space of the parent.
+ * Emulates css background-size: cover (but works with images, video or any dom element)
+ */
+var createCover = function (parentW, parentH, w, h) {
+  var parentRatio = parentW / parentH
+  var ratio = w / h
+  var zoomRatio
+  var top, left, width, height
+
+  if (parentRatio > ratio) {
+    // fill width
+    zoomRatio = parentW / w
+    height = ~~(h * zoomRatio)
+    top = ~~((parentH - height) / 2)
+    left = 0
+    width = parentW
+  } else {
+    // fill height
+    zoomRatio = parentH / h
+    width = ~~(w * zoomRatio)
+    left = ~~((parentW - width) / 2)
+    top = 0
+    height = parentH
+  }
+
+  return {
+    top: top,
+    left: left,
+    width: width,
+    height: height
+  }
+}
+
+module.exports = createCover
+
+},{}],4:[function(require,module,exports){
 var imagesLoaded = require('imagesloaded')
+var createCover = require('./create-cover')
+var PointerEvents = require('./pointer-events')
 
 var w, h // window size
 var images = []
 var imagesWidth, imagesHeight
-var ctx,
-  canvas,
-  currentFrame = 0
-var totalImages = 162,
-  oneEvery = 2,
-  imagesAvailable
+var ctx
+var canvas
+var totalImages = 130
+var oneEvery = 2
+var imagesAvailable
 var imageX, imageY, fillX, fillY
-var range
 var tween
-
-function onChange (e) {
-  var value = parseFloat(e.target.value)
-  currentFrame = Math.floor(imagesAvailable * value)
-
-  updateCanvas(currentFrame)
-}
+var cursor
+var slider
+var cursorWidth = 60
+var lastFrame
 
 function updateCanvas (frame) {
   requestAnimationFrame(function () {
+    if (frame === lastFrame) return
+    lastFrame = frame
     // ctx.clearRect(0, 0, w, h)
     ctx.drawImage(images[frame].img, 0, 0, imagesWidth, imagesHeight, imageX, imageY, fillX, fillY)
   })
@@ -539,67 +575,51 @@ function onImagesLoaded (e) {
   // Update sizes
   onResize()
 
-  // Activate range slider
-  initRangeSlider()
+  // Init pointer events
+  var pointer = new PointerEvents(slider, {
+    onStart: onPointerMove,
+    onMove: onPointerMove
+  })
 
   // Resize event
   window.addEventListener('resize', onResize, false)
 
   // Tween
-  tween = window.TweenLite.to(range, 4, {
+  tween = window.TweenMax.to({ value: 0 }, 4, {
     value: 1,
     ease: Linear.easeNone,
     onUpdate: function () {
       updateCanvas(Math.floor(imagesAvailable * this.target.value))
+      updateCursor(this.target.value)
     }
   })
 }
 
-function initRangeSlider () {
-  range = document.getElementById('range')
-  range.addEventListener('mousedown', stopTween)
-  range.addEventListener('change', onChange)
-  range.addEventListener('input', onChange)
+function onPointerMove (x, y) {
+  if (tween) stopTween()
+  var value = x / w
+  var frame = Math.floor(imagesAvailable * value)
+  updateCursorByX(x)
+  updateCanvas(frame)
+}
+
+function updateCursor (value) {
+  var dist = w - cursorWidth
+  window.TweenMax.set(cursor, { x: dist * value })
+}
+
+function updateCursorByX (_x) {
+  var maxW = w - cursorWidth
+  var x = _x - cursorWidth / 2
+  x = Math.min(Math.max(x, 0), maxW)
+  window.TweenMax.set(cursor, { x: x })
 }
 
 function stopTween () {
   tween.pause().kill()
   tween = null
 
-  range.removeEventListener('mousedown', stopTween)
-}
-
-function createCover (w, h) {
-  var winW = window.innerWidth
-  var winH = window.innerHeight
-  var screenRatio = winW / winH
-  var imgRatio = w / h
-  var zoomRatio, newWidth, newHeight
-
-  if (screenRatio > imgRatio) {
-    // fill width
-    zoomRatio = winW / w
-    newHeight = ~~(h * zoomRatio)
-    imageX = 0
-    imageY = ~~((winH - newHeight) / 2)
-    fillX = winW
-    fillY = newHeight
-  } else {
-    // fill height
-    zoomRatio = winH / h
-    newWidth = ~~(w * zoomRatio)
-    imageY = 0
-    imageX = ~~((winW - newWidth) / 2)
-    fillX = newWidth
-    fillY = winH
-  }
-
-  // HACK for portrait tablet/ipad
-  // make the video higher and move down to hide the native Webkit control bar
-  // if (touch && width <= height && options.video) {
-  //    imageY += 50;
-  //    fillY += 50;
-  // }
+  // slider.removeEventListener('mousedown', stopTween)
 }
 
 function onResize () {
@@ -610,17 +630,96 @@ function onResize () {
   canvas.style.width = w + 'px'
   canvas.style.height = h + 'px'
 
+  var cover = createCover(w, h, imagesWidth, imagesHeight)
+
+  imageX = cover.left
+  imageY = cover.top
+  fillX = cover.width
+  fillY = cover.height
+
   
-  createCover(imagesWidth, imagesHeight)
 }
 
 function init () {
   canvas = document.getElementById('canvas')
   ctx = canvas.getContext('2d')
+  slider = document.getElementById('slider')
+  cursor = document.getElementById('cursor')
 
   preloadImages()
 }
 
 init()
 
-},{"imagesloaded":2}]},{},[3]);
+},{"./create-cover":3,"./pointer-events":5,"imagesloaded":2}],5:[function(require,module,exports){
+var PointerEvents = function (el, options) {
+  // console.log( el );
+
+  this.options = {
+    onStart: options.onStart || function () {},
+    onMove: options.onMove || function () {}
+  }
+
+  this.el = el || document
+  this.pointerX = 0
+  this.pointerY = 0
+
+  this.initialize()
+}
+
+PointerEvents.prototype = {
+  initialize: function () {
+    // Touch
+    this.el.addEventListener('touchstart', this.onDocumentTouchStart.bind(this), false)
+    this.el.addEventListener('touchmove', this.onDocumentTouchMove.bind(this), false)
+
+    // Mouse
+    this.mouseMoveCallback = this.onDocumentMouseMove.bind(this)
+    this.el.addEventListener('mousedown', this.onMouseDown.bind(this), false)
+    this.el.addEventListener('mouseup', this.onMouseUp.bind(this), false)
+  },
+
+  onMouseDown: function (e) {
+    this.mouseMoveCallback(e)
+    this.el.addEventListener('mousemove', this.mouseMoveCallback, false)
+  },
+
+  onMouseUp: function (e) {
+    this.el.removeEventListener('mousemove', this.mouseMoveCallback, false)
+  },
+
+  onDocumentTouchStart: function (event) {
+    if (event.touches.length === 1) {
+      event.preventDefault()
+      this.pointerX = event.touches[0].pageX
+      this.pointerY = event.touches[0].pageY
+
+      this.options.onStart(this.pointerX, this.pointerY)
+    }
+  },
+
+  onDocumentTouchMove: function (event) {
+    if (event.touches.length === 1) {
+      event.preventDefault()
+      this.pointerX = event.touches[0].pageX
+      this.pointerY = event.touches[0].pageY
+    }
+
+    this.onPointerMove()
+  },
+
+  onDocumentMouseMove: function () {
+    this.pointerX = event.clientX
+    this.pointerY = event.clientY
+
+    this.onPointerMove()
+  },
+
+  onPointerMove: function () {
+    this.options.onMove(this.pointerX, this.pointerY)
+  }
+}
+
+module.exports = PointerEvents
+
+},{}]},{},[4]);

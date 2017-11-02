@@ -17,6 +17,7 @@
   "dependencies": {
     "browserify": "^14.5.0",
     "budo": "^10.0.4",
+    "modernizr": "^3.5.0",
     "node-sass": "^4.5.3",
     "npm-run-all": "^4.1.1",
     "stripify": "^6.0.0",

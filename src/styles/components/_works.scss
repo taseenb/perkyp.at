@@ -1,5 +1,17 @@
 #works {
 
+  > .spacer {
+    height: 75px;
+    
+    @media #{$landscape-s} {
+      height: 65px;
+    }
+
+    @include media-breakpoint-up(md) {
+      height: 0;
+    }
+  }
+
   > .inner {
     position: relative;
     z-index: $contentZ;

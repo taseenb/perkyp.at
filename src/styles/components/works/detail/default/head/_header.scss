@@ -10,11 +10,11 @@
   // max-width: 66%;
   // background-color: white;
 
-  @media #{$m} {
-    // top: $marginY * 4;
-    // left: $marginX;
-    padding: $spacer ($spacer * 4) $spacer ($spacer * 4);
-  }
+  // @media #{$m} {
+  //   // top: $marginY * 4;
+  //   // left: $marginX;
+  //   padding: $spacer ($spacer * 4) $spacer ($spacer * 4);
+  // }
 
   > h1 {
     font-size: 36px;
@@ -31,17 +31,17 @@
       color: $mediumGrey;
     }
 
-    @media #{$m} {
-      font-size: 48px;
-      > span {
-        // display: inline;
-        padding: 0 ($spacer * 0.5);
-      }
-    }
+    // @media #{$m} {
+    //   font-size: 48px;
+    //   > span {
+    //     // display: inline;
+    //     padding: 0 ($spacer * 0.5);
+    //   }
+    // }
 
-    @media #{$l} {
-      font-size: 72px;
-    }
+    // @media #{$l} {
+    //   font-size: 72px;
+    // }
   }
 
   .description {

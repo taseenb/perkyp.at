@@ -1,1 +1,64 @@
-html,body{height:100%}body{overflow:hidden;margin:0;padding:0}#hidden-images-preload{opacity:0;visibility:hidden;position:absolute;top:-9999px;left:-9999px;z-index:-9999;width:0;height:0;overflow:hidden}#main{width:100%;height:100%}#canvas{width:100%;height:100%;background-position:center center;background-repeat:no-repeat;background-size:cover}#range{position:absolute;left:50%;bottom:50px;display:inline-block;width:250px;transform:translateX(-50%) translateY(-50%)}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  position: relative; }
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0; }
+
+#hidden-images-preload {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+  z-index: -9999;
+  width: 0;
+  height: 0;
+  overflow: hidden; }
+
+#main {
+  width: 100%;
+  height: 100%;
+  user-select: none;
+  overflow: hidden; }
+
+#canvas {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover; }
+
+#slider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  padding-top: 30px;
+  user-select: none; }
+  #slider #cursor-wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background-color: #ccc;
+    cursor: pointer;
+    user-select: none; }
+    @media only screen and (max-width: 740px) {
+      #slider #cursor-wrapper {
+        height: 30px; } }
+    #slider #cursor-wrapper #cursor {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 60px;
+      height: 100%;
+      background-color: #333;
+      cursor: pointer;
+      user-select: none; }

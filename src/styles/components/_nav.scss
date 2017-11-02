@@ -81,9 +81,9 @@
     }
     // margin-top: $spacer * 0.5; // align to + icon (only mobile)
 
-    // @media #{$landscape-s} {
-    //   margin-top: $spacer * 0.5; // align to + icon (only mobile)
-    // }
+    @media #{$landscape-s} {
+      margin-top: $spacer * 0.5; // align to + icon (only mobile)
+    }
 
     // @media #{$l} {
     //   margin-top: 0;
@@ -102,10 +102,10 @@
         top: $spacer * 0.5; // align to + icon (only mobile)
       }
 
-      @include media-breakpoint-up(md) {
-        top: 0;
-        padding: $marginX;
-      }
+      // @include media-breakpoint-up(md) {
+      //   top: 0;
+      //   padding: $marginX;
+      // }
     }
   }
 
@@ -121,11 +121,11 @@
       margin-right: $spacer;
     }
 
-    @media #{$l} {
-      font-size: 22px;
-      line-height: 22px;
-      padding-bottom: 22px;
-    }
+    // @media #{$l} {
+    //   font-size: 22px;
+    //   line-height: 22px;
+    //   padding-bottom: 22px;
+    // }
   }
 
   .contact {
@@ -136,8 +136,8 @@
       font-size: 15px;
     }
 
-    @media #{$l} {
-      font-size: $defaultFontSize;
-    }
+    // @media #{$l} {
+    //   font-size: $defaultFontSize;
+    // }
   }
 }
