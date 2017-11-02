@@ -5,12 +5,16 @@
 @import 'utils/fonts';
 @import 'utils/helpers';
 @import 'utils/typography';
+// @import 'utils/grid';
 
 @import 'z-index';
 @import 'structure';
 
 // Vendor
 @import 'vendor/dat-gui';
+@import 'vendor/bootstrap/mixins';
+@import 'vendor/bootstrap/bootstrap-grid';
+@import 'vendor/bootstrap/utilities';
 
 // Common
 @import 'components/common/animations';
@@ -22,6 +26,7 @@
 @import 'components/page';
 @import 'components/works';
 @import 'components/works/list-item';
+@import 'components/works/detail';
 @import 'components/works/detail';
 @import 'components/webgl';
 @import 'components/pages/bio';

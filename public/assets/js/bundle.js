@@ -11687,7 +11687,7 @@ var _router = __webpack_require__(80);
 
 var _router2 = _interopRequireDefault(_router);
 
-var _support = __webpack_require__(109);
+var _support = __webpack_require__(110);
 
 var _support2 = _interopRequireDefault(_support);
 
@@ -34287,7 +34287,7 @@ var _Work = __webpack_require__(37);
 
 var _Work2 = _interopRequireDefault(_Work);
 
-var _Nav = __webpack_require__(107);
+var _Nav = __webpack_require__(108);
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
@@ -34532,6 +34532,10 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _createCover = __webpack_require__(107);
+
+var _createCover2 = _interopRequireDefault(_createCover);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34572,20 +34576,60 @@ var Detail = function (_React$Component) {
       if (this.props.isBrowser) {
         window.addEventListener('resize', this.updatesize);
         this.updatesize();
+
+        // Cache elements
+        this.covers = document.querySelectorAll('#' + this.props.seo + ' .cover'); // fullscreen cover
+
+        // Update sizes for cover elements (if there is any)
+        this.updateCovers();
+      }
+    }
+  }, {
+    key: 'updateCovers',
+    value: function updateCovers() {
+      if (this.covers) {
+        this.covers.forEach(function (el, i) {
+          var $el = $(el);
+          var $parent = $el.parent();
+          var w = $el.data('width') || el.width || $el.width(); // original element width
+          var h = $el.data('height') || el.height || $el.width(); // original element height
+          var parentW = $parent.width();
+          var parentH = $parent.height();
+          console.log(parentW, parentH, w, h);
+
+          // Get cover size and position
+          var cover = (0, _createCover2.default)(parentW, parentH, w, h);
+          console.log(parentW / parentH, w / h);
+          console.log(cover);
+
+          // Apply cover size and position to video element
+          $el.css(cover);
+          // if (
+          //   el instanceof HTMLImageElement ||
+          //   el instanceof HTMLVideoElement ||
+          //   el instanceof HTMLCanvasElement
+          // ) {
+          //   el.width = cover.width
+          //   el.height = cover.height
+          // }
+        });
       }
     }
   }, {
     key: 'updatesize',
     value: function updatesize() {
-      $('.head').height(window.innerHeight);
-      console.log(window.innerHeight);
+      // $('.head').height(window.innerHeight)
+
+      if (this.covers) {
+        this.updateCovers();
+      }
     }
   }, {
     key: 'render',
     value: function render() {
       var seo = this.props.seo;
       var data = this.props.data;
-      var cssClass = data.template === 'base' ? 'base' : null;
+      var cssClass = data.template === 'default' ? 'default' : null;
 
       return _react2.default.createElement('div', {
         id: '' + seo,
@@ -34612,6 +34656,54 @@ module.exports = Detail;
 "use strict";
 
 
+/**
+ * Return position and size of element to cover the entire space of the parent.
+ * Emulates css background-size: cover (but works with images, video or any dom element)
+ */
+var createCover = function createCover(parentW, parentH, w, h) {
+  var parentRatio = parentW / parentH;
+  var ratio = w / h;
+  var zoomRatio = void 0;
+  var top = void 0,
+      left = void 0,
+      width = void 0,
+      height = void 0;
+
+  if (parentRatio > ratio) {
+    // fill width
+    console.log('fill width');
+    zoomRatio = parentW / w;
+    height = ~~(h * zoomRatio);
+    top = ~~((parentH - height) / 2);
+    left = 0;
+    width = parentW;
+  } else {
+    // fill height
+    console.log('fill height');
+    zoomRatio = parentH / h;
+    width = ~~(w * zoomRatio);
+    left = ~~((parentW - width) / 2);
+    top = 0;
+    height = parentH;
+  }
+
+  return {
+    top: top,
+    left: left,
+    width: width,
+    height: height
+  };
+};
+
+module.exports = createCover;
+
+/***/ }),
+/* 108 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -34620,7 +34712,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(9);
 
-var _reactRouter = __webpack_require__(108);
+var _reactRouter = __webpack_require__(109);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -34678,25 +34770,31 @@ var Nav = function (_React$Component) {
 
       var path = location.pathname;
 
+      var btnClasses = ' py-1 px-1 py-md-2 px-md-1 svg-wrapper';
+
       return _react2.default.createElement(
         'nav',
         { id: 'nav', className: this.state.open ? 'open' : null },
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { className: this.updateBackClass(path) + ' back', to: '/' },
-          _react2.default.createElement(
-            'svg',
-            { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
-            _react2.default.createElement('polygon', { points: '40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' })
-          )
-        ),
-        _react2.default.createElement(
           'div',
-          { className: 'switch', onClick: this.toggleNav },
+          { className: 'ui d-flex justify-content-end py-1 px-1 py-md-2 px-md-2' },
           _react2.default.createElement(
-            'svg',
-            { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
-            _react2.default.createElement('path', { d: 'M50,28.57H28.57V50H21.43V28.57H0V21.43H21.43V0h7.14V21.43H50Z' })
+            _reactRouterDom.Link,
+            { className: this.updateBackClass(path) + btnClasses + ' back', to: '/' },
+            _react2.default.createElement(
+              'svg',
+              { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
+              _react2.default.createElement('polygon', { points: '40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' })
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: btnClasses + ' switch', onClick: this.toggleNav },
+            _react2.default.createElement(
+              'svg',
+              { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
+              _react2.default.createElement('path', { d: 'M50,28.57H28.57V50H21.43V28.57H0V21.43H21.43V0h7.14V21.43H50Z' })
+            )
           )
         ),
         _react2.default.createElement(
@@ -34729,7 +34827,7 @@ var Nav = function (_React$Component) {
 module.exports = (0, _reactRouter.withRouter)(Nav);
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -34772,13 +34870,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _modernizr = __webpack_require__(110);
+var _modernizr = __webpack_require__(111);
 
 var _modernizr2 = _interopRequireDefault(_modernizr);
 
@@ -34796,7 +34894,7 @@ var checkSupport = function checkSupport(resolve, reject) {
         isMobile = true;
       }
       if (isMobile) {
-        document.documentElement.className += ' mobile';
+        document.documentElement.className += ' mobile no-videoautoplay';
       }
 
       resolve({ isMobile: isMobile, isBrowser: isBrowser });
@@ -34821,7 +34919,7 @@ var checkSupport = function checkSupport(resolve, reject) {
 module.exports = new Promise(checkSupport);
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports) {
 
 ;(function(window){
@@ -34837,4 +34935,3 @@ else { delete window.Modernizr; }
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.js.map

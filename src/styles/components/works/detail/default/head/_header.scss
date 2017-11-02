@@ -10,7 +10,7 @@
   // max-width: 66%;
   // background-color: white;
 
-  @media #{$tablet-and-above} {
+  @media #{$m} {
     // top: $marginY * 4;
     // left: $marginX;
     padding: $spacer ($spacer * 4) $spacer ($spacer * 4);
@@ -31,7 +31,7 @@
       color: $mediumGrey;
     }
 
-    @media #{$tablet-and-above} {
+    @media #{$m} {
       font-size: 48px;
       > span {
         // display: inline;
@@ -39,7 +39,7 @@
       }
     }
 
-    @media #{$above-tablet} {
+    @media #{$l} {
       font-size: 72px;
     }
   }

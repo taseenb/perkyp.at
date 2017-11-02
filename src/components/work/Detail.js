@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import createCover from '../../utils/createCover'
 
 class Detail extends React.Component {
   constructor (props) {
@@ -25,18 +26,57 @@ class Detail extends React.Component {
     if (this.props.isBrowser) {
       window.addEventListener('resize', this.updatesize)
       this.updatesize()
+
+      // Cache elements
+      this.covers = document.querySelectorAll(`#${this.props.seo} .cover`) // fullscreen cover
+
+      // Update sizes for cover elements (if there is any)
+      this.updateCovers()
+    }
+  }
+
+  updateCovers () {
+    if (this.covers) {
+      this.covers.forEach((el, i) => {
+        const $el = $(el)
+        const $parent = $el.parent()
+        const w = $el.data('width') || el.width || $el.width() // original element width
+        const h = $el.data('height') || el.height || $el.width() // original element height
+        const parentW = $parent.width()
+        const parentH = $parent.height()
+        console.log(parentW, parentH, w, h)
+
+        // Get cover size and position
+        const cover = createCover(parentW, parentH, w, h)
+        console.log(parentW / parentH, w / h)
+        console.log(cover)
+
+        // Apply cover size and position to video element
+        $el.css(cover)
+        // if (
+        //   el instanceof HTMLImageElement ||
+        //   el instanceof HTMLVideoElement ||
+        //   el instanceof HTMLCanvasElement
+        // ) {
+        //   el.width = cover.width
+        //   el.height = cover.height
+        // }
+      })
     }
   }
 
   updatesize () {
-    $('.head').height(window.innerHeight)
-    console.log(window.innerHeight)
+    // $('.head').height(window.innerHeight)
+
+    if (this.covers) {
+      this.updateCovers()
+    }
   }
 
   render () {
     const seo = this.props.seo
     const data = this.props.data
-    const cssClass = data.template === 'base' ? 'base' : null
+    const cssClass = data.template === 'default' ? 'default' : null
 
     return (
       <div

@@ -1,12 +1,14 @@
 // Devices
 //$below-tablet: 'only screen and (max-width : #{$tabletMinWidth}-1px), only screen and (max-height : #{$tabletMinHeight}-1px)';
-$tablet-and-above: 'only screen and (min-width : #{$tabletMinWidth})';
-$above-tablet: 'only screen and (min-width : #{$desktopMinWidth})';
-$above-desktop: 'only screen and (min-width : #{$largeDektopMinWitdth})';
 
-$landscape-phone: 'only screen and (max-height : #{$tabletMinHeight - 1}) and (orientation: landscape)';
+// small devices is default (mobile first)
+$s: 'only screen and (max-width : #{$mMinWidth - 1})'; // below tablet
+$m: 'only screen and (min-width : #{$mMinWidth})'; // tablet-and-above
+$l: 'only screen and (min-width : #{$lMinWidth})'; // above-tablet
+$xl: 'only screen and (min-width : #{$xlMinWitdth})'; // above-desktop
+
+$landscape-s: 'only screen and (max-height : #{$mMinHeight - 1}) and (orientation: landscape)';
 $iphone4: 'only screen and (max-width : #{$iphone4MaxSize}) and (max-height : #{$iphone4MaxSize})';
-
 
 // High density displays (like retina)
 $retina: 'only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -16,47 +18,73 @@ only screen and (min-device-pixel-ratio: 2),
 only screen and (min-resolution: 192dpi),
 only screen and (min-resolution: 2dppx)';
 
-
 @media #{$retina} {
   // high density images here
 }
 
-.only-tablet,
-.only-above-tablet,
-.only-tablet-and-above {
+.only-m,
+.only-l,
+.only-xl,
+.only-m-l,
+.only-m-l-xl,
+.only-l-xl,
+.only-landscape-s {
   display: none;
 }
 
-@media #{$landscape-phone} {
-
-}
-
-@media #{$iphone4} {
-
-}
-
-@media #{$tablet-and-above} {
-  .only-mobile,
-  .only-above-tablet {
-    display: none;
-  }
-  .only-tablet,
-  .only-tablet-and-below,
-  .only-tablet-and-above {
+@media #{$landscape-s} {
+  .only-landscape-s {
     display: block;
   }
 }
 
-@media #{$above-tablet} {
-  .only-mobile,
-  .only-tablet,
-  .only-tablet-and-below,
-  .only-mobile-and-tablet {
+@media #{$iphone4} {
+}
+
+@media #{$m} {
+  .only-s,
+  .only-l,
+  .only-landscape-s {
+    display: none;
+  }
+  .only-m,
+  .only-s-m,
+  .only-m-l,
+  .only-m-l-xl {
+    display: block;
+  }
+}
+
+@media #{$l} {
+  .only-s,
+  .only-m,
+  .only-s-m,
+  .only-landscape-s {
     display: none !important;
   }
 
-  .only-above-tablet,
-  .only-tablet-and-above {
+  .only-l,
+  .only-m-l,
+  .only-m-l-xl,
+  .only-l-xl,
+  .only-xl {
+    display: block;
+  }
+}
+
+@media #{$xl} {
+  .only-s,
+  .only-m,
+  .only-s-m,
+  .only-l,
+  .only-m-l,
+  .only-landscape-s {
+    display: none !important;
+  }
+
+  .only-m-l-xl,
+  .only-l-xl,
+  .only-xl {
     display: block;
   }
 }

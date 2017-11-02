@@ -1,11 +1,32 @@
 .head {
   position: relative;
   overflow: hidden;
+  height: 132vw;
+
+  // Landscape
+  @media #{$landscape-s} {
+    height: 40vw;
+  }
+
+  @include media-breakpoint-up(md) {
+    height: 35vw;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: 40vw;
+  }
+
+  // @media #{$m} {
+  //   height: 35vw;
+  // }
+
+  // @media #{$l} {
+  //   height: 40vw;
+  // }
 
   @import 'head/scroll-down';
   @import 'head/video';
   @import 'head/header';
-  @import 'head/credits';
   @import 'head/shadow';
 
   &.dark {
@@ -17,30 +38,52 @@
     z-index: 20;
   }
 
+  // Hide video if videoautoplayer is not available (mobile)
+  @at-root .no-videoautoplay & {
+    .video-container {
+      display: none !important;
+    }
+    .bg.video-fallback {
+      display: block !important;
+    }
+  }
+
+  @at-root .videoautoplay & {
+    .video-container {
+      display: block !important;
+    }
+    .bg.video-fallback {
+      display: none !important;
+    }
+  }
+
+  .video-container,
   > iframe,
   .bg {
     z-index: 1;
     background-size: cover;
     background-position: center center;
-    top: $marginY ;
-    left: $marginX;
-    position: absolute;
-    width: calc(100% - #{$marginX + ($marginY * 0.5)});
-    // width: calc(100% - #{$marginX});
-    height: calc(100% - #{($marginY)});
+    width: 100%;
+    height: 100%;
+
+    // @media #{$m} {
+    //   // top: $marginY;
+    //   // left: $marginY;
+    //   // width: calc(100% - #{$marginY});
+    //   // height: 100%; // calc(100% - #{($marginY)});
+    // }
   }
 
   .border {
     z-index: 10;
-    border: 5px solid white;
+    // border: 5px solid white;
     box-sizing: border-box;
 
-    @media #{$tablet-and-above} {
-      border-left: $marginX solid white;
-      // border-right: $marginX solid white;
-      border-right: ($marginY ) solid white;
-      border-top: ($marginY ) solid white;
-      border-bottom: ($marginY ) solid white;
+    @media #{$m} {
+      // border-left: $marginY solid white;
+      // border-right: ($marginY) solid white;
+      // border-top: ($marginY) solid white;
+      // border-bottom: 0; // ($marginY) solid white;
     }
   }
 

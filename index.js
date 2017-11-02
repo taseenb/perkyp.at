@@ -168,7 +168,7 @@ module.exports = Work;
 const config = __webpack_require__(2);
 const app = __webpack_require__(9);
 const debug = __webpack_require__(5)('app:www');
-const http = __webpack_require__(30);
+const http = __webpack_require__(31);
 
 const port = normalizePort(config.port);
 app.set('port', port);
@@ -341,7 +341,7 @@ const works = __webpack_require__(13);
 const pages = __webpack_require__(19);
 
 module.exports = {
-  title: 'Perky Pat',
+  title: 'Helo Perky Pat',
   metaKeywords: 'key1, key2, key3',
   metaDescription: 'Description here.',
   ogTitle: 'Perky Pat Designs',
@@ -368,7 +368,7 @@ module.exports = [{
   image: 'main.jpg',
   vimeoId: null,
   detail: __webpack_require__(14),
-  template: 'base' // can be 'base' or null (default is null)
+  template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 4473,
   seo: 'the-airport-of-the-future',
@@ -380,7 +380,7 @@ module.exports = [{
   image: 'main.jpg',
   vimeoId: null,
   detail: __webpack_require__(15),
-  template: 'base' // can be 'base' or null (default is null)
+  template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 3277,
   seo: 'fan-beat',
@@ -392,7 +392,7 @@ module.exports = [{
   image: 'main.jpg',
   vimeoId: null,
   detail: __webpack_require__(16),
-  template: 'base' // can be 'base' or null (default is null)
+  template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 8742,
   seo: 'pride-prejudice',
@@ -404,7 +404,7 @@ module.exports = [{
   image: 'main.jpg',
   vimeoId: null,
   detail: __webpack_require__(17),
-  template: 'base' // can be 'base' or null (default is null)
+  template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 7344,
   seo: 'w152',
@@ -416,26 +416,26 @@ module.exports = [{
   image: 'main.jpg',
   vimeoId: null,
   detail: __webpack_require__(18),
-  template: 'base' // can be 'base' or null (default is null)
+  template: 'default' // can be 'base' or null (default is null)
 }];
 
 /***/ }),
 /* 14 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"outer\">\n    <div class=\"head rel-fullscreen\">\n        <!-- <div class=\"cover abs-percent-fullscreen\"></div> -->\n        <div class=\"shadow abs-percent-fullscreen\"></div>\n        <div class=\"border abs-percent-fullscreen\"></div>\n\n        <div class=\"bg\" style=\"background-image:url(/assets/works/the-hunt/main.jpg)\"></div>\n\n        <div class=\"credits\">\n            <strong>The hunt</strong> (2017)\n            <br> 3D generative never-ending animation\n            <br> WebGL, Three.js, GLSL\n        </div>\n\n        <div class=\"scroll-down\">\n            <svg class='svg-icon white-chevron' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n            </svg>\n        </div>\n    </div>\n\n    <div class=\"inner inner-container\">\n        <div class=\"text\">\n            <div class=\"inner\">\n                <span class=\"title\">The hunt</span>\n\n                <span class=\"year\">2017</span>\n\n                <div class=\"description\">\n                    Abstract 3D animation. Octahedron hunted by lines. Three.js / WebGL, GLSL, perlin noise.\n                    <br>\n                    <br>\n                </div>\n\n                <span class=\"link\">\n                    <a href=\"https://the-hunt.surge.sh\" target=\"_blank\">Link</a>\n                </span>\n\n            </div>\n        </div>\n\n        <div class=\"images\">\n            <div class=\"art image\">\n                <img src='../assets/works/the-hunt/main.jpg'>\n            </div>\n        </div>\n    </div>\n\n</div>"
+module.exports = "<div class=\"inner inner-container\">\n    <div class=\"head\">\n        <div class=\"shadow abs-percent-fullscreen\"></div>\n        <div class=\"border abs-percent-fullscreen\"></div>\n\n        <div class=\"bg\" style=\"background-image:url(/assets/works/the-hunt/main.jpg)\"></div>\n\n        <div class=\"credits only-m-l-xl\">\n            <strong>The hunt</strong> (2017)\n            <br> 3D generative never-ending animation\n            <br> WebGL, Three.js, GLSL\n        </div>\n\n        <!-- <div class=\"scroll-down\">\n            <svg class='svg-icon white-chevron' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n            </svg>\n        </div> -->\n    </div>\n\n    <div class=\"inner inner-container\">\n        <div class=\"text\">\n            <div class=\"inner\">\n                <span class=\"title\">The hunt</span>\n\n                <span class=\"year\">2017</span>\n\n                <div class=\"description\">\n                    Abstract 3D animation. Octahedron hunted by lines. Three.js / WebGL, GLSL, perlin noise.\n                    <br>\n                    <br>\n                </div>\n\n                <span class=\"link\">\n                    <a href=\"https://the-hunt.surge.sh\" target=\"_blank\">Link</a>\n                </span>\n\n            </div>\n        </div>\n\n        <div class=\"images\">\n            <div class=\"art image\">\n                <img src='../assets/works/the-hunt/main.jpg'>\n            </div>\n        </div>\n    </div>\n\n</div>"
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"outer\">\n    <div class=\"head rel-fullscreen\">\n        <div class=\"shadow abs-percent-fullscreen\"></div>\n        <div class=\"border abs-percent-fullscreen\"></div>\n\n        <div class=\"bg bg-align-left bg-align-bottom\" style=\"background-image:url(/assets/works/the-airport-of-the-future/bg.jpg)\"></div>\n\n        <div class=\"credits\">\n            <strong>The airport of the future</strong> (2016)\n            <br> Design:\n            <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>\n            <br> Illustration:\n            <a href=\"http://www.samchivers.com/\">Sam Chivers</a>\n            <br> Code + 2D animation: Esteban Almiron\n        </div>\n\n        <div class=\"scroll-down\">\n            <svg class='svg-icon white-chevron' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n            </svg>\n        </div>\n    </div>\n\n    <div class=\"inner inner-container\">\n\n        <div class=\"text\">\n            <div class=\"inner\">\n                <span class=\"title\">The airport of the future</span>\n                <!-- 2016 -->\n                <div class=\"description\">\n                    Designed by\n                    <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>, this web application shows animated visions of a possible airport of the future. I created a series of interactive 2D animations from the absurdly beautiful illustrations by\n                    <a href=\"http://www.samchivers.com/\">Sam Chivers</a>, with a 70s sci-fi taste.\n                </div>\n            </div>\n        </div>\n\n        <div class=\"images\">\n\n            <div class=\"art vimeo \">\n                <iframe id=\"vimeo-184683860\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184683860\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n            </div>\n\n            <div class=\"art vimeo last\">\n                <iframe id=\"vimeo-184684957\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184684957\" width=\"751\" height=\"751\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 751px;\" data-ready=\"true\"></iframe>\n            </div>\n\n        </div>\n    </div>\n\n</div>"
+module.exports = "<div class=\"inner inner-container\">\n    <div class=\"head\">\n        <div class=\"shadow abs-percent-fullscreen\"></div>\n        <div class=\"border abs-percent-fullscreen\"></div>\n\n        <div class=\"bg bg-align-left bg-align-bottom\" style=\"background-image:url(/assets/works/the-airport-of-the-future/bg.jpg)\"></div>\n\n        <div class=\"credits only-m-l-xl\">\n            <!-- <strong>The airport of the future</strong> (2016)<br> -->\n            Design:\n            <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>\n            <br> Illustrations:\n            <a href=\"http://www.samchivers.com/\">Sam Chivers</a>\n            <!-- <br> Code + 2D animation: Esteban Almiron -->\n        </div>\n\n        <!-- <div class=\"scroll-down\">\n            <svg class='svg-icon white-chevron' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n            </svg>\n        </div> -->\n    </div>\n\n    <div class=\"inner inner-container\">\n\n        <div class=\"text\">\n            <div class=\"inner\">\n                <span class=\"title\">The airport of the future</span>\n                <!-- 2016 -->\n                <div class=\"description\">\n                    Designed by\n                    <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>, this web application shows animated visions of a possible airport of the future. I created a series of interactive 2D animations from the absurdly beautiful illustrations by\n                    <a href=\"http://www.samchivers.com/\">Sam Chivers</a>, with a 70s sci-fi taste.\n                </div>\n            </div>\n        </div>\n\n        <div class=\"images\">\n\n            <div class=\"art vimeo \">\n                <iframe id=\"vimeo-184683860\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184683860\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n            </div>\n\n            <div class=\"art vimeo last\">\n                <iframe id=\"vimeo-184684957\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184684957\" width=\"751\" height=\"751\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 751px;\" data-ready=\"true\"></iframe>\n            </div>\n\n        </div>\n    </div>\n\n</div>"
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"outer\">\n\n    <div class=\"head\">\n        <div class=\"shadow abs-percent-fullscreen\"></div>\n\n        <div class=\"border abs-percent-fullscreen\"></div>\n\n        <!-- <div class=\"header\">\n            <h1 class=\"white\">Fan Beat\n                <span>2015</span>\n            </h1>\n\n            <div class=\"description\">\n                Designed by\n                <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> (London) and\n                <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a> (London), Fan Beat is an installation for concerts based on a wall projection and a large touch screen. The installation visualizes the social interactions as generative creatures (metaballs) during the concert.\n            </div>\n        </div> -->\n\n        <div class=\"video-container\">\n            <video class=\"video-cover\" autoplay loop src=\"/assets/works/fan-beat/wall-HD.mp4\" width=\"1920\" height=\"1072\"></video>\n        </div>\n        \n        <!-- <div class=\"bg abs-percent-fullscreen bg-align-left bg-align-bottom\" style=\"background-image:url(/assets/works/fan-beat/bg.jpg)\"></div> -->\n\n        <div class=\"credits\">\n            <!-- <strong>Fan Beat</strong> (2015) -->\n            <!-- <br>  -->\n            Agency:\n            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n            <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a>\n            <br> Credits:\n            <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>, Riccardo Cambiassi\n        </div>\n\n        <div class=\"scroll-down\">\n            <svg class='svg-icon white-chevron' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n            </svg>\n        </div>\n    </div>\n\n    <div class=\"inner inner-container\">\n\n        <div class=\"images\">\n\n            <div class=\"art vimeo\">\n                <iframe id=\"vimeo-151087915\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/151087915\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n            </div>\n\n        </div>\n\n        <div class=\"text\">\n            <div class=\"inner\">\n                <span class=\"title\">Fan Beat</span>\n\n                <!-- <span class=\"year\">2016</span> -->\n\n                <div class=\"description\">\n                    Designed by\n                    <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> (London) and\n                    <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a> (London), Fan Beat is an installation for concerts based on a wall projection and a large touch screen. The installation visualizes the social interactions as generative creatures (metaballs) during the concert.\n                    <br>\n                    <br> Metaballs animations:\n                    <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>\n                    <br>\n                    <br> Agencies:\n                    <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n                    <a href=\"http://www.studio-output.com/\" target=\"_blank\">Field.io</a>\n                </div>\n\n                <span class=\"link\">\n                    <a href=\"http://www.studio-output.com/case_study/sap-live-nation-fanbeat/\">More info</a>\n                </span>\n\n            </div>\n        </div>\n\n\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"row no-gutters mt-md-4 ml-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head \">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n\n                    <div class=\"video-container\">\n                        <video class=\"video cover\" autoplay loop src=\"/assets/works/fan-beat/wall-HD.mp4\" data-width=\"1920\" data-height=\"1072\"></video>\n                    </div>\n\n                    <div class=\"bg video-fallback\" style=\"background-image:url(/assets/works/fan-beat/bg.jpg)\"></div>\n\n                    <!-- <div class=\"scroll-down\">\n                        <svg class='svg-icon white-chevron' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                            <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n                        </svg>\n                    </div> -->\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    Agency:\n                    <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n                    <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a>\n                    <br> Credits:\n                    <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>, Riccardo Cambiassi\n                </div>\n            </div>\n        </div>\n\n        <div class=\"row no-gutters mt-md-4\">\n\n            <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-9\">\n\n                <div class=\"text\">\n                    <div class=\"inner\">\n                        <span class=\"title\">Fan Beat</span>\n                        <!-- <span class=\"year\">2016</span> -->\n\n                        <div class=\"description\">\n                            Designed by\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> (London) and\n                            <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a> (London), Fan Beat is an installation for concerts based on a wall projection and a large touch screen. The installation visualizes the social interactions as generative creatures (metaballs) during the concert.\n                            <br>\n                            <br> Metaballs animations:\n                            <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>\n                            <br>\n                            <br> Agencies:\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Field.io</a>\n                        </div>\n\n                        <span class=\"link\">\n                            <a href=\"http://www.studio-output.com/case_study/sap-live-nation-fanbeat/\">More info</a>\n                        </span>\n\n                    </div>\n                </div>\n\n                <div class=\"images\">\n                    <div class=\"art vimeo\">\n                        <iframe id=\"vimeo-151087915\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/151087915\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n                    </div>\n                </div>\n\n            </div>\n\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 /* 17 */
@@ -447,7 +447,7 @@ module.exports = "<div class=\"inner inner-container\">\n    <div class=\"text\"
 /* 18 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"outer\">\n    <div class=\"head rel-fullscreen\">\n        <iframe src=\"/assets/works/w152/iframe/index.html\" frameBorder=\"0\"></iframe>\n\n        <div class=\"border abs-percent-fullscreen\"></div>\n        <div class=\"shadow abs-percent-fullscreen\"></div>\n\n        <div class=\"credits\">\n            <strong>Industrial Facility w152</strong> (2016)\n            <br> Agency: La Moulade\n            <br> Design:\n            <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>\n            <br> Animation:\n            <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>\n            <br> Code: Esteban Almiron\n        </div>\n\n        <div class=\"scroll-down\">\n            <svg class='svg-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n            </svg>\n        </div>\n    </div>\n\n    <div class=\"inner inner-container\">\n        <div class=\"text\">\n            <div class=\"inner\">\n                <span class=\"title\">Industrial Facility w152</span>\n\n                <span class=\"year\">2015</span>\n\n                <div class=\"description\">\n                    Single page application based on a long scroll that triggers interactive frame by frame animations.\n                    <br> The lamp was designed by\n                    <a href=\"http://www.industrialfacility.co.uk/\" target=\"_blank\">Industrial Facility</a> and\n                    <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>.\n\n                    <br>\n                    <br> Animation + Illustration:\n                    <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>, London\n                    <br>\n                    <br> Agency: La Moulade, London\n                    <br>\n                    <br>\n                </div>\n\n                <span class=\"link\">\n                    <a href=\"https://www.wastberg.com/collections/w152-busby/about/\" target=\"_blank\">More info</a>\n                </span>\n\n            </div>\n        </div>\n\n        <div class=\"images\">\n            <div class=\"art image\">\n                <img src='../assets/works/w152/main.jpg'>\n            </div>\n        </div>\n\n    </div>\n\n</div>"
+module.exports = "<div class=\"inner inner-container\">\n    <div class=\"head\">\n        <div class=\"border abs-percent-fullscreen\"></div>\n        <div class=\"shadow abs-percent-fullscreen\"></div>\n        \n        <iframe src=\"/assets/works/w152/iframe/index.html\" frameBorder=\"0\"></iframe>\n\n        <div class=\"credits only-m-l-xl\">\n            <strong>Industrial Facility w152</strong> (2016)\n            <br> Agency: La Moulade\n            <br> Design:\n            <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>\n            <br> Animation:\n            <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>\n            <br> Code: Esteban Almiron\n        </div>\n\n        <!-- <div class=\"scroll-down\">\n            <svg class='svg-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>\n                <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />\n            </svg>\n        </div> -->\n    </div>\n\n    <div class=\"inner inner-container\">\n        <div class=\"text\">\n            <div class=\"inner\">\n                <span class=\"title\">Industrial Facility w152</span>\n\n                <span class=\"year\">2015</span>\n\n                <div class=\"description\">\n                    Single page application based on a long scroll that triggers interactive frame by frame animations.\n                    <br> The lamp was designed by\n                    <a href=\"http://www.industrialfacility.co.uk/\" target=\"_blank\">Industrial Facility</a> and\n                    <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>.\n\n                    <br>\n                    <br> Animation + Illustration:\n                    <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>, London\n                    <br>\n                    <br> Agency: La Moulade, London\n                    <br>\n                    <br>\n                </div>\n\n                <span class=\"link\">\n                    <a href=\"https://www.wastberg.com/collections/w152-busby/about/\" target=\"_blank\">More info</a>\n                </span>\n\n            </div>\n        </div>\n\n        <div class=\"images\">\n            <div class=\"art image\">\n                <img src='../assets/works/w152/main.jpg'>\n            </div>\n        </div>\n\n    </div>\n\n</div>"
 
 /***/ }),
 /* 19 */
@@ -512,7 +512,7 @@ var _Work = __webpack_require__(7);
 
 var _Work2 = _interopRequireDefault(_Work);
 
-var _Nav = __webpack_require__(29);
+var _Nav = __webpack_require__(30);
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
@@ -723,6 +723,10 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
+var _createCover = __webpack_require__(29);
+
+var _createCover2 = _interopRequireDefault(_createCover);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 class Detail extends _react2.default.Component {
@@ -749,18 +753,57 @@ class Detail extends _react2.default.Component {
     if (this.props.isBrowser) {
       window.addEventListener('resize', this.updatesize);
       this.updatesize();
+
+      // Cache elements
+      this.covers = document.querySelectorAll(`#${this.props.seo} .cover`); // fullscreen cover
+
+      // Update sizes for cover elements (if there is any)
+      this.updateCovers();
+    }
+  }
+
+  updateCovers() {
+    if (this.covers) {
+      this.covers.forEach((el, i) => {
+        const $el = $(el);
+        const $parent = $el.parent();
+        const w = $el.data('width') || el.width || $el.width(); // original element width
+        const h = $el.data('height') || el.height || $el.width(); // original element height
+        const parentW = $parent.width();
+        const parentH = $parent.height();
+        console.log(parentW, parentH, w, h);
+
+        // Get cover size and position
+        const cover = (0, _createCover2.default)(parentW, parentH, w, h);
+        console.log(parentW / parentH, w / h);
+        console.log(cover);
+
+        // Apply cover size and position to video element
+        $el.css(cover);
+        // if (
+        //   el instanceof HTMLImageElement ||
+        //   el instanceof HTMLVideoElement ||
+        //   el instanceof HTMLCanvasElement
+        // ) {
+        //   el.width = cover.width
+        //   el.height = cover.height
+        // }
+      });
     }
   }
 
   updatesize() {
-    $('.head').height(window.innerHeight);
-    console.log(window.innerHeight);
+    // $('.head').height(window.innerHeight)
+
+    if (this.covers) {
+      this.updateCovers();
+    }
   }
 
   render() {
     const seo = this.props.seo;
     const data = this.props.data;
-    const cssClass = data.template === 'base' ? 'base' : null;
+    const cssClass = data.template === 'default' ? 'default' : null;
 
     return _react2.default.createElement('div', {
       id: `${seo}`,
@@ -779,6 +822,51 @@ module.exports = Detail;
 
 /***/ }),
 /* 29 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/**
+ * Return position and size of element to cover the entire space of the parent.
+ * Emulates css background-size: cover (but works with images, video or any dom element)
+ */
+const createCover = (parentW, parentH, w, h) => {
+  const parentRatio = parentW / parentH;
+  const ratio = w / h;
+  let zoomRatio;
+  let top, left, width, height;
+
+  if (parentRatio > ratio) {
+    // fill width
+    console.log('fill width');
+    zoomRatio = parentW / w;
+    height = ~~(h * zoomRatio);
+    top = ~~((parentH - height) / 2);
+    left = 0;
+    width = parentW;
+  } else {
+    // fill height
+    console.log('fill height');
+    zoomRatio = parentH / h;
+    width = ~~(w * zoomRatio);
+    left = ~~((parentW - width) / 2);
+    top = 0;
+    height = parentH;
+  }
+
+  return {
+    top,
+    left,
+    width,
+    height
+  };
+};
+
+module.exports = createCover;
+
+/***/ }),
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -831,25 +919,31 @@ class Nav extends _react2.default.Component {
     const { location } = this.props;
     const path = location.pathname;
 
+    const btnClasses = ' py-1 px-1 py-md-2 px-md-1 svg-wrapper';
+
     return _react2.default.createElement(
       'nav',
       { id: 'nav', className: this.state.open ? 'open' : null },
       _react2.default.createElement(
-        _reactRouterDom.Link,
-        { className: this.updateBackClass(path) + ' back', to: '/' },
-        _react2.default.createElement(
-          'svg',
-          { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
-          _react2.default.createElement('polygon', { points: '40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' })
-        )
-      ),
-      _react2.default.createElement(
         'div',
-        { className: 'switch', onClick: this.toggleNav },
+        { className: 'ui d-flex justify-content-end py-1 px-1 py-md-2 px-md-2' },
         _react2.default.createElement(
-          'svg',
-          { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
-          _react2.default.createElement('path', { d: 'M50,28.57H28.57V50H21.43V28.57H0V21.43H21.43V0h7.14V21.43H50Z' })
+          _reactRouterDom.Link,
+          { className: this.updateBackClass(path) + btnClasses + ' back', to: '/' },
+          _react2.default.createElement(
+            'svg',
+            { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
+            _react2.default.createElement('polygon', { points: '40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: btnClasses + ' switch', onClick: this.toggleNav },
+          _react2.default.createElement(
+            'svg',
+            { className: 'svg-icon', xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 50 50' },
+            _react2.default.createElement('path', { d: 'M50,28.57H28.57V50H21.43V28.57H0V21.43H21.43V0h7.14V21.43H50Z' })
+          )
         )
       ),
       _react2.default.createElement(
@@ -879,7 +973,7 @@ class Nav extends _react2.default.Component {
 module.exports = (0, _reactRouter.withRouter)(Nav);
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");

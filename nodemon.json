@@ -1,6 +1,6 @@
 {
   "verbose": true,
-  "watch": ["src/server", "src/components/**", "data/**", "views/**"],
+  "watch": ["src/server", "src/data", "views"],
   "env": {
     "NODE_ENV": "development",
     "DEBUG": "app,app:*",
@@ -10,5 +10,9 @@
   "execMap": {
     "js": "node --trace-sync-io"
   },
-  "delay": "0ms"
+  "delay": "0ms",
+  "events": {
+    "restartOLD": "osascript -e 'display notification \"app restarted\" with title \"nodemon\"'",
+    "restart": "sh reload-chrome.sh 1"
+  }
 }

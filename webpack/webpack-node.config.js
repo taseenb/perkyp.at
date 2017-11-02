@@ -8,9 +8,9 @@ module.exports = env => {
       path: path.join(__dirname, '../'),
       filename: 'index.js'
     },
-    // devtool: 'source-map',
+    // devtool: 'cheap-module-inline-source-map',
     target: 'node',
-    node: false,
+    node: false, // IMPORTANT!
     externals: [nodeExternals()],
     resolve: {
       alias: {

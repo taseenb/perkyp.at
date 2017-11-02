@@ -12,7 +12,7 @@ const checkSupport = (resolve, reject) => {
         isMobile = true
       }
       if (isMobile) {
-        document.documentElement.className += ' mobile'
+        document.documentElement.className += ' mobile no-videoautoplay'
       }
 
       resolve({ isMobile, isBrowser })

@@ -10,7 +10,7 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     detail: require('./works/the-hunt.html'),
-    template: 'base' // can be 'base' or null (default is null)
+    template: 'default' // can be 'base' or null (default is null)
   },
   {
     uid: 4473,
@@ -23,7 +23,7 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     detail: require('./works/the-airport-of-the-future.html'),
-    template: 'base' // can be 'base' or null (default is null)
+    template: 'default' // can be 'base' or null (default is null)
   },
   {
     uid: 3277,
@@ -36,7 +36,7 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     detail: require('./works/fan-beat.html'),
-    template: 'base' // can be 'base' or null (default is null)
+    template: 'default' // can be 'base' or null (default is null)
   },
   {
     uid: 8742,
@@ -49,7 +49,7 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     detail: require('./works/pride-prejudice.html'),
-    template: 'base' // can be 'base' or null (default is null)
+    template: 'default' // can be 'base' or null (default is null)
   },
   {
     uid: 7344,
@@ -62,6 +62,6 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     detail: require('./works/w152.html'),
-    template: 'base' // can be 'base' or null (default is null)
+    template: 'default' // can be 'base' or null (default is null)
   }
 ]

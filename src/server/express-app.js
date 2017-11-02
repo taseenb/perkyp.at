@@ -6,7 +6,7 @@ const siteRouter = require('./site')
 
 const app = express()
 
-app.set('port', (process.env.PORT || 8088))
+app.set('port', process.env.PORT || 8088)
 
 app.enable('trust proxy') // needed to correctly detext http or https in requests
 

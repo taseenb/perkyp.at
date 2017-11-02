@@ -1,5 +1,5 @@
 .svg-icon {
-  $iconSize: 25px;
+  $iconSize: 40px;
   font-size: $iconSize;
   height: $iconSize;
   line-height: $iconSize;
@@ -15,15 +15,22 @@
   transform: rotate(0deg);
   transition-duration: 0.4s;
   backface-visibility: hidden;
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
 
-  @media #{$tablet-and-above} {
-    $iconSize: 15px;
+  @include media-breakpoint-up(md) {
+    $iconSize: 30px;
     font-size: $iconSize;
     height: $iconSize;
     line-height: $iconSize;
     width: $iconSize;
     fill: $darkGrey;
     padding: 10px;
-    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.no-touchevents {
+  .svg-wrapper:hover .svg-icon,
+  .svg-icon:hover {
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
   }
 }

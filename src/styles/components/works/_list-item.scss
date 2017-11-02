@@ -34,7 +34,7 @@ a.list-item {
     }
   }
 
-  @media #{$landscape-phone} {
+  @media #{$landscape-s} {
     display: inline-block;
     vertical-align: top;
     width: 45%;
@@ -47,7 +47,7 @@ a.list-item {
     }
   }
 
-  @media #{$tablet-and-above} {
+  @media #{$m} {
     display: inline-block;
     vertical-align: top;
     width: 45%;
@@ -60,7 +60,7 @@ a.list-item {
     }
   }
 
-  @media #{$above-tablet} {
+  @media #{$l} {
     width: 30%; // equal to 30% of width
     height: calc(1% * 30); // same as width
     margin-right: 5%; // equal to 5% of width

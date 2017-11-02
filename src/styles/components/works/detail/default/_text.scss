@@ -1,29 +1,29 @@
 .text {
-  padding-bottom: $spacer;
-  max-width: 75%;
+  // padding-bottom: $spacer;
+  // max-width: 75%;
 
-  @media #{$landscape-phone} {
-    max-width: 60%;
-  }
+  // @media #{$landscape-s} {
+  //   max-width: 60%;
+  // }
 
-  @media #{$tablet-and-above} {
-    max-width: 70%;
-  }
+  // @media #{$m} {
+  //   max-width: 70%;
+  // }
 
-  @media #{$above-tablet} {
-    max-width: 65%;
-  }
+  // @media #{$l} {
+  //   max-width: 65%;
+  // }
 
   .inner {
     .title {
       font-size: 28px;
       line-height: 1.3;
 
-      @media #{$tablet-and-above} {
+      @media #{$m} {
         font-size: 36px;
       }
 
-      @media #{$above-tablet} {
+      @media #{$l} {
         font-size: 48px;
       }
     }
@@ -34,12 +34,12 @@
     .description {
       font-size: 16px;
 
-      @media #{$tablet-and-above} {
+      @media #{$m} {
         font-size: 20px;
-        max-width: 62%;
+        // max-width: 62%;
       }
 
-      @media #{$above-tablet} {
+      @media #{$l} {
         font-size: 24px;
       }
     }
