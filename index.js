@@ -133,8 +133,8 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-const ListItem = __webpack_require__(27);
-const Detail = __webpack_require__(28);
+const ListItem = __webpack_require__(28);
+const Detail = __webpack_require__(29);
 
 class Work extends _react2.default.Component {
   render() {
@@ -168,7 +168,7 @@ module.exports = Work;
 const config = __webpack_require__(2);
 const app = __webpack_require__(9);
 const debug = __webpack_require__(5)('app:www');
-const http = __webpack_require__(31);
+const http = __webpack_require__(32);
 
 const port = normalizePort(config.port);
 app.set('port', port);
@@ -233,8 +233,9 @@ function onListening() {
 const config = __webpack_require__(2);
 const express = __webpack_require__(4);
 const compression = __webpack_require__(10);
+const path = __webpack_require__(11);
 // const debug = require('debug')('app:main')// Site router
-const siteRouter = __webpack_require__(11);
+const siteRouter = __webpack_require__(12);
 
 const app = express();
 
@@ -243,6 +244,9 @@ app.set('port', process.env.PORT || 8088);
 app.enable('trust proxy'); // needed to correctly detext http or https in requests
 
 app.set('view engine', 'ejs');
+
+var viewPath = path.resolve(__dirname + '/src/server/views');
+app.set('views', viewPath);
 
 if (config.env === 'production') {
   app.use(compression());
@@ -265,6 +269,12 @@ module.exports = require("compression");
 
 /***/ }),
 /* 11 */
+/***/ (function(module, exports) {
+
+module.exports = require("path");
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -275,13 +285,13 @@ const express = __webpack_require__(4);
 const debug = __webpack_require__(5)('app:site');
 
 // Data
-const initialData = __webpack_require__(12);
+const initialData = __webpack_require__(13);
 
 // React
 const React = __webpack_require__(0);
-const ReactDOMServer = __webpack_require__(22);
+const ReactDOMServer = __webpack_require__(23);
 const StaticRouter = __webpack_require__(6).StaticRouter;
-const App = __webpack_require__(23);
+const App = __webpack_require__(24);
 
 // Router
 const router = express.Router();
@@ -331,14 +341,14 @@ router.get('*', (req, res) => {
 module.exports = router;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-const works = __webpack_require__(13);
-const pages = __webpack_require__(19);
+const works = __webpack_require__(14);
+const pages = __webpack_require__(20);
 
 module.exports = {
   title: 'Helo Perky Pat',
@@ -351,7 +361,7 @@ module.exports = {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -367,7 +377,7 @@ module.exports = [{
   preview: 'preview.jpg',
   image: 'main.jpg',
   vimeoId: null,
-  detail: __webpack_require__(14),
+  detail: __webpack_require__(15),
   template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 4473,
@@ -379,7 +389,7 @@ module.exports = [{
   preview: 'preview.jpg',
   image: 'main.jpg',
   vimeoId: null,
-  detail: __webpack_require__(15),
+  detail: __webpack_require__(16),
   template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 3277,
@@ -391,7 +401,7 @@ module.exports = [{
   preview: 'preview.jpg',
   image: 'main.jpg',
   vimeoId: null,
-  detail: __webpack_require__(16),
+  detail: __webpack_require__(17),
   template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 8742,
@@ -403,7 +413,7 @@ module.exports = [{
   preview: 'preview.jpg',
   image: 'main.jpg',
   vimeoId: null,
-  detail: __webpack_require__(17),
+  detail: __webpack_require__(18),
   template: 'default' // can be 'base' or null (default is null)
 }, {
   uid: 7344,
@@ -415,72 +425,72 @@ module.exports = [{
   preview: 'preview.jpg',
   image: 'main.jpg',
   vimeoId: null,
-  detail: __webpack_require__(18),
+  detail: __webpack_require__(19),
   template: 'default' // can be 'base' or null (default is null)
 }];
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <!-- <div class=\"border abs-percent-fullscreen\"></div> -->\n\n                    <div class=\"bg\" style=\"background-image:url(/assets/works/the-hunt/main.jpg)\"></div>\n                </div>\n            </div>\n\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    <br> 3D generative never-ending animation\n                    <br> WebGL, Three.js, GLSL\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n\n    <div class=\"row no-gutters mt-md-4\">\n        <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n            <div class=\"text\">\n                <div class=\"inner\">\n                    <span class=\"title\">The hunt</span>\n\n                    <span class=\"year\">2017</span>\n\n                    <div class=\"description\">\n                        Abstract 3D animation. Octahedron hunted by lines. Three.js / WebGL, GLSL, perlin noise.\n                        <br>\n                        <br>\n                    </div>\n\n                    <span class=\"link\">\n                        <a href=\"https://the-hunt.surge.sh\" target=\"_blank\">Link</a>\n                    </span>\n\n                </div>\n            </div>\n\n            <div class=\"images\">\n                <div class=\"art image\">\n                    <img src='../assets/works/the-hunt/main.jpg'>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>"
 
 /***/ }),
 /* 15 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <!-- <div class=\"border abs-percent-fullscreen\"></div> -->\n\n                    <div class=\"bg bg-align-left bg-align-bottom\" style=\"background-image:url(/assets/works/the-airport-of-the-future/bg.jpg)\"></div>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    Design:\n                    <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>\n                    <br> Illustrations:\n                    <a href=\"http://www.samchivers.com/\">Sam Chivers</a>\n                </div>\n            </div>\n\n        </div>\n    </div>\n\n    <div class=\"row no-gutters mt-md-4\">\n        <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n            <div class=\"text\">\n                <div class=\"inner\">\n                    <span class=\"title\">The airport of the future</span>\n                    <!-- 2016 -->\n                    <div class=\"description\">\n                        Designed by\n                        <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>, this web application shows animated visions of a possible airport of the future. I created a series of interactive 2D animations from the absurdly beautiful illustrations by\n                        <a href=\"http://www.samchivers.com/\">Sam Chivers</a>, with a 70s sci-fi taste.\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"images\">\n\n                <div class=\"art vimeo \">\n                    <iframe id=\"vimeo-184683860\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184683860\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n                </div>\n\n                <div class=\"art vimeo last\">\n                    <iframe id=\"vimeo-184684957\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184684957\" width=\"751\" height=\"751\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 751px;\" data-ready=\"true\"></iframe>\n                </div>\n\n            </div>\n        </div>\n\n    </div>\n</div>"
+module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <!-- <div class=\"border abs-percent-fullscreen\"></div> -->\n\n                    <div class=\"bg\" style=\"background-image:url(/assets/works/the-hunt/main.jpg)\"></div>\n                </div>\n            </div>\n\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    <br> 3D generative never-ending animation\n                    <br> WebGL, Three.js, GLSL\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n\n    <div class=\"row no-gutters mt-md-4\">\n        <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n            <div class=\"text\">\n                <div class=\"inner\">\n                    <span class=\"title\">The hunt</span>\n\n                    <span class=\"year\">2017</span>\n\n                    <div class=\"description\">\n                        Abstract 3D animation. Octahedron hunted by lines. Three.js / WebGL, GLSL, perlin noise.\n                        <br>\n                        <br>\n                    </div>\n\n                    <span class=\"link\">\n                        <a href=\"https://the-hunt.surge.sh\" target=\"_blank\">Link</a>\n                    </span>\n\n                </div>\n            </div>\n\n            <div class=\"images\">\n                <div class=\"art image\">\n                    <img src='../assets/works/the-hunt/main.jpg'>\n                </div>\n            </div>\n        </div>\n\n    </div>\n</div>"
 
 /***/ }),
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n\n                    <div class=\"video-container\">\n                        <video class=\"video cover\" autoplay loop src=\"/assets/works/fan-beat/wall-HD.mp4\" data-width=\"1920\" data-height=\"1072\"></video>\n                    </div>\n\n                    <div class=\"bg video-fallback\" style=\"background-image:url(/assets/works/fan-beat/bg.jpg)\"></div>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    Agency:\n                    <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n                    <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a>\n                    <br> Credits:\n                    <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>, Riccardo Cambiassi\n                </div>\n            </div>\n        </div>\n\n        <div class=\"row no-gutters mt-md-4\">\n            <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n                <div class=\"text\">\n                    <div class=\"inner\">\n                        <span class=\"title\">Fan Beat</span>\n                        <!-- <span class=\"year\">2016</span> -->\n\n                        <div class=\"description\">\n                            Designed by\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> (London) and\n                            <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a> (London), Fan Beat is an installation for concerts based on a wall projection and a large touch screen. The installation visualizes the social interactions as generative creatures (metaballs) during the concert.\n                            <br>\n                            <br> Metaballs animations:\n                            <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>\n                            <br>\n                            <br> Agencies:\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Field.io</a>\n                        </div>\n\n                        <span class=\"link\">\n                            <a href=\"http://www.studio-output.com/case_study/sap-live-nation-fanbeat/\">More info</a>\n                        </span>\n\n                    </div>\n                </div>\n\n                <div class=\"images\">\n                    <div class=\"art vimeo\">\n                        <iframe id=\"vimeo-151087915\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/151087915\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n                    </div>\n                </div>\n\n            </div>\n\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <!-- <div class=\"border abs-percent-fullscreen\"></div> -->\n\n                    <div class=\"bg bg-align-left bg-align-bottom\" style=\"background-image:url(/assets/works/the-airport-of-the-future/bg.jpg)\"></div>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    Design:\n                    <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>\n                    <br> Illustrations:\n                    <a href=\"http://www.samchivers.com/\">Sam Chivers</a>\n                </div>\n            </div>\n\n        </div>\n    </div>\n\n    <div class=\"row no-gutters mt-md-4\">\n        <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n            <div class=\"text\">\n                <div class=\"inner\">\n                    <span class=\"title\">The airport of the future</span>\n                    <!-- 2016 -->\n                    <div class=\"description\">\n                        Designed by\n                        <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>, this web application shows animated visions of a possible airport of the future. I created a series of interactive 2D animations from the absurdly beautiful illustrations by\n                        <a href=\"http://www.samchivers.com/\">Sam Chivers</a>, with a 70s sci-fi taste.\n                    </div>\n                </div>\n            </div>\n\n            <div class=\"images\">\n\n                <div class=\"art vimeo \">\n                    <iframe id=\"vimeo-184683860\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184683860\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n                </div>\n\n                <div class=\"art vimeo last\">\n                    <iframe id=\"vimeo-184684957\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184684957\" width=\"751\" height=\"751\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 751px;\" data-ready=\"true\"></iframe>\n                </div>\n\n            </div>\n        </div>\n\n    </div>\n</div>"
 
 /***/ }),
 /* 17 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n\n            <div class=\"col-12 col-md-8\">\n                <div class=\"head\">\n                    <!-- <div class=\"shadow abs-percent-fullscreen\"></div> -->\n                    <iframe class=\"iframe\" src=\"/assets/works/pride-prejudice/iframe/index.html\" frameBorder=\"0\"></iframe>\n                    <!-- <iframe class=\"iframe\" src=\"https://d1xso9gob5fu6y.cloudfront.net\" frameBorder=\"0\"></iframe> -->\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    <br> Agency: <a href=\"http://signal-noise.co.uk/\" target=\"_blank\">Signal Noise</a>\n                </div>\n            </div>\n\n        </div>\n\n        <div class=\"row no-gutters mt-md-4\">\n            <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n                <div class=\"text\">\n                    <div class=\"inner\">\n                        <span class=\"title\">Pride & Prejudice</span>\n\n                        <span class=\"year\">2016</span>\n\n                        <div class=\"description\">\n                            Designed by\n                            <a href=\"http://signal-noise.co.uk/\" target=\"_blank\">Signal Noise</a>, this application shows data collected by\n                            <a href=\"http://www.economist.com/\" target=\"_blank\">The Economist</a>, for an international event in support of LGBT rights:\n                            <a href=\"http://prideandprejudice.economist.com/research/\" target=\"_blank\">Pride &amp; Prejudice</a>.\n                            <br> The most interesting part of the work is a long interactive\n                            <a href=\"https://en.wikipedia.org/wiki/Streamgraph\" target=\"\" _blank=\"\">streamgraph</a> that spans across many screens.\n                            <br> The second video shows the streamgraph in its early stage.\n                            <br>\n                            <br> Agency:\n                            <a href=\"http://signal-noise.co.uk/\" target=\"_blank\">Signal Noise</a>, London\n                            <br>\n                            <br>\n                        </div>\n\n                        <span class=\"link\">\n                            <a href=\"https://d1xso9gob5fu6y.cloudfront.net/\" target=\"_blank\">Link</a>\n                        </span>\n\n                    </div>\n                </div>\n\n                <div class=\"images\">\n                    <div class=\"art image\">\n                        <img src='../assets/works/pride-prejudice/main.jpg'>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>"
+module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n\n                    <div class=\"video-container\">\n                        <video class=\"video cover\" autoplay loop src=\"/assets/works/fan-beat/wall-HD.mp4\" data-width=\"1920\" data-height=\"1072\"></video>\n                    </div>\n\n                    <div class=\"bg video-fallback\" style=\"background-image:url(/assets/works/fan-beat/bg.jpg)\"></div>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    Agency:\n                    <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n                    <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a>\n                    <br> Credits:\n                    <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>, Riccardo Cambiassi\n                </div>\n            </div>\n        </div>\n\n        <div class=\"row no-gutters mt-md-4\">\n            <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n                <div class=\"text\">\n                    <div class=\"inner\">\n                        <span class=\"title\">Fan Beat</span>\n                        <!-- <span class=\"year\">2016</span> -->\n\n                        <div class=\"description\">\n                            Designed by\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> (London) and\n                            <a href=\"http://www.field.io/\" target=\"_blank\">Field.io</a> (London), Fan Beat is an installation for concerts based on a wall projection and a large touch screen. The installation visualizes the social interactions as generative creatures (metaballs) during the concert.\n                            <br>\n                            <br> Metaballs animations:\n                            <a href=\"http://jocabola.com\" target=\"_blank\">Jocabola</a>\n                            <br>\n                            <br> Agencies:\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Studio Output</a> +\n                            <a href=\"http://www.studio-output.com/\" target=\"_blank\">Field.io</a>\n                        </div>\n\n                        <span class=\"link\">\n                            <a href=\"http://www.studio-output.com/case_study/sap-live-nation-fanbeat/\">More info</a>\n                        </span>\n\n                    </div>\n                </div>\n\n                <div class=\"images\">\n                    <div class=\"art vimeo\">\n                        <iframe id=\"vimeo-151087915\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/151087915\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n                    </div>\n                </div>\n\n            </div>\n\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 /* 18 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <iframe class=\"iframe\" src=\"/assets/works/w152/iframe/index.html\" frameBorder=\"0\"></iframe>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    <br> Agency: La Moulade\n                    <br> Design:\n                    <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>\n                    <br> Animation:\n                    <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"row no-gutters mt-md-4\">\n            <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n                <div class=\"text\">\n                    <div class=\"inner\">\n                        <span class=\"title\">Industrial Facility w152</span>\n\n                        <span class=\"year\">2015</span>\n\n                        <div class=\"description\">\n                            Single page application based on a long scroll that triggers interactive frame by frame animations.\n                            <br> The lamp was designed by\n                            <a href=\"http://www.industrialfacility.co.uk/\" target=\"_blank\">Industrial Facility</a> and\n                            <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>.\n\n                            <br>\n                            <br> Animation + Illustration:\n                            <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>, London\n                            <br>\n                            <br> Agency: La Moulade, London\n                            <br>\n                            <br>\n                        </div>\n\n                        <span class=\"link\">\n                            <a href=\"https://www.wastberg.com/collections/w152-busby/about/\" target=\"_blank\">More info</a>\n                        </span>\n\n                    </div>\n                </div>\n\n                <div class=\"images\">\n                    <div class=\"art image\">\n                        <img src='../assets/works/w152/main.jpg'>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n\n    </div>\n</div>"
+module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n\n            <div class=\"col-12 col-md-8\">\n                <div class=\"head\">\n                    <!-- <div class=\"shadow abs-percent-fullscreen\"></div> -->\n                    <iframe class=\"iframe\" src=\"/assets/works/pride-prejudice/iframe/index.html\" frameBorder=\"0\"></iframe>\n                    <!-- <iframe class=\"iframe\" src=\"https://d1xso9gob5fu6y.cloudfront.net\" frameBorder=\"0\"></iframe> -->\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    <br> Agency: <a href=\"http://signal-noise.co.uk/\" target=\"_blank\">Signal Noise</a>\n                </div>\n            </div>\n\n        </div>\n\n        <div class=\"row no-gutters mt-md-4\">\n            <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n                <div class=\"text\">\n                    <div class=\"inner\">\n                        <span class=\"title\">Pride & Prejudice</span>\n\n                        <span class=\"year\">2016</span>\n\n                        <div class=\"description\">\n                            Designed by\n                            <a href=\"http://signal-noise.co.uk/\" target=\"_blank\">Signal Noise</a>, this application shows data collected by\n                            <a href=\"http://www.economist.com/\" target=\"_blank\">The Economist</a>, for an international event in support of LGBT rights:\n                            <a href=\"http://prideandprejudice.economist.com/research/\" target=\"_blank\">Pride &amp; Prejudice</a>.\n                            <br> The most interesting part of the work is a long interactive\n                            <a href=\"https://en.wikipedia.org/wiki/Streamgraph\" target=\"\" _blank=\"\">streamgraph</a> that spans across many screens.\n                            <br> The second video shows the streamgraph in its early stage.\n                            <br>\n                            <br> Agency:\n                            <a href=\"http://signal-noise.co.uk/\" target=\"_blank\">Signal Noise</a>, London\n                            <br>\n                            <br>\n                        </div>\n\n                        <span class=\"link\">\n                            <a href=\"https://d1xso9gob5fu6y.cloudfront.net/\" target=\"_blank\">Link</a>\n                        </span>\n\n                    </div>\n                </div>\n\n                <div class=\"images\">\n                    <div class=\"art image\">\n                        <img src='../assets/works/pride-prejudice/main.jpg'>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n    </div>\n</div>"
 
 /***/ }),
 /* 19 */
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <iframe class=\"iframe\" src=\"/assets/works/w152/iframe/index.html\" frameBorder=\"0\"></iframe>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    <br> Agency: La Moulade\n                    <br> Design:\n                    <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>\n                    <br> Animation:\n                    <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>\n                </div>\n            </div>\n        </div>\n\n        <div class=\"row no-gutters mt-md-4\">\n            <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n                <div class=\"text\">\n                    <div class=\"inner\">\n                        <span class=\"title\">Industrial Facility w152</span>\n\n                        <span class=\"year\">2015</span>\n\n                        <div class=\"description\">\n                            Single page application based on a long scroll that triggers interactive frame by frame animations.\n                            <br> The lamp was designed by\n                            <a href=\"http://www.industrialfacility.co.uk/\" target=\"_blank\">Industrial Facility</a> and\n                            <a href=\"http://www.wastberg.com/\" target=\"_blank\">Wästberg</a>.\n\n                            <br>\n                            <br> Animation + Illustration:\n                            <a href=\"http://www.mickeyandjohnny.com/johnny/\" target=\"_blank\">Johnny Kelly</a>, London\n                            <br>\n                            <br> Agency: La Moulade, London\n                            <br>\n                            <br>\n                        </div>\n\n                        <span class=\"link\">\n                            <a href=\"https://www.wastberg.com/collections/w152-busby/about/\" target=\"_blank\">More info</a>\n                        </span>\n\n                    </div>\n                </div>\n\n                <div class=\"images\">\n                    <div class=\"art image\">\n                        <img src='../assets/works/w152/main.jpg'>\n                    </div>\n                </div>\n\n            </div>\n        </div>\n\n    </div>\n</div>"
+
+/***/ }),
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 module.exports = {
-  bio: __webpack_require__(20),
-  contact: __webpack_require__(21)
+  bio: __webpack_require__(21),
+  contact: __webpack_require__(22)
 };
-
-/***/ }),
-/* 20 */
-/***/ (function(module, exports) {
-
-module.exports = "<div class='inner inner-container'>\n  <!-- <h1 className='title'>Bio.</h1> -->\n  <br /> My name is Esteban. I explore visual arts and computational design, mostly through front end, web technologies.\n  <br /> In 2005 I graduated in art and cinema studies at the University of Bologna, Italy. Today I create interactive applications in collaboration with creative studios, designers and artists.\n  <br />\n  <br />\n  <h2>Tech</h2>\n  If you have a project and wonder if I could help, these are the tools and techniques that I use: Javascript, Three.js / WebGL, canvas 2D, D3.js, Node, most typical tools (Babel, Webpack, Gulp, etc) and some frameworks (Backbone and React).\n  <br />\n  <br />\n  <h2>WORK</h2>\n  In the last years I have worked with:\n  <ul>\n    <li>\n      <a href='http://www.field.io/' target='_blank'>Field.io, London</a>\n    </li>\n    <li>\n      <a href='http://www.theguardian.com/uk/' target='_blank'>The Guardian, London</a>\n    </li>\n    <li>\n      <a href='http://signal-noise.co.uk/' target='_blank'>Signal | Noise, London</a>\n      <ul>\n        <li>The Economist</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.toasterltd.com/' target='_blank'>Toaster, London</a>\n      <ul>\n        <li>Google</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.artificialrome.com/' target='_blank'>Artificial Rome, Berlin</a>\n      <ul>\n        <li>Siemens, Sennheiser</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.agencepoupeesrusses.com/' target='_blank'>Poupées Russes, Paris</a>\n      <ul>\n        <li>Guerlain, Dior</li>\n      </ul>\n    </li>\n    <li>\n      La Moulade, London\n      <ul>\n        <li>\n          <a href='http://www.christianlouboutin.com/' target='_blank'>Christian Louboutin</a>,\n          <a href='http://www.industrialfacility.com/' target='_blank'>Industrial Facility</a>,\n          <a href='http://www.wastberg.com/' target='_blank'>Wastberg</a>\n        </li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.mazarine.com/' target='_blank'>Mazarine Digital, Paris</a>\n      <ul>\n        <li>Chanel, Dior, Caroll, Carven, Biotherm, Club Med, etc.</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.betc-life.com/fr/' target='_blank'>BETC, Paris</a>\n      <ul>\n        <li>Peugeot, Canal +, Pages Jaunes, Sixt, etc.</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.buzzman.fr/' target='_blank'>Buzzman, Paris</a>\n      <ul>\n        <li>Microsoft Bing, MTV, Cannes Lions, etc.</li>\n      </ul>\n    </li>\n\n    <li>\n      <a href='http://www.heineken.fr/' target='_blank'>Heineken France, Paris</a>\n    </li>\n    <li>\n      <a href='http://www.alaincharlesperrot.com/' target='_blank'>Alain Charles Perrot, Architecte - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.mademoisellechapeaux.com/' target='_blank'>Mademoiselle Chapeaux - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.galeriecharlot.com/' target='_blank'>Galerie Charlot - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.ponctuelle.fr/' target='_blank'>Ponctuelle Light Design - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.dancityfestival.com/' target='_blank'>Dancity Festival - Italy</a>\n    </li>\n  </ul>\n</div>"
 
 /***/ }),
 /* 21 */
 /***/ (function(module, exports) {
 
-module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\nLondon\n<br>\n<br>\n<a href=\"#\" rel=\"mail/perkyp*at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\n<a href=\"https://twitter.com/perkyp_at\">@perkyp_at</a> (NEW)\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\" target=\"_blank\">Linkedin</a>"
+module.exports = "<div class='inner inner-container'>\n  <!-- <h1 className='title'>Bio.</h1> -->\n  <br /> My name is Esteban. I explore visual arts and computational design, mostly through front end, web technologies.\n  <br /> In 2005 I graduated in art and cinema studies at the University of Bologna, Italy. Today I create interactive applications in collaboration with creative studios, designers and artists.\n  <br />\n  <br />\n  <h2>Tech</h2>\n  If you have a project and wonder if I could help, these are the tools and techniques that I use: Javascript, Three.js / WebGL, canvas 2D, D3.js, Node, most typical tools (Babel, Webpack, Gulp, etc) and some frameworks (Backbone and React).\n  <br />\n  <br />\n  <h2>WORK</h2>\n  In the last years I have worked with:\n  <ul>\n    <li>\n      <a href='http://www.field.io/' target='_blank'>Field.io, London</a>\n    </li>\n    <li>\n      <a href='http://www.theguardian.com/uk/' target='_blank'>The Guardian, London</a>\n    </li>\n    <li>\n      <a href='http://signal-noise.co.uk/' target='_blank'>Signal | Noise, London</a>\n      <ul>\n        <li>The Economist</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.toasterltd.com/' target='_blank'>Toaster, London</a>\n      <ul>\n        <li>Google</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.artificialrome.com/' target='_blank'>Artificial Rome, Berlin</a>\n      <ul>\n        <li>Siemens, Sennheiser</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.agencepoupeesrusses.com/' target='_blank'>Poupées Russes, Paris</a>\n      <ul>\n        <li>Guerlain, Dior</li>\n      </ul>\n    </li>\n    <li>\n      La Moulade, London\n      <ul>\n        <li>\n          <a href='http://www.christianlouboutin.com/' target='_blank'>Christian Louboutin</a>,\n          <a href='http://www.industrialfacility.com/' target='_blank'>Industrial Facility</a>,\n          <a href='http://www.wastberg.com/' target='_blank'>Wastberg</a>\n        </li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.mazarine.com/' target='_blank'>Mazarine Digital, Paris</a>\n      <ul>\n        <li>Chanel, Dior, Caroll, Carven, Biotherm, Club Med, etc.</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.betc-life.com/fr/' target='_blank'>BETC, Paris</a>\n      <ul>\n        <li>Peugeot, Canal +, Pages Jaunes, Sixt, etc.</li>\n      </ul>\n    </li>\n    <li>\n      <a href='http://www.buzzman.fr/' target='_blank'>Buzzman, Paris</a>\n      <ul>\n        <li>Microsoft Bing, MTV, Cannes Lions, etc.</li>\n      </ul>\n    </li>\n\n    <li>\n      <a href='http://www.heineken.fr/' target='_blank'>Heineken France, Paris</a>\n    </li>\n    <li>\n      <a href='http://www.alaincharlesperrot.com/' target='_blank'>Alain Charles Perrot, Architecte - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.mademoisellechapeaux.com/' target='_blank'>Mademoiselle Chapeaux - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.galeriecharlot.com/' target='_blank'>Galerie Charlot - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.ponctuelle.fr/' target='_blank'>Ponctuelle Light Design - Paris</a>\n    </li>\n    <li>\n      <a href='http://www.dancityfestival.com/' target='_blank'>Dancity Festival - Italy</a>\n    </li>\n  </ul>\n</div>"
 
 /***/ }),
 /* 22 */
 /***/ (function(module, exports) {
 
-module.exports = require("react-dom/server");
+module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\nLondon\n<br>\n<br>\n<a href=\"#\" rel=\"mail/perkyp*at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\n<a href=\"https://twitter.com/perkyp_at\">@perkyp_at</a> (NEW)\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\" target=\"_blank\">Linkedin</a>"
 
 /***/ }),
 /* 23 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-dom/server");
+
+/***/ }),
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -496,15 +506,15 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _reactRouterDom = __webpack_require__(3);
 
-var _Bio = __webpack_require__(24);
+var _Bio = __webpack_require__(25);
 
 var _Bio2 = _interopRequireDefault(_Bio);
 
-var _ = __webpack_require__(25);
+var _ = __webpack_require__(26);
 
 var _2 = _interopRequireDefault(_);
 
-var _Works = __webpack_require__(26);
+var _Works = __webpack_require__(27);
 
 var _Works2 = _interopRequireDefault(_Works);
 
@@ -512,7 +522,7 @@ var _Work = __webpack_require__(7);
 
 var _Work2 = _interopRequireDefault(_Work);
 
-var _Nav = __webpack_require__(30);
+var _Nav = __webpack_require__(31);
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
@@ -572,7 +582,7 @@ App.propTypes = {
 module.exports = App;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -585,7 +595,7 @@ const Bio = props => React.createElement('div', { id: 'bio', className: 'page', 
 module.exports = Bio;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -614,7 +624,7 @@ const Page = props => _react2.default.createElement(
 module.exports = Page;
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -659,7 +669,7 @@ Works.propTypes = {
 module.exports = Works;
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -713,7 +723,7 @@ ListItem.propTypes = {
 module.exports = ListItem;
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -727,7 +737,7 @@ var _propTypes = __webpack_require__(1);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _createCover = __webpack_require__(29);
+var _createCover = __webpack_require__(30);
 
 var _createCover2 = _interopRequireDefault(_createCover);
 
@@ -822,7 +832,7 @@ Detail.propTypes = {
 module.exports = Detail;
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -865,7 +875,7 @@ const createCover = (parentW, parentH, w, h) => {
 module.exports = createCover;
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -972,7 +982,7 @@ class Nav extends _react2.default.Component {
 module.exports = (0, _reactRouter.withRouter)(Nav);
 
 /***/ }),
-/* 31 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("http");

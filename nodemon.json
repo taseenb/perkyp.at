@@ -1,6 +1,6 @@
 {
   "verbose": true,
-  "watch": ["src/server", "src/data", "views"],
+  "watch": ["src/server", "src/data"],
   "env": {
     "NODE_ENV": "development",
     "DEBUG": "app,app:*",
