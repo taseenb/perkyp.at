@@ -5896,27 +5896,31 @@ a.list-item .details .year {
   padding-bottom: 30px;
 }
 
+.detail.default .art.image .caption {
+  padding-top: 10px;
+}
+
 .detail.default .images .art.vimeo {
   width: 100%;
 }
 
 .detail.default .images .art.vimeo iframe {
   max-width: 100%;
-  width: 600px !important;
-  height: 400px !important;
+  width: 100%;
+  height: auto;
 }
 
 .detail.default .images .art.image {
   padding-bottom: 30px;
 }
 
-.detail.default .images .art.image .image {
-  padding-bottom: 30px;
+.detail.default .images .art.image img {
+  display: block;
+  max-width: 100%;
 }
 
-.detail.default .images .art.image img {
-  display: inline-block;
-  max-width: 100%;
+.detail.default .images .art.image .caption {
+  padding-top: 10px;
 }
 
 .detail.default .iframe-container .iframe {
@@ -6185,27 +6189,31 @@ a.list-item .details .year {
   padding-bottom: 30px;
 }
 
+.detail.default .art.image .caption {
+  padding-top: 10px;
+}
+
 .detail.default .images .art.vimeo {
   width: 100%;
 }
 
 .detail.default .images .art.vimeo iframe {
   max-width: 100%;
-  width: 600px !important;
-  height: 400px !important;
+  width: 100%;
+  height: auto;
 }
 
 .detail.default .images .art.image {
   padding-bottom: 30px;
 }
 
-.detail.default .images .art.image .image {
-  padding-bottom: 30px;
+.detail.default .images .art.image img {
+  display: block;
+  max-width: 100%;
 }
 
-.detail.default .images .art.image img {
-  display: inline-block;
-  max-width: 100%;
+.detail.default .images .art.image .caption {
+  padding-top: 10px;
 }
 
 .detail.default .iframe-container .iframe {
@@ -6273,11 +6281,6 @@ a.list-item .details .year {
 
 #webgl {
   position: fixed;
-  height: 50%;
-  width: 66.66667%;
-  left: 16.66667%;
-  top: 25%;
-  z-index: 1;
 }
 
 #webgl #stats {

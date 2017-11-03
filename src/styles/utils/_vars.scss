@@ -17,26 +17,9 @@ $maxWidthLarge: 75%;
 
 // Margins mobile
 $smallSpacer: 15px;
-$smallMarginX: $smallSpacer * 2;
-$smallMarginY: $smallSpacer * 2;
-$smallHeaderHeight: $smallSpacer * 6;
-$smallContentPadding: $smallMarginX $smallMarginX $smallMarginX $smallMarginX;
 
 // Margins tablet + desktop
 $spacer: 30px;
-$marginX: $spacer * 2;
-$marginY: $spacer;
-$headerHeight: $spacer * 4;
-$contentPadding: $marginX $marginX $marginX $marginX;
-
-// Grid
-$cols: 12;
-$rows: 12;
-$col: 100% * (1/$cols);
-$colV: 100vw * (1/$cols);
-$row: 100% * (1/$rows);
-$rowV: 100vh * (1/$rows);
-
 
 // Paths
 $img-path: '../assets/img/';
@@ -45,6 +28,3 @@ $fonts-path: '../assets/fonts/';
 // Responsive
 $mMinHeight: 740px;
 $iphone4MaxSize: 480px;
-// $mMinWidth: 740px;
-// $lMinWidth: 1060px;
-// $xlMinWitdth: 1280px;
