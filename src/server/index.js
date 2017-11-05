@@ -3,6 +3,7 @@ const config = require('./config')
 const app = require('./express-app')
 const debug = require('debug')('app:www')
 const http = require('http')
+const fs = require('fs')
 
 const port = normalizePort(config.port)
 app.set('port', port)
@@ -55,4 +56,10 @@ function onListening () {
   const addr = server.address()
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
   debug('Listening on ' + bind)
+
+  // NGINX configuration
+  if (process.env.DYNO) {
+    console.log('This is on Heroku..!')
+    fs.openSync('/tmp/app-initialized', 'w')
+  }
 }
