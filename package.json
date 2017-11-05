@@ -20,7 +20,8 @@
     "build:back": "./node_modules/.bin/webpack --config ./webpack/webpack-node.config.js --env production --colors --verbose --progress",
     "heroku-postbuild": "yarn run build",
     "pushall": "git add --all . && git commit -m \"update\" && git push",
-    "ncu": "npm-check-updates"
+    "ncu": "npm-check-updates",
+    "local-heroku": "export HEROKU_APP=perkypat-node-static"
   },
   "author": "@taseenb",
   "license": "ISC",

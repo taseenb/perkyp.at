@@ -34981,7 +34981,7 @@ var checkSupport = function checkSupport(resolve, reject) {
 
   if (isBrowser) {
     // Check if it's mobile
-    console.log('checking autoplay');
+    // console.log('checking autoplay')
     _modernizr2.default.on('videoautoplay', function (result) {
       var isMobile = !result;
       if (window.innerWidth < 1024 && _modernizr2.default.touchevents) {
@@ -34991,7 +34991,7 @@ var checkSupport = function checkSupport(resolve, reject) {
         document.documentElement.className += ' mobile';
       }
 
-      console.log('autoplay checked', result);
+      // console.log('autoplay checked', result)
       resolve({ isMobile: isMobile, isBrowser: isBrowser });
     });
   } else {
