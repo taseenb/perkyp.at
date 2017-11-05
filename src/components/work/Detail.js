@@ -13,12 +13,15 @@ class Detail extends React.Component {
 
     if (this.props.isBrowser) {
       this.updatesize = this.updatesize.bind(this)
+      this.toggleZoom = this.toggleZoom.bind(this)
     }
   }
 
   componentWillUnmount () {
     if (this.props.isBrowser) {
       window.removeEventListener('resize', this.updatesize)
+
+      this.disableZoom()
     }
   }
 
@@ -39,6 +42,49 @@ class Detail extends React.Component {
 
       // Update sizes for cover elements (if there is any)
       this.updateCovers()
+
+      // Init zoom
+      this.enableZoom()
+    }
+  }
+
+  enableZoom () {
+    const $images = $(`#${this.props.seo} .image`)
+    this.$images = $images
+
+    $images.each((i, image) => {
+      const $image = $(image)
+
+      if ($image.hasClass('no-zoom')) return
+
+      if ($image.find('.row-zoom').length && $image.find('.col-zoom').length) {
+        $image.on('click', this.toggleZoom)
+      }
+    })
+  }
+
+  disableZoom () {
+    this.$images.off('click', this.toggleZoom)
+  }
+
+  toggleZoom (e) {
+    const $el = $(e.currentTarget)
+    const $row = $el.find('.row-zoom')
+    const $col = $el.find('.col-zoom')
+    const zoomed = $el.hasClass('zoomed')
+
+    // Copy the row-zoom and col-zoom classes to a temporary data attribute
+    // And copy from data attributes back to the element to restore original size
+    if (zoomed) {
+      $row.removeClass().addClass($el.data('row-zoom'))
+      $col.removeClass().addClass($el.data('col-zoom'))
+      $el.removeClass('zoomed')
+    } else {
+      $el.data('row-zoom', $row.attr('class'))
+      $el.data('col-zoom', $col.attr('class'))
+      $row.removeClass().addClass('row-zoom')
+      $col.removeClass().addClass('col-zoom')
+      $el.addClass('zoomed')
     }
   }
 

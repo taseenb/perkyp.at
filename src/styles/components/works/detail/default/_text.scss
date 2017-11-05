@@ -3,6 +3,7 @@
     .title {
       font-size: 28px;
       line-height: 1.3;
+      padding-bottom: $spacer;
 
       @include media-breakpoint-up(md) {
         font-size: 36px;
@@ -39,7 +40,6 @@
     .year,
     .description {
       display: block;
-      padding-bottom: $spacer;
     }
   }
 }

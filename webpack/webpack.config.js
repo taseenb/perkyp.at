@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 
-// const httpServerUrl = 'http://localhost:8888/' // Node server (backend)
+// const httpServerUrl = 'http://localhost:7777/' // Node server (backend)
 
 module.exports = options => {
   const env = JSON.stringify(options.isProduction ? 'production' : 'development')

@@ -34633,6 +34633,7 @@ var Detail = function (_React$Component) {
 
     if (_this.props.isBrowser) {
       _this.updatesize = _this.updatesize.bind(_this);
+      _this.toggleZoom = _this.toggleZoom.bind(_this);
     }
     return _this;
   }
@@ -34642,6 +34643,8 @@ var Detail = function (_React$Component) {
     value: function componentWillUnmount() {
       if (this.props.isBrowser) {
         window.removeEventListener('resize', this.updatesize);
+
+        this.disableZoom();
       }
     }
   }, {
@@ -34665,6 +34668,54 @@ var Detail = function (_React$Component) {
 
         // Update sizes for cover elements (if there is any)
         this.updateCovers();
+
+        // Init zoom
+        this.enableZoom();
+      }
+    }
+  }, {
+    key: 'enableZoom',
+    value: function enableZoom() {
+      var _this2 = this;
+
+      var $images = $('#' + this.props.seo + ' .image');
+      this.$images = $images;
+
+      $images.each(function (i, image) {
+        var $image = $(image);
+
+        if ($image.hasClass('no-zoom')) return;
+
+        if ($image.find('.row-zoom').length && $image.find('.col-zoom').length) {
+          $image.on('click', _this2.toggleZoom);
+        }
+      });
+    }
+  }, {
+    key: 'disableZoom',
+    value: function disableZoom() {
+      this.$images.off('click', this.toggleZoom);
+    }
+  }, {
+    key: 'toggleZoom',
+    value: function toggleZoom(e) {
+      var $el = $(e.currentTarget);
+      var $row = $el.find('.row-zoom');
+      var $col = $el.find('.col-zoom');
+      var zoomed = $el.hasClass('zoomed');
+
+      // Copy the row-zoom and col-zoom classes to a temporary data attribute
+      // And copy from data attributes back to the element to restore original size
+      if (zoomed) {
+        $row.removeClass().addClass($el.data('row-zoom'));
+        $col.removeClass().addClass($el.data('col-zoom'));
+        $el.removeClass('zoomed');
+      } else {
+        $el.data('row-zoom', $row.attr('class'));
+        $el.data('col-zoom', $col.attr('class'));
+        $row.removeClass().addClass('row-zoom');
+        $col.removeClass().addClass('col-zoom');
+        $el.addClass('zoomed');
       }
     }
   }, {
