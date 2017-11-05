@@ -49,12 +49,7 @@ app.use((req, res, next) => {
 })
 
 // Static files w cache
-app.use(
-  '/assets',
-  express.static('public/assets', {
-    // maxage: 31536000 * 1000 // 1 year in ms
-  })
-)
+app.use('/assets', express.static('public/assets'))
 
 // React app (routing is managed by React router, including 404)
 app.use('/', siteRouter)

@@ -178,6 +178,7 @@ const config = __webpack_require__(2);
 const app = __webpack_require__(10);
 const debug = __webpack_require__(3)('app:www');
 const http = __webpack_require__(33);
+const fs = __webpack_require__(34);
 
 const port = normalizePort(config.port);
 app.set('port', port);
@@ -230,6 +231,12 @@ function onListening() {
   const addr = server.address();
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
   debug('Listening on ' + bind);
+
+  // NGINX configuration
+  if (process.env.DYNO) {
+    console.log('This is on Heroku..!');
+    fs.openSync('/tmp/app-initialized', 'w');
+  }
 }
 
 /***/ }),
@@ -290,9 +297,7 @@ app.use((req, res, next) => {
 });
 
 // Static files w cache
-app.use('/assets', express.static('public/assets', {
-  // maxage: 31536000 * 1000 // 1 year in ms
-}));
+app.use('/assets', express.static('public/assets'));
 
 // React app (routing is managed by React router, including 404)
 app.use('/', siteRouter);
@@ -1111,6 +1116,12 @@ module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\nLondon\n<br>\n<br>\n<a
 /***/ (function(module, exports) {
 
 module.exports = require("http");
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports) {
+
+module.exports = require("fs");
 
 /***/ })
 /******/ ]);
