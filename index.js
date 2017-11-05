@@ -231,11 +231,15 @@ function onListening() {
 
 
 const config = __webpack_require__(2);
+const state = __webpack_require__(36);
 const express = __webpack_require__(5);
 const compression = __webpack_require__(10);
 const path = __webpack_require__(11);
-// const debug = require('debug')('app:main')// Site router
-const siteRouter = __webpack_require__(12);
+const debug = __webpack_require__(6)('app:main'); // Site router
+const siteRouter = __webpack_require__(33);
+
+// Data
+const initialData = __webpack_require__(13);
 
 const app = express();
 
@@ -252,8 +256,34 @@ if (config.env === 'production') {
   // app.enable('view cache')
 }
 
-// Static files
-app.use('/assets', express.static('public/assets'));
+/**
+ * Setup the state for the current request.
+ * Check for query string '?invalidate=1' to change the state
+ * in order to invalidate the cache on static files.
+ */
+app.use((req, res, next) => {
+  // Update state with the initial state
+  Object.keys(initialData).forEach(k => {
+    state[k] = initialData[k];
+  });
+
+  // Invalidate cache
+  if (req.query.invalidate === '1') {
+    state.invalidateCache = true;
+    debug('cache invalidation enabled');
+    setTimeout(() => {
+      state.invalidateCache = false;
+      debug('cache invalidation disabled');
+    }, 10000);
+  }
+
+  next();
+});
+
+// Static files w cache
+app.use('/assets', express.static('public/assets', {
+  // maxage: 31536000 * 1000 // 1 year in ms
+}));
 
 // React app (routing is managed by React router, including 404)
 app.use('/', siteRouter);
@@ -273,73 +303,7 @@ module.exports = require("compression");
 module.exports = require("path");
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-const config = __webpack_require__(2);
-const express = __webpack_require__(5);
-const debug = __webpack_require__(6)('app:site');
-
-// Data
-const initialData = __webpack_require__(13);
-
-// React
-const React = __webpack_require__(0);
-const ReactDOMServer = __webpack_require__(23);
-const StaticRouter = __webpack_require__(3).StaticRouter;
-const App = __webpack_require__(24);
-
-// Router
-const router = express.Router();
-router.get('*', (req, res) => {
-  const context = {};
-
-  const initialMarkup = ReactDOMServer.renderToString(React.createElement(
-    StaticRouter,
-    { location: req.url, context: context },
-    React.createElement(App, { initialData: initialData })
-  ));
-
-  if (context.url) {
-    res.writeHead(301, {
-      Location: context.url
-    });
-    res.end();
-  } else {
-    // Add the requested id if present
-    initialData.requestedId = req.params.id;
-
-    // Add url and path information
-
-    // Base url
-    const protocol = req.protocol; // protocol = http or https
-    const hostname = req.headers.host; // hostname = 'localhost:8080'
-    const path = req.path; // pathname = '/MyApp'
-    const url = protocol + '://' + hostname + '/';
-
-    debug(url, context);
-
-    initialData.protocol = protocol;
-    initialData.hostname = hostname;
-    initialData.path = path;
-    initialData.url = url;
-
-    res.render('index', {
-      initialMarkup,
-      initialData,
-      bundle: config.env === 'production' ? 'bundle.min.js' : 'bundle.js',
-      styles: config.env === 'production' ? 'style.min.css' : 'style.css'
-    });
-    res.end();
-  }
-});
-
-module.exports = router;
-
-/***/ }),
+/* 12 */,
 /* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -438,7 +402,7 @@ module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class
 /* 16 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <!-- <div class=\"border abs-percent-fullscreen\"></div> -->\n\n                    <div class=\"bg bg-align-left bg-align-bottom\" style=\"background-image:url(/assets/works/the-airport-of-the-future/bg.jpg)\"></div>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    Design:\n                    <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>\n                    <br> Illustrations:\n                    <a href=\"http://www.samchivers.com/\">Sam Chivers</a>\n                </div>\n            </div>\n\n        </div>\n    </div>\n\n    <div class=\"row no-gutters mt-md-4\">\n        <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n            <div class=\"text\">\n                <div class=\"inner\">\n                    <span class=\"title\">The airport of the future</span>\n                    <!-- 2016 -->\n                    <div class=\"description\">\n                        Designed by\n                        <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>, this web application shows animated visions of a possible airport of the future. I created a series of interactive 2D animations from the absurdly beautiful illustrations by\n                        <a href=\"http://www.samchivers.com/\">Sam Chivers</a>, with a 70s sci-fi taste.\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"images\">\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/page.jpg\">\n                    <div class=\"caption\">\n                        The web page with the main animation.\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/scene-3-a.jpg\">\n                    <div class=\"caption\">\n                        The landing scene (frame).\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/scene-3-b.jpg\">\n                    <div class=\"caption\">\n                        The landing scene (frame).\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/sprite-demo.jpg\">\n                    <div class=\"caption\">\n                        One of the spritesheets used to build the landing scene.\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/scene-6.jpg\">\n                    <div class=\"caption\">The taxi scene (frame).</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n    <div class=\"art vimeo row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <iframe id=\"vimeo-241347842\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/241347842\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n                    <div class=\"caption\">Nature scene.</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <!-- <div class=\"art vimeo \">\n        <iframe id=\"vimeo-184683860\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184683860\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n    </div>\n\n    <div class=\"art vimeo last\">\n        <iframe id=\"vimeo-184684957\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184684957\" width=\"751\" height=\"751\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 751px;\" data-ready=\"true\"></iframe>\n    </div> -->\n\n</div>"
+module.exports = "<div class=\"row no-gutters py-md-4 px-md-4\">\n    <div class=\"col-12\">\n\n        <div class=\"row no-gutters align-items-end\">\n            <div class=\"col-12 col-md-8\">\n\n                <div class=\"head\">\n                    <div class=\"shadow abs-percent-fullscreen\"></div>\n                    <!-- <div class=\"border abs-percent-fullscreen\"></div> -->\n\n                    <div class=\"bg bg-align-left bg-align-bottom\" style=\"background-image:url(/assets/works/the-airport-of-the-future/bg.jpg)\"></div>\n                </div>\n            </div>\n\n            <div class=\"py-2 px-2 pl-md-2 pr-md-4 py-md-0 col-12 col-md-4\">\n                <div class=\"credits\">\n                    Design:\n                    <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>\n                    <br> Illustrations:\n                    <a href=\"http://www.samchivers.com/\">Sam Chivers</a>\n                </div>\n            </div>\n\n        </div>\n    </div>\n\n    <div class=\"row no-gutters mt-md-4\">\n        <div class=\"py-2 px-2 px-md-0 py-md-0 col-12 col-md-8\">\n\n            <div class=\"text\">\n                <div class=\"inner\">\n                    <span class=\"title\">The airport of the future</span>\n                    <!-- 2016 -->\n                    <div class=\"description\">\n                        Designed by\n                        <a href=\"https://guardianlabs.theguardian.com/\">The Guardian Labs</a>, this web application shows animated visions of a possible airport of the future. I created a series of interactive 2D animations from the absurdly beautiful illustrations by\n                        <a href=\"http://www.samchivers.com/\">Sam Chivers</a>, with a 70s sci-fi taste.\n                    </div>\n                </div>\n            </div>\n\n        </div>\n\n    </div>\n</div>\n\n\n<div class=\"images\">\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/page.jpg\">\n                    <div class=\"caption\">\n                        The page on The Guardian website (now removed) with the main animation.\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/scene-3-a.jpg\">\n                    <div class=\"caption\">\n                        The landing scene (frame).\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/scene-3-b.jpg\">\n                    <div class=\"caption\">\n                        The landing scene (frame).\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/sprite-demo.jpg\">\n                    <div class=\"caption\">\n                        One of the spritesheets used to build the landing scene.\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <div class=\"art image row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <img class=\"img\" src=\"/assets/works/the-airport-of-the-future/scene-6.jpg\">\n                    <div class=\"caption\">The taxi scene (frame).</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n\n    <div class=\"art vimeo row no-gutters pb-2 pb-md-4\">\n        <div class=\"col\">\n            <div class=\"row-zoom row no-gutters px-2 px-md-4\">\n                <div class=\"col-zoom col-12 col-md-8\">\n                    <iframe id=\"vimeo-241347842\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/241347842\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n                    <div class=\"caption\">Nature scene.</div>\n                </div>\n            </div>\n        </div>\n    </div>\n\n    <!-- <div class=\"art vimeo \">\n        <iframe id=\"vimeo-184683860\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184683860\" width=\"751\" height=\"422\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 422px;\" data-ready=\"true\"></iframe>\n    </div>\n\n    <div class=\"art vimeo last\">\n        <iframe id=\"vimeo-184684957\" class=\"vimeo-iframe\" src=\"//player.vimeo.com/video/184684957\" width=\"751\" height=\"751\" frameborder=\"0\" webkitallowfullscreen=\"\" mozallowfullscreen=\"\" allowfullscreen=\"\" style=\"width: 751px; height: 751px;\" data-ready=\"true\"></iframe>\n    </div> -->\n\n</div>"
 
 /***/ }),
 /* 17 */
@@ -1071,6 +1035,85 @@ module.exports = (0, _reactRouter.withRouter)(Nav);
 /***/ (function(module, exports) {
 
 module.exports = require("http");
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+const config = __webpack_require__(2);
+const state = __webpack_require__(36);
+const express = __webpack_require__(5);
+const debug = __webpack_require__(6)('app:site');
+
+// Data
+// const initialData = require('../../data/initialData')
+
+// React
+const React = __webpack_require__(0);
+const ReactDOMServer = __webpack_require__(23);
+const StaticRouter = __webpack_require__(3).StaticRouter;
+const App = __webpack_require__(24);
+
+// Router
+const router = express.Router();
+router.get('*', (req, res) => {
+  const context = {};
+
+  const initialMarkup = ReactDOMServer.renderToString(React.createElement(
+    StaticRouter,
+    { location: req.url, context: context },
+    React.createElement(App, { initialData: state })
+  ));
+
+  if (context.url) {
+    res.writeHead(301, {
+      Location: context.url
+    });
+    res.end();
+  } else {
+    // Add the requested id if present
+    state.requestedId = req.params.id;
+
+    // Add url and path information
+
+    // Base url
+    const protocol = req.protocol; // protocol = http or https
+    const hostname = req.headers.host; // hostname = 'localhost:8080'
+    const path = req.path; // pathname = '/MyApp'
+    const url = protocol + '://' + hostname + '/';
+
+    debug(url, context);
+
+    state.protocol = protocol;
+    state.hostname = hostname;
+    state.path = path;
+    state.url = url;
+
+    res.render('index', {
+      initialMarkup,
+      initialData: state,
+      bundle: config.env === 'production' ? 'bundle.min.js' : 'bundle.js',
+      styles: config.env === 'production' ? 'style.min.css' : 'style.css'
+    });
+    res.end();
+  }
+});
+
+module.exports = router;
+
+/***/ }),
+/* 34 */,
+/* 35 */,
+/* 36 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {};
 
 /***/ })
 /******/ ]);

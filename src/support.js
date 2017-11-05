@@ -6,6 +6,7 @@ const checkSupport = (resolve, reject) => {
 
   if (isBrowser) {
     // Check if it's mobile
+    console.log('checking autoplay')
     Modernizr.on('videoautoplay', result => {
       let isMobile = !result
       if (window.innerWidth < 1024 && Modernizr.touchevents) {
@@ -15,6 +16,7 @@ const checkSupport = (resolve, reject) => {
         document.documentElement.className += ' mobile'
       }
 
+      console.log('autoplay checked', result)
       resolve({ isMobile, isBrowser })
     })
   } else {
