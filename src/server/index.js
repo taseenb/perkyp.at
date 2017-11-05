@@ -15,7 +15,7 @@ server.on('listening', onListening)
 
 function onError (error) {
   if (error.syscall !== 'listen') {
-    throw error
+    throw error //
   }
 
   const bind = typeof port === 'string' ? 'Pipe ' + port : 'Port ' + port

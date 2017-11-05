@@ -6,7 +6,7 @@ module.exports = env => {
     entry: './src/server/index.js',
     output: {
       path: path.join(__dirname, '../'),
-      filename: 'index.js'
+      filename: 'server.js'
     },
     // devtool: 'cheap-module-inline-source-map',
     target: 'node',
