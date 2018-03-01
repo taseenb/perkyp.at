@@ -5701,6 +5701,11 @@ a.list-item .details .year {
   position: relative;
 }
 
+.detail .overlay {
+  z-index: 10;
+  pointer-events: none;
+}
+
 .detail.default .head {
   position: relative;
   overflow: hidden;
@@ -6035,6 +6040,7 @@ a.list-item .details .year {
   }
 }
 
+#w152 .iframe-container,
 #w152 .head {
   background-color: #e7e7e7;
 }
@@ -6059,8 +6065,13 @@ a.list-item .details .year {
   color: #de8a2e;
 }
 
-.iframe-container {
+#the-hunt .iframe-container,
+#the-hunt .head {
   background-color: #000;
+}
+
+#pride-prejudice .iframe-container {
+  background-color: #fff;
 }
 
 #page404 {

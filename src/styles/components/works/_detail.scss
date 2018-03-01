@@ -3,6 +3,11 @@
   min-height: 100%;
   position: relative;
 
+  .overlay {
+    z-index: 10;
+    pointer-events: none;
+  }
+
   // Default style
   &.default {
     @import 'detail/default/head';
@@ -19,3 +24,4 @@
 @import 'detail/custom/w152';
 @import 'detail/custom/fan-beat';
 @import 'detail/custom/the-hunt';
+@import 'detail/custom/pride-prejudice';
