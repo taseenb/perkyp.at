@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import createCover from '../../utils/create-cover'
 import VimeoPlayer from '@vimeo/player'
+import fullscreenBtn from './detail/fullscreen-svg'
 
 class Detail extends React.Component {
   constructor (props) {
@@ -22,7 +23,10 @@ class Detail extends React.Component {
     if (this.props.isBrowser) {
       window.removeEventListener('resize', this.updatesize)
 
-      this.disableZoom()
+      this.disableImageZoom()
+
+      this.removeVimeoEvents()
+      this.removeIframeEvents()
     }
   }
 
@@ -45,18 +49,21 @@ class Detail extends React.Component {
       this.updateCovers()
 
       // Init zoom
-      this.enableZoom()
+      this.enableImageZoom()
 
       // Init Vimeo
       this.setupVimeo()
+
+      // Init iframes
+      this.setupIframes()
     }
   }
 
   setupVimeo () {
-    var $iframes = $('.vimeo-iframe')
+    const $vimeos = $('.vimeo-iframe')
     this.players = []
 
-    $iframes.each((i, el) => {
+    $vimeos.each((i, el) => {
       this.players[i] = new VimeoPlayer(el)
     })
 
@@ -72,7 +79,29 @@ class Detail extends React.Component {
     this.updatePlayersSize()
   }
 
-  enableZoom () {
+  removeVimeoEvents () {
+    if (this.players) {
+      this.players.forEach((player, i) => {
+        player.off('play')
+      })
+    }
+  }
+
+  setupIframes () {
+    const $iframes = $('.iframe-container')
+    $($iframes).append(fullscreenBtn)
+    const $fullscreenBtn = $iframes.find('.fullscreen-svg')
+
+    $fullscreenBtn.on('click', (e) => {
+      $(e.currentTarget).parent().toggleClass('fullscreen')
+    })
+  }
+
+  removeIframeEvents () {
+    $('.iframe-container .fullscreen.icon').off('click')
+  }
+
+  enableImageZoom () {
     const $images = $(`#${this.props.seo} .image`)
     this.$images = $images
 
@@ -87,7 +116,7 @@ class Detail extends React.Component {
     })
   }
 
-  disableZoom () {
+  disableImageZoom () {
     this.$images.off('click', this.toggleZoom)
   }
 

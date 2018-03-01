@@ -5945,15 +5945,66 @@ a.list-item .details .year {
   }
 }
 
+.detail.default .iframe-container {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
 .detail.default .iframe-container .iframe {
   position: relative;
   height: 100%;
   width: 100%;
+  top: 0;
+  left: 0;
   border: 0;
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.detail.default .iframe-container.fullscreen {
+  position: fixed;
+  z-index: 1000;
+}
+
+.detail.default .iframe-container.fullscreen .fullscreen-svg .fullscreen {
+  display: none;
+}
+
+.detail.default .iframe-container.fullscreen .fullscreen-svg .exit-fullscreen {
+  display: block;
+}
+
+.detail.default .iframe-container .fullscreen-svg {
+  position: absolute;
+  z-index: 100;
+  bottom: 12px;
+  right: 12px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.detail.default .iframe-container .fullscreen-svg .fullscreen {
+  display: block;
+}
+
+.detail.default .iframe-container .fullscreen-svg .exit-fullscreen {
+  display: none;
+}
+
+.detail.default .iframe-container .fullscreen-svg .exit-fullscreen path,
+.detail.default .iframe-container .fullscreen-svg .fullscreen path {
+  fill: white;
+  stroke: none;
+}
+
+.detail.default .iframe-container .fullscreen-svg .exit-fullscreen path.border,
+.detail.default .iframe-container .fullscreen-svg .fullscreen path.border {
+  fill: #666666;
 }
 
 .detail.default .credits {
@@ -6006,6 +6057,10 @@ a.list-item .details .year {
 
 #fan-beat .color5 {
   color: #de8a2e;
+}
+
+.iframe-container {
+  background-color: #000;
 }
 
 #page404 {

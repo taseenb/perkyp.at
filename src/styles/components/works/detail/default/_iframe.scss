@@ -1,9 +1,73 @@
 .iframe-container {
+  position: relative;
+  top: 0;
+  left: 0;
+
   .iframe {
     position: relative;
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
     border: 0;
     user-select: none;
+  }
+
+  &.fullscreen {
+    position: fixed;
+    z-index: 1000;
+
+    .fullscreen-svg {
+
+
+      .fullscreen {
+        display: none;
+      }
+      .exit-fullscreen {
+        display: block;
+      }
+    }
+  }
+
+  .fullscreen-svg {
+    position: absolute;
+    z-index: 100;
+    bottom: 12px;
+    right: 12px;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    cursor: pointer;
+
+    .fullscreen {
+      display: block;
+    }
+
+    .exit-fullscreen {
+      display: none;
+    }
+
+    .exit-fullscreen,
+    .fullscreen {
+      // transition-duration: 0.2s;
+
+      path {
+        fill: white;
+        stroke: none;
+
+        &.border {
+          fill: #666666;
+        }
+      }
+    }
+
+    // &:hover {
+    //   .fullscreen {
+    //     transform: scale(1.1);
+    //   }
+    //   .exit-fullscreen {
+    //     transform: scale(0.9);
+    //   }
+    // }
   }
 }
