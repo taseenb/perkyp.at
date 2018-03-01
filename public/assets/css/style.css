@@ -5912,15 +5912,15 @@ a.list-item .details .year {
   height: auto;
 }
 
-.detail.default .images .art.image {
+.detail.default .images .art.vimeo, .detail.default .images .art.image {
   cursor: pointer;
 }
 
-.detail.default .images .art.image.no-zoom {
+.detail.default .images .art.vimeo.no-zoom, .detail.default .images .art.image.no-zoom {
   cursor: auto;
 }
 
-.detail.default .images .art.image img {
+.detail.default .images .art.vimeo img, .detail.default .images .art.image img {
   display: block;
   max-width: 100%;
 }

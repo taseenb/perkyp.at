@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import createCover from '../../utils/create-cover'
+import VimeoPlayer from '@vimeo/player'
 
 class Detail extends React.Component {
   constructor (props) {
@@ -45,7 +46,30 @@ class Detail extends React.Component {
 
       // Init zoom
       this.enableZoom()
+
+      // Init Vimeo
+      this.setupVimeo()
     }
+  }
+
+  setupVimeo () {
+    var $iframes = $('.vimeo-iframe')
+    this.players = []
+
+    $iframes.each((i, el) => {
+      this.players[i] = new VimeoPlayer(el)
+    })
+
+    // Events
+    this.players.forEach((player, i) => {
+      player.on('play', () => {
+        this.players.forEach((p, j) => {
+          if (j !== i) p.pause()
+        })
+      })
+    })
+
+    this.updatePlayersSize()
   }
 
   enableZoom () {
@@ -119,8 +143,28 @@ class Detail extends React.Component {
     }
   }
 
+  updatePlayersSize () {
+    this.players.forEach((player, i) => {
+      player.ready().then(() => {
+        player.getVideoWidth().then(w => {
+          player.getVideoHeight().then(h => {
+            const $player = $(player.element)
+            const ratio = w / h
+            const width = $($player).width()
+            $($player).height(width / ratio)
+          })
+        })
+      })
+    })
+  }
+
   updatesize () {
     // $('.head').height(window.innerHeight)
+
+    // Resize vimeos - update height, depending on width
+    if (this.players) {
+      this.updatePlayersSize()
+    }
 
     if (this.covers) {
       this.updateCovers()
