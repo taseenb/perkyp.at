@@ -9,21 +9,25 @@ module.exports = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
+    iframe: 'https://the-hunt.surge.sh/',
+    external: 'https://the-hunt.surge.sh/',
     detail: require('./works/the-hunt.html'),
-    template: 'default' // can be 'base' or null (default is null)
+    template: 'default' // can be 'default' or null (default is null)
   },
   {
-    uid: 4473,
-    seo: 'the-airport-of-the-future',
+    uid: 2803,
+    seo: 'the-code-of-nature-3d',
     active: 1,
-    name: 'The airport of the future',
-    year: 2016,
-    intro: 'Scroll based 2D animations',
+    name: 'The code of nature in 3D',
+    year: 2017,
+    intro: '3D port of Shiffman\'s autonomous agents',
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    detail: require('./works/the-airport-of-the-future.html'),
-    template: 'default' // can be 'base' or null (default is null)
+    iframe: 'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
+    external: 'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
+    detail: require('./works/the-code-of-nature-3d.html'),
+    template: 'default' // can be 'default' or null (default is null)
   },
   {
     uid: 3277,
@@ -36,7 +40,7 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     detail: require('./works/fan-beat.html'),
-    template: 'default' // can be 'base' or null (default is null)
+    template: 'default' // can be 'default' or null (default is null)
   },
   {
     uid: 8742,
@@ -48,8 +52,23 @@ module.exports = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
+    external: 'https://d1xso9gob5fu6y.cloudfront.net/',
     detail: require('./works/pride-prejudice.html'),
     template: 'default' // can be 'base' or null (default is null)
+  },
+  {
+    uid: 4473,
+    seo: 'the-airport-of-the-future',
+    active: 1,
+    name: 'The airport of the future',
+    year: 2016,
+    intro: 'Scroll based 2D animations',
+    preview: 'preview.jpg',
+    image: 'main.jpg',
+    vimeoId: null,
+    external: 'https://labs.theguardian.com/2016/heathrow-airport-of-the-future/',
+    detail: require('./works/the-airport-of-the-future.html'),
+    template: 'default' // can be 'default' or null (default is null)
   },
   {
     uid: 7344,
@@ -62,6 +81,6 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     detail: require('./works/w152.html'),
-    template: 'default' // can be 'base' or null (default is null)
+    template: 'default' // can be 'default' or null (default is null)
   }
 ]

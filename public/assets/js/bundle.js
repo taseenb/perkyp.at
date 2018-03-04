@@ -11730,7 +11730,7 @@ var _router = __webpack_require__(81);
 
 var _router2 = _interopRequireDefault(_router);
 
-var _support = __webpack_require__(115);
+var _support = __webpack_require__(116);
 
 var _support2 = _interopRequireDefault(_support);
 
@@ -34332,7 +34332,7 @@ var _Work = __webpack_require__(38);
 
 var _Work2 = _interopRequireDefault(_Work);
 
-var _Nav = __webpack_require__(114);
+var _Nav = __webpack_require__(115);
 
 var _Nav2 = _interopRequireDefault(_Nav);
 
@@ -34618,6 +34618,10 @@ var _fullscreenSvg = __webpack_require__(113);
 
 var _fullscreenSvg2 = _interopRequireDefault(_fullscreenSvg);
 
+var _externalLinkSvg = __webpack_require__(114);
+
+var _externalLinkSvg2 = _interopRequireDefault(_externalLinkSvg);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -34662,6 +34666,11 @@ var Detail = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (this.props.isBrowser) {
+        // Cache DOM elements
+        this.$el = $('#' + this.props.data.seo);
+        this.$head = this.$el.find('.head');
+        this.$icons = this.$head.find('.icons');
+
         // Remove autoplay video on mobile (on iphone they start in fullscreen even if hidden)
         if (this.props.isMobile) {
           var videos = document.querySelectorAll('#' + this.props.seo + ' video[autoplay]');
@@ -34686,8 +34695,8 @@ var Detail = function (_React$Component) {
         // Init Vimeo
         this.setupVimeo();
 
-        // Init iframes
-        this.setupIframes();
+        // Init icons (fullscreen)
+        this.setupIcons();
       }
     }
   }, {
@@ -34695,7 +34704,7 @@ var Detail = function (_React$Component) {
     value: function setupVimeo() {
       var _this2 = this;
 
-      var $vimeos = $('.vimeo-iframe');
+      var $vimeos = this.$el.find('.vimeo-iframe');
       this.players = [];
 
       $vimeos.each(function (i, el) {
@@ -34723,20 +34732,18 @@ var Detail = function (_React$Component) {
       }
     }
   }, {
-    key: 'setupIframes',
-    value: function setupIframes() {
-      var $iframes = $('.iframe-container');
-      $($iframes).append(_fullscreenSvg2.default);
-      var $fullscreenBtn = $iframes.find('.fullscreen-svg');
-
+    key: 'setupIcons',
+    value: function setupIcons() {
+      // Fullscreen
+      var $fullscreenBtn = this.$icons.find('.fullscreen-icon');
       $fullscreenBtn.on('click', function (e) {
-        $(e.currentTarget).parent().toggleClass('fullscreen');
+        $(e.currentTarget).closest('.head').toggleClass('fullscreen');
       });
     }
   }, {
     key: 'removeIframeEvents',
     value: function removeIframeEvents() {
-      $('.iframe-container .fullscreen.icon').off('click');
+      this.$icons.find('.fullscreen-icon').off('click');
     }
   }, {
     key: 'enableImageZoom',
@@ -37456,6 +37463,15 @@ module.exports = "\n  <svg version=\"1.1\" class=\"fullscreen-svg\" xmlns=\"http
 "use strict";
 
 
+module.exports = "\n  <svg version=\"1.1\" class=\"external-link-svg\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" x=\"0px\" y=\"0px\" viewBox=\"0 0 24 24\" style=\"enable-background:new 0 0 24 24;\" xml:space=\"preserve\">\n  <g>\n  <g>\n        <path d=\"M19.2,14.5h-0.9c-0.1,0-0.2,0-0.3,0.1c-0.1,0.1-0.1,0.2-0.1,0.3v4.3c0,0.6-0.2,1.1-0.6,1.5c-0.4,0.4-0.9,0.6-1.5,0.6H4.6\n            c-0.6,0-1.1-0.2-1.5-0.6c-0.4-0.4-0.6-0.9-0.6-1.5V8c0-0.6,0.2-1.1,0.6-1.5C3.5,6.1,4,5.9,4.6,5.9H14c0.1,0,0.2,0,0.3-0.1\n            c0.1-0.1,0.1-0.2,0.1-0.3V4.6c0-0.1,0-0.2-0.1-0.3c-0.1-0.1-0.2-0.1-0.3-0.1H4.6c-1.1,0-2,0.4-2.7,1.1C1.1,6.1,0.8,7,0.8,8v11.1\n            c0,1.1,0.4,2,1.1,2.7C2.6,22.7,3.5,23,4.6,23h11.1c1.1,0,2-0.4,2.7-1.1c0.8-0.8,1.1-1.7,1.1-2.7v-4.3c0-0.1,0-0.2-0.1-0.3\n            C19.4,14.5,19.3,14.5,19.2,14.5z\"/>\n        <path class=\"border\" d=\"M14,4.2c0.1,0,0.2,0,0.3,0.1c0.1,0.1,0.1,0.2,0.1,0.3v0.9c0,0.1,0,0.2-0.1,0.3c-0.1,0.1-0.2,0.1-0.3,0.1H4.6\n            C4,5.9,3.5,6.1,3.1,6.5C2.7,6.9,2.5,7.4,2.5,8v11.1c0,0.6,0.2,1.1,0.6,1.5c0.4,0.4,0.9,0.6,1.5,0.6h11.1c0.6,0,1.1-0.2,1.5-0.6\n            c0.4-0.4,0.6-0.9,0.6-1.5v-4.3c0-0.1,0-0.2,0.1-0.3c0.1-0.1,0.2-0.1,0.3-0.1h0.9c0.1,0,0.2,0,0.3,0.1c0.1,0.1,0.1,0.2,0.1,0.3\n            v4.3c0,1.1-0.4,2-1.1,2.7c-0.8,0.8-1.7,1.1-2.7,1.1H4.6c-1.1,0-2-0.4-2.7-1.1c-0.8-0.8-1.1-1.7-1.1-2.7V8c0-1.1,0.4-2,1.1-2.7\n            c0.8-0.8,1.7-1.1,2.7-1.1H14 M14,3.4H4.6c-1.3,0-2.4,0.5-3.3,1.4C0.5,5.7,0,6.8,0,8v11.1c0,1.3,0.5,2.4,1.4,3.3\n            c0.9,0.9,2,1.4,3.3,1.4h11.1c1.3,0,2.4-0.5,3.3-1.4c0.9-0.9,1.4-2,1.4-3.3v-4.3c0-0.3-0.1-0.6-0.3-0.8c-0.2-0.2-0.5-0.3-0.8-0.3\n            h-0.9c-0.3,0-0.6,0.1-0.8,0.3c-0.2,0.2-0.3,0.5-0.3,0.8v4.3c0,0.4-0.1,0.7-0.4,1c-0.3,0.3-0.6,0.4-1,0.4H4.6\n            c-0.4,0-0.7-0.1-1-0.4c-0.3-0.3-0.4-0.6-0.4-1V8c0-0.4,0.1-0.7,0.4-1c0.3-0.3,0.6-0.4,1-0.4H14c0.3,0,0.6-0.1,0.8-0.3\n            c0.2-0.2,0.3-0.5,0.3-0.8V4.6c0-0.3-0.1-0.6-0.3-0.8C14.7,3.5,14.4,3.4,14,3.4L14,3.4z\"/>\n  </g>\n  <g>\n        <path d=\"M24.5,2.7c-0.2-0.2-0.4-0.3-0.6-0.3H17c-0.2,0-0.4,0.1-0.6,0.3c-0.2,0.2-0.3,0.4-0.3,0.6c0,0.2,0.1,0.4,0.3,0.6l2.4,2.4\n            L10.1,15c-0.1,0.1-0.1,0.2-0.1,0.3c0,0.1,0,0.2,0.1,0.3l1.5,1.5c0.1,0.1,0.2,0.1,0.3,0.1c0.1,0,0.2,0,0.3-0.1l8.7-8.7l2.4,2.4\n            c0.2,0.2,0.4,0.3,0.6,0.3s0.4-0.1,0.6-0.3c0.2-0.2,0.3-0.4,0.3-0.6V3.3C24.7,3.1,24.7,2.9,24.5,2.7z\"/>\n        <path class=\"border\" d=\"M23.9,2.5c0.2,0,0.4,0.1,0.6,0.3c0.2,0.2,0.3,0.4,0.3,0.6v6.9c0,0.2-0.1,0.4-0.3,0.6\n            C24.3,11,24.1,11,23.9,11c-0.2,0-0.4-0.1-0.6-0.3l-2.4-2.4l-8.7,8.7c-0.1,0.1-0.2,0.1-0.3,0.1s-0.2,0-0.3-0.1l-1.5-1.5\n            c-0.1-0.1-0.1-0.2-0.1-0.3c0-0.1,0-0.2,0.1-0.3l8.7-8.7l-2.4-2.4c-0.2-0.2-0.3-0.4-0.3-0.6c0-0.2,0.1-0.4,0.3-0.6\n            c0.2-0.2,0.4-0.3,0.6-0.3H23.9 M23.9,1.7H17c-0.4,0-0.8,0.2-1.1,0.5c-0.3,0.3-0.5,0.7-0.5,1.1c0,0.4,0.2,0.8,0.5,1.1l1.8,1.8\n            l-8.2,8.2c-0.2,0.2-0.4,0.5-0.4,0.8c0,0.3,0.1,0.6,0.4,0.8l1.5,1.5c0.2,0.2,0.5,0.4,0.8,0.4c0.3,0,0.6-0.1,0.8-0.4l8.2-8.2\n            l1.8,1.8c0.3,0.3,0.7,0.5,1.1,0.5c0.4,0,0.8-0.2,1.1-0.5c0.3-0.3,0.5-0.7,0.5-1.1V3.3c0-0.4-0.2-0.8-0.5-1.1\n            C24.7,1.9,24.3,1.7,23.9,1.7L23.9,1.7z\"/>\n  </g>\n</g>\n  </svg>\n";
+
+/***/ }),
+/* 115 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(0);
@@ -37586,13 +37602,13 @@ var Nav = function (_React$Component) {
 module.exports = (0, _reactRouter.withRouter)(Nav);
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _modernizr = __webpack_require__(116);
+var _modernizr = __webpack_require__(117);
 
 var _modernizr2 = _interopRequireDefault(_modernizr);
 
@@ -37626,7 +37642,7 @@ var checkSupport = function checkSupport(resolve, reject) {
 module.exports = new Promise(checkSupport);
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports) {
 
 ;(function(window){

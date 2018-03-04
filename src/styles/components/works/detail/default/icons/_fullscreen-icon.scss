@@ -1,0 +1,26 @@
+.fullscreen-icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+
+  .fullscreen-on {
+    display: block;
+  }
+
+  .fullscreen-off {
+    display: none;
+  }
+}
+
+.head.fullscreen {
+  .fullscreen-icon {
+    .fullscreen-on {
+      display: none;
+    }
+
+    .fullscreen-off {
+      display: block;
+    }
+  }
+}

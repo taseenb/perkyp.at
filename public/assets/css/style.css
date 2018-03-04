@@ -5701,11 +5701,6 @@ a.list-item .details .year {
   position: relative;
 }
 
-.detail .overlay {
-  z-index: 10;
-  pointer-events: none;
-}
-
 .detail.default .head {
   position: relative;
   overflow: hidden;
@@ -5855,6 +5850,20 @@ a.list-item .details .year {
   position: absolute;
 }
 
+.detail.default .head .overlay {
+  z-index: 10;
+  pointer-events: none;
+}
+
+.detail.default .head.fullscreen {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 .detail.default .text .inner .title {
   font-size: 28px;
   line-height: 1.3;
@@ -5969,49 +5978,6 @@ a.list-item .details .year {
           user-select: none;
 }
 
-.detail.default .iframe-container.fullscreen {
-  position: fixed;
-  z-index: 1000;
-}
-
-.detail.default .iframe-container.fullscreen .fullscreen-svg .fullscreen {
-  display: none;
-}
-
-.detail.default .iframe-container.fullscreen .fullscreen-svg .exit-fullscreen {
-  display: block;
-}
-
-.detail.default .iframe-container .fullscreen-svg {
-  position: absolute;
-  z-index: 100;
-  bottom: 12px;
-  right: 12px;
-  width: 40px;
-  height: 40px;
-  padding: 8px;
-  cursor: pointer;
-}
-
-.detail.default .iframe-container .fullscreen-svg .fullscreen {
-  display: block;
-}
-
-.detail.default .iframe-container .fullscreen-svg .exit-fullscreen {
-  display: none;
-}
-
-.detail.default .iframe-container .fullscreen-svg .exit-fullscreen path,
-.detail.default .iframe-container .fullscreen-svg .fullscreen path {
-  fill: white;
-  stroke: none;
-}
-
-.detail.default .iframe-container .fullscreen-svg .exit-fullscreen path.border,
-.detail.default .iframe-container .fullscreen-svg .fullscreen path.border {
-  fill: #666666;
-}
-
 .detail.default .credits {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -6038,6 +6004,45 @@ a.list-item .details .year {
     font-size: 36px;
     padding: 0 0 18px 0;
   }
+}
+
+.detail.default .icons {
+  position: absolute;
+  z-index: 100;
+  bottom: 12px;
+  right: 12px;
+}
+
+.detail.default .icons svg {
+  position: relative;
+  display: block;
+}
+
+.detail.default .fullscreen-icon {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.detail.default .fullscreen-icon .fullscreen-on {
+  display: block;
+}
+
+.detail.default .fullscreen-icon .fullscreen-off {
+  display: none;
+}
+
+.detail.default .head.fullscreen .fullscreen-icon .fullscreen-on {
+  display: none;
+}
+
+.detail.default .head.fullscreen .fullscreen-icon .fullscreen-off {
+  display: block;
+}
+
+.detail.default .head.fullscreen .icons {
+  z-index: 2000;
 }
 
 #w152 .iframe-container,
@@ -6072,6 +6077,15 @@ a.list-item .details .year {
 
 #pride-prejudice .iframe-container {
   background-color: #fff;
+}
+
+#pride-prejudice .head .bg {
+  background-size: 100% auto;
+  background-repeat: no-repeat;
+}
+
+#pride-prejudice .images .img {
+  border: 1px solid #e9ecef;
 }
 
 #page404 {

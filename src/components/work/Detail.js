@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import createCover from '../../utils/create-cover'
 import VimeoPlayer from '@vimeo/player'
 import fullscreenBtn from './detail/fullscreen-svg'
+import externalLinkBtn from './detail/external-link-svg'
 
 class Detail extends React.Component {
   constructor (props) {
@@ -32,6 +33,11 @@ class Detail extends React.Component {
 
   componentDidMount () {
     if (this.props.isBrowser) {
+      // Cache DOM elements
+      this.$el = $(`#${this.props.data.seo}`)
+      this.$head = this.$el.find('.head')
+      this.$icons = this.$head.find('.icons')
+
       // Remove autoplay video on mobile (on iphone they start in fullscreen even if hidden)
       if (this.props.isMobile) {
         const videos = document.querySelectorAll(`#${this.props.seo} video[autoplay]`)
@@ -54,13 +60,13 @@ class Detail extends React.Component {
       // Init Vimeo
       this.setupVimeo()
 
-      // Init iframes
-      this.setupIframes()
+      // Init icons (fullscreen)
+      this.setupIcons()
     }
   }
 
   setupVimeo () {
-    const $vimeos = $('.vimeo-iframe')
+    const $vimeos = this.$el.find('.vimeo-iframe')
     this.players = []
 
     $vimeos.each((i, el) => {
@@ -87,18 +93,18 @@ class Detail extends React.Component {
     }
   }
 
-  setupIframes () {
-    const $iframes = $('.iframe-container')
-    $($iframes).append(fullscreenBtn)
-    const $fullscreenBtn = $iframes.find('.fullscreen-svg')
-
-    $fullscreenBtn.on('click', (e) => {
-      $(e.currentTarget).parent().toggleClass('fullscreen')
+  setupIcons () {
+    // Fullscreen
+    const $fullscreenBtn = this.$icons.find('.fullscreen-icon')
+    $fullscreenBtn.on('click', e => {
+      $(e.currentTarget)
+        .closest('.head')
+        .toggleClass('fullscreen')
     })
   }
 
   removeIframeEvents () {
-    $('.iframe-container .fullscreen.icon').off('click')
+    this.$icons.find('.fullscreen-icon').off('click')
   }
 
   enableImageZoom () {

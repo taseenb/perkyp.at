@@ -1,0 +1,19 @@
+.icons {
+  position: absolute;
+  z-index: 100;
+  bottom: 12px;
+  right: 12px;
+
+  svg {
+    position: relative;
+    display: block;
+  }
+}
+
+@import 'icons/fullscreen-icon';
+
+.head.fullscreen {
+  .icons {
+    z-index: 2000;
+  }
+}
