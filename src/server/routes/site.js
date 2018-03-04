@@ -17,12 +17,6 @@ const router = express.Router()
 router.get('*', (req, res) => {
   const context = {}
 
-  const initialMarkup = ReactDOMServer.renderToString(
-    <StaticRouter location={req.url} context={context}>
-      <App initialData={state} />
-    </StaticRouter>
-  )
-
   if (context.url) {
     res.writeHead(301, {
       Location: context.url
@@ -32,20 +26,41 @@ router.get('*', (req, res) => {
     // Add the requested id if present
     state.requestedId = req.params.id
 
-    // Add url and path information
-
     // Base url
     const protocol = req.protocol // protocol = http or https
     const hostname = req.headers.host // hostname = 'localhost:8080'
     const path = req.path // pathname = '/MyApp'
     const url = protocol + '://' + hostname + '/'
 
-    debug(url, context)
+    // Is it a work?
+    const worksNames = state.works.map(w => w.seo)
+    let workId = req.url.indexOf('/work/') > -1 ? req.url.replace('/work/', '') : null
+    workId = workId && worksNames.indexOf(workId) > -1 ? workId : null
+    const workIdx = workId && worksNames.indexOf(workId)
+    const workData = workId ? state.works[workIdx] : null
 
+    // Is it a static page?
+    const pagesNames = Object.keys(state.pages)
+    let pageId = path.replace('/', '')
+    pageId = pageId && pagesNames.indexOf(pageId) > -1 ? pageId : null
+
+    debug(url, workId, pageId, context)
+
+    // Update state with current request
     state.protocol = protocol
     state.hostname = hostname
     state.path = path
     state.url = url
+    state.workId = workId
+    state.description = workId ? workData.intro : state.ogDescription
+    state.workName = workId ? workData.name + ' - ' : ''
+    state.pageId = pageId
+
+    const initialMarkup = ReactDOMServer.renderToString(
+      <StaticRouter location={req.url} context={context}>
+        <App initialData={state} />
+      </StaticRouter>
+    )
 
     res.render('index', {
       initialMarkup,

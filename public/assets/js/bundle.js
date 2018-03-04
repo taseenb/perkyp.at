@@ -34561,7 +34561,7 @@ var ListItem = function ListItem(props) {
     _react2.default.createElement(
       'span',
       { className: 'image-wrapper' },
-      _react2.default.createElement('img', { src: 'assets/works/' + props.seo + '/' + props.preview })
+      _react2.default.createElement('img', { src: 'assets/work/' + props.seo + '/' + props.preview })
     ),
     _react2.default.createElement(
       'span',

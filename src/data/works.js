@@ -11,7 +11,7 @@ module.exports = [
     vimeoId: null,
     iframe: 'https://the-hunt.surge.sh/',
     external: 'https://the-hunt.surge.sh/',
-    detail: require('./works/the-hunt.html'),
+    detail: require('./work/the-hunt.html'),
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -20,13 +20,13 @@ module.exports = [
     active: 1,
     name: 'The code of nature in 3D',
     year: 2017,
-    intro: '3D port of Shiffman\'s autonomous agents',
+    intro: 'A study of autonomous agents',
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
     iframe: 'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
     external: 'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
-    detail: require('./works/the-code-of-nature-3d.html'),
+    detail: require('./work/the-code-of-nature-3d.html'),
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -39,7 +39,7 @@ module.exports = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    detail: require('./works/fan-beat.html'),
+    detail: require('./work/fan-beat.html'),
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -53,7 +53,7 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     external: 'https://d1xso9gob5fu6y.cloudfront.net/',
-    detail: require('./works/pride-prejudice.html'),
+    detail: require('./work/pride-prejudice.html'),
     template: 'default' // can be 'base' or null (default is null)
   },
   {
@@ -67,7 +67,7 @@ module.exports = [
     image: 'main.jpg',
     vimeoId: null,
     external: 'https://labs.theguardian.com/2016/heathrow-airport-of-the-future/',
-    detail: require('./works/the-airport-of-the-future.html'),
+    detail: require('./work/the-airport-of-the-future.html'),
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -80,7 +80,7 @@ module.exports = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    detail: require('./works/w152.html'),
+    detail: require('./work/w152.html'),
     template: 'default' // can be 'default' or null (default is null)
   }
 ]
