@@ -7,6 +7,7 @@ module.exports = {
   metaDescription: 'Digital artist, developer, front end - Freelance',
   ogTitle: 'Perky Pat',
   ogDescription: 'Art, code',
+  ogImage: 'assets/main.jpg',
   works: works,
   pages: pages
 }

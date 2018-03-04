@@ -44,6 +44,14 @@ router.get('*', (req, res) => {
     let pageId = path.replace('/', '')
     pageId = pageId && pagesNames.indexOf(pageId) > -1 ? pageId : null
 
+    // Get the right ogImage
+    let ogImage = state.ogImage
+    if (workId) {
+      ogImage = `assets/work/${workData.seo}/main.jpg`
+    } else if (pageId) {
+      ogImage = `assets/pages/${pageId}/main.jpg`
+    }
+
     debug(url, workId, pageId, context)
 
     // Update state with current request
@@ -55,6 +63,7 @@ router.get('*', (req, res) => {
     state.description = workId ? workData.intro : state.ogDescription
     state.workName = workId ? workData.name + ' - ' : ''
     state.pageId = pageId
+    state.ogImage = ogImage
 
     const initialMarkup = ReactDOMServer.renderToString(
       <StaticRouter location={req.url} context={context}>

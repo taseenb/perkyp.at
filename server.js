@@ -370,6 +370,14 @@ router.get('*', (req, res) => {
     let pageId = path.replace('/', '');
     pageId = pageId && pagesNames.indexOf(pageId) > -1 ? pageId : null;
 
+    // Get the right ogImage
+    let ogImage = state.ogImage;
+    if (workId) {
+      ogImage = `assets/work/${workData.seo}/main.jpg`;
+    } else if (pageId) {
+      ogImage = `assets/pages/${pageId}/main.jpg`;
+    }
+
     debug(url, workId, pageId, context);
 
     // Update state with current request
@@ -381,6 +389,7 @@ router.get('*', (req, res) => {
     state.description = workId ? workData.intro : state.ogDescription;
     state.workName = workId ? workData.name + ' - ' : '';
     state.pageId = pageId;
+    state.ogImage = ogImage;
 
     const initialMarkup = ReactDOMServer.renderToString(React.createElement(
       StaticRouter,
@@ -1213,6 +1222,7 @@ module.exports = {
   metaDescription: 'Digital artist, developer, front end - Freelance',
   ogTitle: 'Perky Pat',
   ogDescription: 'Art, code',
+  ogImage: 'assets/main.jpg',
   works: works,
   pages: pages
 };
