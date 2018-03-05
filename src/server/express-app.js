@@ -49,6 +49,7 @@ app.use((req, res, next) => {
 })
 
 // Static files w cache
+app.use('/favicon.ico', express.static('public/favicon.ico'))
 app.use('/assets', express.static('public/assets'))
 
 // React app (routing is managed by React router, including 404)
