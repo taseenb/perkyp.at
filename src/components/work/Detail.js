@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import createCover from '../../utils/create-cover'
 import VimeoPlayer from '@vimeo/player'
-import fullscreenBtn from './detail/fullscreen-svg'
-import externalLinkBtn from './detail/external-link-svg'
 
 class Detail extends React.Component {
   constructor (props) {
