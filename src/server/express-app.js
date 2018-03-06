@@ -50,7 +50,7 @@ app.use((req, res, next) => {
 
 // Static files w cache
 app.use('/favicon.ico', express.static('public/favicon.ico'))
-app.use('/robot.txt', express.static('public/robot.txt'))
+app.use('/robots.txt', express.static('public/robots.txt'))
 app.use('/assets', express.static('public/assets'))
 
 // React app (routing is managed by React router, including 404)
