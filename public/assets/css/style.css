@@ -6051,9 +6051,22 @@ a.list-item .details .year {
   z-index: 2000;
 }
 
+#w152 {
+  background-color: #e7e7e7;
+}
+
+#w152 .images .image .img,
+#w152 .images .vimeo iframe {
+  border: 1px solid #ccc;
+}
+
 #w152 .iframe-container,
 #w152 .head {
   background-color: #e7e7e7;
+}
+
+#fan-beat {
+  background-color: #0b0d1a;
 }
 
 #fan-beat .color1 {

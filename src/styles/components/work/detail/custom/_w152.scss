@@ -1,6 +1,15 @@
 #w152 {
   $w152Color: #e7e7e7;
 
+  background-color: $w152Color;
+
+  .images {
+    .image .img,
+    .vimeo iframe {
+      border: 1px solid #ccc;
+    }
+  }
+
   .iframe-container,
   .head {
     background-color: $w152Color;
