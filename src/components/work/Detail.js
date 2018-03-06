@@ -117,7 +117,7 @@ class Detail extends React.Component {
       if ($image.hasClass('no-zoom')) return
 
       if ($image.find('.row-zoom').length && $image.find('.col-zoom').length) {
-        $image.on('click', this.toggleZoom)
+        $image.find('.img').on('click', this.toggleZoom)
       }
     })
   }
@@ -127,7 +127,7 @@ class Detail extends React.Component {
   }
 
   toggleZoom (e) {
-    const $el = $(e.currentTarget)
+    const $el = $(e.currentTarget).closest('.image')
     const $row = $el.find('.row-zoom')
     const $col = $el.find('.col-zoom')
     const zoomed = $el.hasClass('zoomed')

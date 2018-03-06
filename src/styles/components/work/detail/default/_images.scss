@@ -13,15 +13,15 @@
 
     &.vimeo,
     &.image {
-      cursor: pointer;
-
       &.no-zoom {
         cursor: auto;
       }
 
-      img {
+      .img {
         display: block;
         max-width: 100%;
+
+        cursor: pointer;
       }
     }
 

@@ -57,6 +57,19 @@ module.exports = [
     template: 'default' // can be 'base' or null (default is null)
   },
   {
+    uid: 4001,
+    seo: 'glabs',
+    active: 1,
+    name: 'The Guardian Labs',
+    year: 2016,
+    intro: 'Interactive pages for editorial content',
+    preview: 'preview.jpg',
+    image: 'main.jpg',
+    vimeoId: null,
+    detail: require('./work/glabs.html'),
+    template: 'default' // can be 'default' or null (default is null)
+  },
+  {
     uid: 4473,
     seo: 'the-airport-of-the-future',
     active: 1,

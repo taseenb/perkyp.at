@@ -9,16 +9,30 @@
   h1 {
     padding: 0 0 20px 0;
     margin: 0;
-    font-size: 48px;
+    font-size: 2em;
     text-align: left;
   }
 
   h2 {
     text-align: left;
     font-weight: bold;
-    padding: 10px 0;
+    padding: 20px 0 10px;
     margin: 0;
-    font-size: 16px;
-    text-transform: uppercase;
+    font-size: 1.4em;
+    // text-transform: uppercase;
   }
+
+  p {
+    padding: 0;
+    margin: 0;
+  }
+
+  .sub {
+    margin-bottom: 10px;
+    font-style: italic;
+    font-weight: bold;
+    // font-size: 1.6em;
+    // font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
 }

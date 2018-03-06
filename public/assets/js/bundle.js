@@ -34759,7 +34759,7 @@ var Detail = function (_React$Component) {
         if ($image.hasClass('no-zoom')) return;
 
         if ($image.find('.row-zoom').length && $image.find('.col-zoom').length) {
-          $image.on('click', _this3.toggleZoom);
+          $image.find('.img').on('click', _this3.toggleZoom);
         }
       });
     }
@@ -34771,7 +34771,7 @@ var Detail = function (_React$Component) {
   }, {
     key: 'toggleZoom',
     value: function toggleZoom(e) {
-      var $el = $(e.currentTarget);
+      var $el = $(e.currentTarget).closest('.image');
       var $row = $el.find('.row-zoom');
       var $col = $el.find('.col-zoom');
       var zoomed = $el.hasClass('zoomed');
