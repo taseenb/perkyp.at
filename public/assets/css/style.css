@@ -6076,20 +6076,15 @@ a.list-item .details .year {
 }
 
 #the-hunt {
-  background-color: #333333;
+  background-color: #444444;
 }
 
-#the-hunt .border {
+#the-hunt .head .border {
   border-color: #666 !important;
 }
 
-#the-hunt .images .art.zoomed .img {
-  border-left: none !important;
-  border-right: none !important;
-}
-
-#the-hunt .images .art .img {
-  border: 1px solid #666;
+#the-hunt .head.fullscreen .border {
+  border: none !important;
 }
 
 #pride-prejudice .iframe-container {
@@ -6108,6 +6103,14 @@ a.list-item .details .year {
 
 #pride-prejudice .images .art .img {
   border: 1px solid #e9ecef;
+}
+
+#the-code-of-nature-3d {
+  background-color: #ddd;
+}
+
+#the-code-of-nature-3d .border {
+  border-color: #ddd !important;
 }
 
 #page404 {
