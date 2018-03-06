@@ -30,13 +30,19 @@
       max-width: 100%;
     }
 
-    &.zoomed .caption {
-      padding-left: map-get($spacers, 2) !important;
-      padding-right: map-get($spacers, 2) !important;
+    &.zoomed {
+      // .img {
+      //   border: none !important;
+      // }
 
-      @include media-breakpoint-up(md) {
-        padding-left: map-get($spacers, 4) !important;
-        @include make-col(8);
+      .caption {
+        padding-left: map-get($spacers, 2) !important;
+        padding-right: map-get($spacers, 2) !important;
+
+        @include media-breakpoint-up(md) {
+          padding-left: map-get($spacers, 4) !important;
+          @include make-col(8);
+        }
       }
     }
   }

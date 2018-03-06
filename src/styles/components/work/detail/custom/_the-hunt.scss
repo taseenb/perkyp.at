@@ -1,8 +1,23 @@
 #the-hunt {
-  // $w152Color: #333333;
+  $theHuntColor: #333333;
 
-  .iframe-container,
-  .head {
-    // background-color: $w152Color;
+  background-color: $theHuntColor;
+
+  .border {
+    border-color: #666 !important;
+  }
+
+  .images {
+    .art {
+      &.zoomed {
+        .img {
+          border-left: none !important;
+          border-right: none !important;
+        }
+      }
+      .img {
+        border: 1px solid #666;
+      }
+    }
   }
 }

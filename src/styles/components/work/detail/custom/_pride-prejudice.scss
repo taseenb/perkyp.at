@@ -11,8 +11,16 @@
   }
 
   .images {
-    .img {
-      border: 1px solid $border-color;
+    .art {
+      &.zoomed {
+        .img {
+          border-left: none !important;
+          border-right: none !important;
+        }
+      }
+      .img {
+        border: 1px solid $border-color;
+      }
     }
   }
 }

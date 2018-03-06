@@ -5417,6 +5417,7 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-
   height: 100%;
   min-height: 100%;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  color: #333;
 }
 
 #main > [data-reactroot] {
@@ -5438,6 +5439,10 @@ body::-webkit-scrollbar, body::-webkit-scrollbar-thumb, body::-webkit-scrollbar-
 #main .link:hover {
   text-decoration: underline;
   color: #333;
+}
+
+#main .dark {
+  color: white;
 }
 
 #main .dark a,
@@ -6070,6 +6075,23 @@ a.list-item .details .year {
   color: #de8a2e;
 }
 
+#the-hunt {
+  background-color: #333333;
+}
+
+#the-hunt .border {
+  border-color: #666 !important;
+}
+
+#the-hunt .images .art.zoomed .img {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+#the-hunt .images .art .img {
+  border: 1px solid #666;
+}
+
 #pride-prejudice .iframe-container {
   background-color: #fff;
 }
@@ -6079,7 +6101,12 @@ a.list-item .details .year {
   background-repeat: no-repeat;
 }
 
-#pride-prejudice .images .img {
+#pride-prejudice .images .art.zoomed .img {
+  border-left: none !important;
+  border-right: none !important;
+}
+
+#pride-prejudice .images .art .img {
   border: 1px solid #e9ecef;
 }
 
