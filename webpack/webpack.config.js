@@ -107,7 +107,7 @@ module.exports = options => {
       // contentBase: '.',
       // watchContentBase: true,
       // publicPath: '/',
-      hot: false,
+      hot: false
       // proxy: {
       //   '/': httpServerUrl
       // }
