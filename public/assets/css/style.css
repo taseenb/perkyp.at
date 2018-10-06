@@ -6127,6 +6127,10 @@ a.list-item .details .year {
   border-color: #ddd !important;
 }
 
+#seda .bg {
+  background-position: -60px center;
+}
+
 #page404 {
   position: relative;
   height: 100%;
