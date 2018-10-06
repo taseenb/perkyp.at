@@ -1,5 +1,20 @@
 module.exports = [
   {
+    uid: 5154,
+    seo: 'seda',
+    active: 1,
+    name: 'World economic development',
+    year: 2016,
+    intro: 'Interactive data visualisation',
+    preview: 'preview.jpg',
+    image: 'main.jpg',
+    vimeoId: null,
+    iframe: 'https://seda-dataviz.surge.sh/',
+    external: 'https://seda-dataviz.surge.sh/',
+    detail: require('./work/seda.html'),
+    template: 'default' // can be 'default' or null (default is null)
+  },
+  {
     uid: 5153,
     seo: 'the-hunt',
     active: 1,
