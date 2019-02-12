@@ -17,7 +17,8 @@
     "build": "run-p build:*",
     "build:front": "./node_modules/.bin/webpack --config ./webpack/webpack-prod.config.js --colors",
     "build:back": "./node_modules/.bin/webpack --config ./webpack/webpack-node.config.js --env production --colors --verbose --progress",
-    "heroku-postbuild": "yarn run build",
+    "OLDheroku-postbuild": "yarn run build",
+    "heroku-postbuild": "",
     "pushall": "git add --all . && git commit -m \"update\" && git push",
     "ncu": "npm-check-updates",
     "local-heroku": "export HEROKU_APP=perkypat-node-static",
@@ -96,5 +97,6 @@
       "Linear",
       "Modernizr"
     ]
-  }
+  },
+  "heroku-run-build-script": true
 }

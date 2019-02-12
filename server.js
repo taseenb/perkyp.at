@@ -1283,7 +1283,7 @@ module.exports = "<div class=\"row no-gutters py-md-4 px-md-4 px-2 py-2\">\n  <d
 /* 36 */
 /***/ (function(module, exports) {
 
-module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\nLondon E8\n<br>\n<br>\n<a href=\"#\" rel=\"mail/perkyp*at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\n<a href=\"https://twitter.com/perkyp_at\" target=\"_blank\">Twitter</a>\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\" target=\"_blank\">Linkedin</a>"
+module.exports = "<strong>Esteban ALMIRON</strong>\n<br>\nLondon E8\n<br>\n<br>\n<a href=\"#\" rel=\"mail/perkyp*at\" class=\"rj4kj325jn88dJ3HwwlP\"></a>\n<br>\n<a href=\"https://github.com/taseenb\" target=\"_blank\">Github</a>\n<br>\n<a href=\"https://twitter.com/perkyp_at\" target=\"_blank\">Twitter</a>\n<br>\n<a href=\"https://www.linkedin.com/in/estebanalmiron\" target=\"_blank\">Linkedin</a>"
 
 /***/ }),
 /* 37 */
