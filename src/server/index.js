@@ -1,9 +1,11 @@
 // require('source-map-support').install()
-const config = require('./config')
-const app = require('./express-app')
-const debug = require('debug')('app:www')
-const http = require('http')
-const fs = require('fs')
+import config from './config'
+import app from './express-app'
+import d from 'debug'
+import http from 'http'
+import fs from 'fs'
+
+const debug = d('app:www')
 
 const port = normalizePort(config.port)
 app.set('port', port)

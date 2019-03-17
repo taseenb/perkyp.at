@@ -24,4 +24,4 @@ ListItem.propTypes = {
   intro: PropTypes.string.isRequired
 }
 
-module.exports = ListItem
+export default ListItem

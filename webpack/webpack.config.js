@@ -6,7 +6,9 @@ const WriteFilePlugin = require('write-file-webpack-plugin')
 // const httpServerUrl = 'http://localhost:7777/' // Node server (backend)
 
 module.exports = options => {
-  const env = JSON.stringify(options.isProduction ? 'production' : 'development')
+  const isProd = options.isProduction
+  const mode = options.isProduction ? 'production' : 'development'
+  const env = JSON.stringify(mode)
   const ExtractSASS = new ExtractTextPlugin(`css/${options.cssFileName}`)
   const entry = [path.join(__dirname, options.entry)]
 
@@ -23,6 +25,7 @@ module.exports = options => {
       path: path.join(__dirname, options.outputDir),
       filename: options.outputFilename
     },
+    mode,
     module: {
       rules: [
         {
@@ -32,18 +35,31 @@ module.exports = options => {
             loader: 'babel-loader',
             options: {
               presets: [
-                'react',
+                '@babel/preset-react',
                 [
-                  'env',
+                  '@babel/preset-env',
                   {
                     targets: {
-                      browsers: ['last 2 versions']
+                      browsers: [
+                        '>1.5%',
+                        'not ie <12',
+                        'not iOS <9',
+                        'not Android <5',
+                        'not Opera <1000',
+                        'not Samsung <1000',
+                        'not Baidu <1000',
+                        'not ExplorerMobile <1000',
+                        'not OperaMobile <1000',
+                        'not OperaMini all',
+                        'not dead'
+                      ]
                     },
-                    forceAllTransforms: true,
-                    useBuiltIns: true
+                    // forceAllTransforms: true, // needed by uglifyjs because it doesn't support ES6 yet
+                    useBuiltIns: 'entry'
                   }
                 ]
-              ]
+              ],
+              plugins: isProd ? ['@babel/plugin-transform-react-inline-elements'] : undefined
             }
           }
         },

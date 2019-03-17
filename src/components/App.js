@@ -78,4 +78,4 @@ App.propTypes = {
   initialData: PropTypes.object.isRequired
 }
 
-module.exports = withRouter(App)
+export default withRouter(App)

@@ -19,4 +19,4 @@ Works.propTypes = {
   works: PropTypes.array.isRequired
 }
 
-module.exports = Works
+export default Works

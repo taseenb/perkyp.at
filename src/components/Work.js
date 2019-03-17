@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const ListItem = require('./work/ListItem')
-const Detail = require('./work/Detail')
+import ListItem from './work/ListItem'
+import Detail from './work/Detail'
 
 class Work extends React.Component {
   render () {
@@ -23,4 +23,4 @@ Work.propTypes = {
   works: PropTypes.array
 }
 
-module.exports = Work
+export default Work

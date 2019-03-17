@@ -1,13 +1,15 @@
-const config = require('./config')
-const state = require('./state')
-const express = require('express')
-const compression = require('compression')
-const path = require('path')
-const debug = require('debug')('app:main') // Site router
-const siteRouter = require('./routes/site')
+import config from './config'
+import state from './state'
+import express from 'express'
+import compression from 'compression'
+import path from 'path'
+import d from 'debug'
+import siteRouter from './routes/site'
 
 // Data
-const initialData = require('../data/initialData')
+import initialData from '../data/initialData'
+
+const debug = d('app:main') // Site router
 
 const app = express()
 
@@ -56,4 +58,4 @@ app.use('/assets', express.static('public/assets'))
 // React app (routing is managed by React router, including 404)
 app.use('/', siteRouter)
 
-module.exports = app
+export default app

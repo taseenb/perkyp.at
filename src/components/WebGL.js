@@ -1,15 +1,15 @@
-const React = require('react')
-const PropTypes = require('prop-types')
+import React from 'react'
+import PropTypes from 'prop-types'
 
 class WebGL extends React.Component {
   componentDidMount () {
-    // const particles = require('./webgl/particles');
+    // const particles from './webgl/particles');
     // particles('#webgl-canvas');
 
-    // const crossfade = require('./webgl/crossfade')
+    // const crossfade from './webgl/crossfade')
     // crossfade('#webgl-canvas')
 
-    // const parametricCurves = require('./webgl/parametric-curves');
+    // const parametricCurves from './webgl/parametric-curves');
     // parametricCurves('#webgl-canvas', this.context.isMobile);
   }
 
@@ -30,4 +30,4 @@ WebGL.contextTypes = {
   isMobile: PropTypes.bool
 }
 
-module.exports = WebGL
+export default WebGL

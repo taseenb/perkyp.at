@@ -1,4 +1,4 @@
-module.exports = [
+const works = [
   {
     uid: 5154,
     seo: 'seda',
@@ -39,8 +39,10 @@ module.exports = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    iframe: 'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
-    external: 'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
+    iframe:
+      'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
+    external:
+      'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
     detail: require('./work/the-code-of-nature-3d.html'),
     template: 'default' // can be 'default' or null (default is null)
   },
@@ -94,7 +96,8 @@ module.exports = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    external: 'https://labs.theguardian.com/2016/heathrow-airport-of-the-future/',
+    external:
+      'https://labs.theguardian.com/2016/heathrow-airport-of-the-future/',
     detail: require('./work/the-airport-of-the-future.html'),
     template: 'default' // can be 'default' or null (default is null)
   },
@@ -112,3 +115,5 @@ module.exports = [
     template: 'default' // can be 'default' or null (default is null)
   }
 ]
+
+export default works

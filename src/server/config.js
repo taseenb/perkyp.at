@@ -1,6 +1,6 @@
 const env = process.env
 
-module.exports = {
+export default {
   env: env.NODE_ENV || 'development',
   // port: env.PORT || 7777,
   port: 7777, //  process.env.PORT in Heroku is used by NGINX!

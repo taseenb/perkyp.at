@@ -1,7 +1,7 @@
-const React = require('react')
+import React from 'react'
 
 const Bio = props => (
   <div id='bio' className='page' dangerouslySetInnerHTML={{ __html: props.html }} />
 )
 
-module.exports = Bio
+export default Bio

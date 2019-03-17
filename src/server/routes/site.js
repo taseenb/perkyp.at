@@ -1,16 +1,20 @@
-const config = require('../config')
-const state = require('../state')
-const express = require('express')
-const debug = require('debug')('app:site')
+import config from '../config'
+import state from '../state'
+import express from 'express'
+import d from 'debug'
 
 // Data
-// const initialData = require('../../data/initialData')
+// const initialData from '../../data/initialData')
 
 // React
-const React = require('react')
-const ReactDOMServer = require('react-dom/server')
-const StaticRouter = require('react-router').StaticRouter
-const App = require('../../components/App.js')
+import React from 'react'
+import ReactDOMServer from 'react-dom/server'
+import { StaticRouter } from 'react-router'
+import App from '../../components/App.js'
+
+const debug = d('app:site')
+
+// const StaticRouter = ReactRouter.StaticRouter
 
 // Router
 const router = express.Router()
@@ -34,7 +38,8 @@ router.get('*', (req, res) => {
 
     // Is it a work?
     const worksNames = state.works.map(w => w.seo)
-    let workId = req.url.indexOf('/work/') > -1 ? req.url.replace('/work/', '') : null
+    let workId =
+      req.url.indexOf('/work/') > -1 ? req.url.replace('/work/', '') : null
     workId = workId && worksNames.indexOf(workId) > -1 ? workId : null
     const workIdx = workId && worksNames.indexOf(workId)
     const workData = workId ? state.works[workIdx] : null
@@ -81,4 +86,4 @@ router.get('*', (req, res) => {
   }
 })
 
-module.exports = router
+export default router

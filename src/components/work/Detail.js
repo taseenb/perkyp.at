@@ -224,4 +224,4 @@ Detail.propTypes = {
   data: PropTypes.object.isRequired
 }
 
-module.exports = Detail
+export default Detail

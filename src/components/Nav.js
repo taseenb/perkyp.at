@@ -79,4 +79,4 @@ class Nav extends React.Component {
   }
 }
 
-module.exports = withRouter(Nav)
+export default withRouter(Nav)

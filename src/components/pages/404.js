@@ -10,4 +10,4 @@ const Page = props => (
   </div>
 )
 
-module.exports = Page
+export default Page

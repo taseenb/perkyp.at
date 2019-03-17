@@ -25,4 +25,4 @@ const checkSupport = (resolve, reject) => {
   }
 }
 
-module.exports = new Promise(checkSupport)
+export default new Promise(checkSupport)
