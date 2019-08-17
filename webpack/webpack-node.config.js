@@ -10,7 +10,7 @@ module.exports = env => {
       path: path.join(__dirname, '../'),
       filename: 'server.js'
     },
-    mode: env,
+    mode: env.NODE_ENV || 'development',
     // devtool: 'cheap-module-inline-source-map',
     target: 'node',
     node: false, // IMPORTANT!
@@ -45,8 +45,16 @@ module.exports = env => {
             }
           }
         },
-        { test: /\.(glsl|frag|vert|vs|fs|txt|html)$/, use: 'raw-loader', exclude: /node_modules/ },
-        { test: /\.(glsl|frag|vert|vs|fs)$/, loader: 'glslify-loader', exclude: /node_modules/ },
+        {
+          test: /\.(glsl|frag|vert|vs|fs|txt|html)$/,
+          use: 'raw-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.(glsl|frag|vert|vs|fs)$/,
+          loader: 'glslify-loader',
+          exclude: /node_modules/
+        },
         { test: /\.modernizrrc.js$/, loader: 'modernizr-loader' }
         // { test: /\.modernizrrc(\.json)?$/, loader: 'modernizr-loader!json-loader' }
       ]

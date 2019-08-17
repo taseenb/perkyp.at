@@ -3,13 +3,17 @@ const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const WriteFilePlugin = require('write-file-webpack-plugin')
 
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+
 // const httpServerUrl = 'http://localhost:7777/' // Node server (backend)
 
 module.exports = options => {
   const isProd = options.isProduction
-  const mode = options.isProduction ? 'production' : 'development'
+  const mode = options.mode
   const env = JSON.stringify(mode)
-  const ExtractSASS = new ExtractTextPlugin(`css/${options.cssFileName}`)
+  // const ExtractSASS = new ExtractTextPlugin(options.cssFileName)
   const entry = [path.join(__dirname, options.entry)]
 
   // if (env === 'development') {
@@ -56,22 +60,34 @@ module.exports = options => {
                     },
                     // forceAllTransforms: true, // needed by uglifyjs because it doesn't support ES6 yet
                     useBuiltIns: 'entry'
+                    // corejs: 3
                   }
                 ]
               ],
-              plugins: isProd ? ['@babel/plugin-transform-react-inline-elements'] : undefined
+              plugins: isProd
+                ? ['@babel/plugin-transform-react-inline-elements']
+                : null
             }
           }
         },
         {
-          test: /\.(scss|sass)/,
-          exclude: /(node_modules)/,
-          use: ExtractSASS.extract([
-            { loader: 'css-loader', options: { url: false } },
-            { loader: 'postcss-loader', options: { sourceMap: true } },
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            isProd ? MiniCssExtractPlugin.loader : 'style-loader',
+            'css-loader',
+            'postcss-loader',
             options.sassLoader
-          ])
+          ]
         },
+        // {
+        //   test: /\.(scss|sass)/,
+        //   exclude: /(node_modules)/,
+        //   use: ExtractSASS.extract([
+        //     { loader: 'css-loader', options: { url: false } },
+        //     { loader: 'postcss-loader', options: { sourceMap: true } },
+        //     options.sassLoader
+        //   ])
+        // },
         {
           test: /\.modernizrrc.js$/,
           loader: 'modernizr-loader'
@@ -101,21 +117,39 @@ module.exports = options => {
       jquery: 'jQuery'
     },
     plugins: [
+      new MiniCssExtractPlugin({
+        filename: `${options.cssFileName}`,
+        chunkFilename: `${options.cssChunkFileName}`
+      }),
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: env }
       })
-    ]
+    ],
+    optimization: {}
   }
 
-  if (options.isProduction) {
-    cfg.plugins.push(
-      new webpack.optimize.UglifyJsPlugin({
-        compressor: {
-          drop_console: true,
-          warnings: false
+  if (isProd) {
+    cfg.optimization.minimizer = [
+      new TerserPlugin({
+        parallel: true,
+        sourceMap: true,
+        terserOptions: {
+          toplevel: true,
+          warnings: false,
+          drop_console: false
         }
-      })
-    )
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+
+    // cfg.plugins.push(
+    //   new webpack.optimize.UglifyJsPlugin({
+    //     compressor: {
+    //       drop_console: true,
+    //       warnings: false
+    //     }
+    //   })
+    // )
   } else {
     cfg.devServer = {
       port: options.port,
@@ -140,7 +174,7 @@ module.exports = options => {
     cfg.plugins.push(new WriteFilePlugin())
   }
 
-  cfg.plugins.push(ExtractSASS)
+  // cfg.plugins.push(ExtractSASS)
 
   return cfg
 }
