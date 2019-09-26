@@ -51,23 +51,32 @@ app.use((req, res, next) => {
 })
 
 // Time used by max-age cache
-const s = 1000
-const m = s * 60
-const h = m * 60
-const d = h * 24
-const w = d * 7
-const m = d * 30
+const oneSec = 1000
+const oneMin = oneSec * 60
+const oneHour = oneMin * 60
+const onDay = oneHour * 24
+const onWeek = onDay * 7
+const oneMonth = onDay * 30
 
 // Static files w cache
-app.use('/favicon.ico', express.static('public/favicon.ico'), {
-  maxAge: m
-})
-app.use('/robots.txt', express.static('public/robots.txt'), {
-  maxAge: m
-})
-app.use('/assets', express.static('public/assets'), {
-  maxAge: d
-})
+app.use(
+  '/favicon.ico',
+  express.static('public/favicon.ico', {
+    maxAge: oneMonth
+  })
+)
+app.use(
+  '/robots.txt',
+  express.static('public/robots.txt', {
+    maxAge: oneMonth
+  })
+)
+app.use(
+  '/assets',
+  express.static('public/assets', {
+    maxAge: onDay
+  })
+)
 
 // React app (routing is managed by React router, including 404)
 app.use('/', siteRouter)
