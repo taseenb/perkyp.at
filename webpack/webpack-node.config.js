@@ -38,7 +38,8 @@ module.exports = env => {
                     targets: {
                       node: process.versions.node
                     },
-                    useBuiltIns: 'entry'
+                    useBuiltIns: 'entry',
+                    corejs: 3
                   }
                 ]
               ]

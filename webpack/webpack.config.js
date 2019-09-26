@@ -59,8 +59,8 @@ module.exports = options => {
                       ]
                     },
                     // forceAllTransforms: true, // needed by uglifyjs because it doesn't support ES6 yet
-                    useBuiltIns: 'entry'
-                    // corejs: 3
+                    useBuiltIns: 'entry',
+                    corejs: 3
                   }
                 ]
               ],
@@ -72,11 +72,13 @@ module.exports = options => {
         },
         {
           test: /\.(sa|sc|c)ss$/,
+          exclude: /node_modules/,
           use: [
             isProd ? MiniCssExtractPlugin.loader : 'style-loader',
             'css-loader',
             'postcss-loader',
-            options.sassLoader
+            'sass-loader'
+            // options.sassLoader
           ]
         },
         // {

@@ -4,7 +4,7 @@ module.exports = cfg({
   mode: 'development',
   isProduction: false,
   devtool: 'cheap-module-source-map',
-  sassLoader: 'sass-loader?outputStyle=expanded&sourceMap=true',
+  // sassLoader: 'sass-loader?outputStyle=expanded&sourceMap=true',
   cssFileName: 'css/style.css',
   entry: '../src/index',
   outputDir: '../public/assets',

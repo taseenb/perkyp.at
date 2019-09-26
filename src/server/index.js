@@ -1,4 +1,5 @@
-// require('source-map-support').install()
+import 'core-js/stable'
+import 'regenerator-runtime/runtime'
 import config from './config'
 import app from './express-app'
 import d from 'debug'

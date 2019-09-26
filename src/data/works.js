@@ -11,7 +11,7 @@ const works = [
     vimeoId: null,
     iframe: 'https://seda-dataviz.surge.sh/',
     external: 'https://seda-dataviz.surge.sh/',
-    detail: require('./work/seda.html'),
+    detail: require('./work/seda.html').default,
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -26,7 +26,7 @@ const works = [
     vimeoId: null,
     iframe: 'https://the-hunt.surge.sh/',
     external: 'https://the-hunt.surge.sh/',
-    detail: require('./work/the-hunt.html'),
+    detail: require('./work/the-hunt.html').default,
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -43,7 +43,7 @@ const works = [
       'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
     external:
       'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
-    detail: require('./work/the-code-of-nature-3d.html'),
+    detail: require('./work/the-code-of-nature-3d.html').default,
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -56,7 +56,7 @@ const works = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    detail: require('./work/fan-beat.html'),
+    detail: require('./work/fan-beat.html').default,
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -70,7 +70,7 @@ const works = [
     image: 'main.jpg',
     vimeoId: null,
     external: 'https://d1xso9gob5fu6y.cloudfront.net/',
-    detail: require('./work/pride-prejudice.html'),
+    detail: require('./work/pride-prejudice.html').default,
     template: 'default' // can be 'base' or null (default is null)
   },
   {
@@ -83,7 +83,7 @@ const works = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    detail: require('./work/glabs.html'),
+    detail: require('./work/glabs.html').default,
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -98,7 +98,7 @@ const works = [
     vimeoId: null,
     external:
       'https://labs.theguardian.com/2016/heathrow-airport-of-the-future/',
-    detail: require('./work/the-airport-of-the-future.html'),
+    detail: require('./work/the-airport-of-the-future.html').default,
     template: 'default' // can be 'default' or null (default is null)
   },
   {
@@ -111,7 +111,7 @@ const works = [
     preview: 'preview.jpg',
     image: 'main.jpg',
     vimeoId: null,
-    detail: require('./work/w152.html'),
+    detail: require('./work/w152.html').default,
     template: 'default' // can be 'default' or null (default is null)
   }
 ]

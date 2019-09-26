@@ -36,7 +36,7 @@ class Nav extends React.Component {
   }
 
   render () {
-    const { location } = this.props
+    const { location, contactHtml } = this.props
     const path = location.pathname
 
     const btnClasses = ' py-1 px-1 py-md-2 px-md-1 svg-wrapper'
@@ -44,13 +44,24 @@ class Nav extends React.Component {
     return (
       <nav id='nav' className={this.state.open ? 'open' : null}>
         <div className='ui d-flex justify-content-end py-1 px-1 py-md-2 px-md-2'>
-          <Link className={this.updateBackClass(path) + btnClasses + ' back'} to='/'>
-            <svg className='svg-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>
+          <Link
+            className={this.updateBackClass(path) + btnClasses + ' back'}
+            to='/'
+          >
+            <svg
+              className='svg-icon'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 50 50'
+            >
               <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />
             </svg>
           </Link>
           <div className={btnClasses + ' switch'} onClick={this.toggleNav}>
-            <svg className='svg-icon' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 50 50'>
+            <svg
+              className='svg-icon'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 50 50'
+            >
               <path d='M50,28.57H28.57V50H21.43V28.57H0V21.43H21.43V0h7.14V21.43H50Z' />
             </svg>
           </div>
@@ -67,7 +78,7 @@ class Nav extends React.Component {
               </Link>
               <div
                 className='contact'
-                dangerouslySetInnerHTML={{ __html: this.props.contactHtml }}
+                dangerouslySetInnerHTML={{ __html: contactHtml }}
               />
             </div>
           </div>
