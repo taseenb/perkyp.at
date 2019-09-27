@@ -21,10 +21,8 @@ app.set('view engine', 'ejs')
 var viewPath = path.resolve(__dirname, 'src/server/views')
 app.set('views', viewPath)
 
-if (config.env === 'production') {
-  app.use(compression())
-  // app.enable('view cache')
-}
+app.use(compression())
+// app.enable('view cache')
 
 /**
  * Setup the state for the current request.
