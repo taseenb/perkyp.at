@@ -7,7 +7,7 @@ const works = [
     year: 2019,
     intro: 'Social network for creators',
     preview: 'preview.jpg',
-    image: 'home-feed.jpg',
+    image: 'main.jpg',
     vimeoId: null,
     // iframe: 'https://seda-dataviz.surge.sh/',
     external: 'https://cliiq.com/',
