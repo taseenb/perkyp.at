@@ -1,5 +1,20 @@
 const works = [
   {
+    uid: 5155,
+    seo: 'cliiq',
+    active: 1,
+    name: 'Cliiq',
+    year: 2019,
+    intro: 'Social network for creators',
+    preview: 'preview.jpg',
+    image: 'home-feed.jpg',
+    vimeoId: null,
+    // iframe: 'https://seda-dataviz.surge.sh/',
+    external: 'https://cliiq.com/',
+    detail: require('./work/cliiq.html').default,
+    template: 'default' // can be 'default' or null (default is null)
+  },
+  {
     uid: 5154,
     seo: 'seda',
     active: 1,

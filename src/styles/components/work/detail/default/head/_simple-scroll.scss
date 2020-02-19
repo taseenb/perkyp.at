@@ -1,0 +1,16 @@
+.simple-scroll {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  @include media-breakpoint-up(md) {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  &-img {
+    position: relative;
+    width: 100%;
+  }
+}

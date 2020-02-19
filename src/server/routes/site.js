@@ -52,9 +52,9 @@ router.get('*', (req, res) => {
     // Get the right ogImage
     let ogImage = state.ogImage
     if (workId) {
-      ogImage = `assets/work/${workData.seo}/main.jpg`
+      ogImage = `assets/work/${workData.seo}/${workData.image}`
     } else if (pageId) {
-      ogImage = `assets/pages/${pageId}/main.jpg`
+      ogImage = `assets/pages/${pageId}/${workData.image}`
     }
 
     debug(url, workId, pageId, context)

@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "engines": {
-    "node": "10.15.3",
-    "npm": "6.4.1",
-    "yarn": "1.15.2"
+    "node": "10.16.3",
+    "npm": "6.9.0",
+    "yarn": "1.17.3"
   },
   "main": "index.js",
   "scripts": {

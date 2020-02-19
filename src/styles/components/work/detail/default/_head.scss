@@ -1,7 +1,7 @@
 .head {
   position: relative;
   overflow: hidden;
-  height: 124vw;
+  height: 110vw;
 
   @include media-breakpoint-up(sm) {
     height: 100vw;
@@ -20,9 +20,11 @@
   }
 
   @import 'head/scroll-down';
+  @import 'head/simple-scroll';
   @import 'head/video';
   @import 'head/header';
   @import 'head/shadow';
+  @import 'head/glass';
 
   .inner {
     position: relative;

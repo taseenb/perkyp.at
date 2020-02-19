@@ -73,7 +73,7 @@ a.list-item {
       color: $mediumGrey;
       transition-delay: 0.2s;
 
-      .no-touchevents & {
+      @at-root .no-touchevents & {
         opacity: 0;
       }
     }
