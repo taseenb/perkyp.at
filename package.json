@@ -1,11 +1,12 @@
 {
-  "name": "perkypat-static",
+  "name": "perkypat",
   "version": "0.1.0",
   "private": true,
   "main": "index.js",
+  "homepage": "./",
   "scripts": {
     "start": "node index.js",
-    "build": "concurrently \"yarn:build-*\"",
+    "build": "yarn build-react && yarn build-node",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev-react": "react-scripts start",
@@ -38,6 +39,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "uuid": "^8.1.0",
+    "wait-on": "^5.0.0",
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
