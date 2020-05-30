@@ -27,30 +27,6 @@ app.set('views', path.resolve(__dirname, 'build'))
 app.use(compression())
 // app.enable('view cache')
 
-/**
- * Setup the state for the current request.
- * Check for query string '?invalidate=1' to change the state
- * in order to invalidate the cache on static files.
- */
-// app.use((req, res, next) => {
-//   // Update state with the initial state
-//   Object.keys(data).forEach(k => {
-//     state[k] = data[k]
-//   })
-
-//   // Invalidate cache
-//   if (req.query.invalidate === '1') {
-//     state.invalidateCache = true
-//     debug('cache invalidation enabled')
-//     setTimeout(() => {
-//       state.invalidateCache = false
-//       debug('cache invalidation disabled')
-//     }, 10000)
-//   }
-
-//   next()
-// })
-
 function initRoutes () {
   // Time used by max-age cache
   const oneSec = 1000

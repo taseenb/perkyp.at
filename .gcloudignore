@@ -17,5 +17,7 @@
 node_modules/
 
 # perkyp.at
-public/assets/js/bundle.*
-public/assets/css/style.*
+public/build
+server-dev.js
+server.js
+.env
