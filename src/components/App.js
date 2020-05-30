@@ -1,81 +1,51 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Route, Switch } from 'react-router-dom'
-import { withRouter } from 'react-router'
+import React, { useEffect } from 'react'
+import { Route, Switch, useLocation } from 'react-router-dom'
 import Bio from './pages/Bio'
-import NotFound from './pages/404'
+import NotFound from './pages/NotFound'
 import Works from './Works'
 import Work from './Work'
 import Nav from './Nav'
+import HtmlHead from './HtmlHead'
+import ReqContext from '../context/ReqContext'
 
-class App extends React.Component {
-  constructor (props) {
-    super(props)
+import C from '../const'
 
-    props.initialData.isBrowser = props.isBrowser || false
-    props.initialData.isMobile = props.isMobile || false
+import { withRouter } from 'react-router'
 
-    this.state = props.initialData
-  }
+import data from '../data'
 
-  onResize () {
-    // this.setState({
-    //   width: window.innerWidth,
-    //   height: window.innerHeight
-    // });
-  }
+function App ({ baseUrl = C.baseUrl }) {
+  const location = useLocation()
+  const { works } = data
+  const worksSeo = works.map(w => w.seo)
 
-  componentDidUpdate (prevProps) {
-    if (this.props.location !== prevProps.location) {
-      this.onRouteChanged()
-    }
-  }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
 
-  onRouteChanged () {
-    if (this.props.isBrowser) {
-      // Scroll to top
-      window.scrollTo(0, 0)
-    }
-  }
+  return (
+    <ReqContext.Provider value={{ baseUrl }}>
+      <HtmlHead data={data} />
+      <Switch>
+        <Route exact path='/' component={() => <Works works={works} />} />
+        <Route
+          path='/work/:seo'
+          component={router => {
+            const selectedWork = router.match.params.seo
 
-  render () {
-    const worksSeo = this.state.works.map(w => w.seo)
-
-    return (
-      <div>
-        <Switch onChange={this.onRouterChange}>
-          <Route exact path='/' component={() => <Works works={this.state.works} />} />
-          <Route
-            path='/work/:seo'
-            component={router => {
-              const requestedWork = router.match.params.seo
-
-              if (worksSeo.indexOf(requestedWork) > -1) {
-                return (
-                  <Work
-                    router={router}
-                    works={this.state.works}
-                    isDetail
-                    isBrowser={this.props.isBrowser}
-                    isMobile={this.props.isMobile}
-                  />
-                )
-              } else {
-                return <NotFound />
-              }
-            }}
-          />
-          <Route exact path='/bio' component={() => <Bio html={this.state.pages.bio} />} />
-          <Route component={NotFound} />
-        </Switch>
-        <Nav contactHtml={this.state.pages.contact} />
-      </div>
-    )
-  }
-}
-
-App.propTypes = {
-  initialData: PropTypes.object.isRequired
+            if (worksSeo.indexOf(selectedWork) > -1) {
+              return <Work router={router} works={works} isDetail />
+            } else {
+              return <NotFound />
+            }
+          }}
+        />
+        <Route exact path='/bio' component={Bio} />
+        <Route component={NotFound} />
+      </Switch>
+      <Nav />
+    </ReqContext.Provider>
+  )
 }
 
 export default withRouter(App)

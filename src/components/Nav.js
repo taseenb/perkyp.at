@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
+import Contact from './Nav/Contact'
+
 class Nav extends React.Component {
   constructor (props) {
     super(props)
@@ -12,17 +14,6 @@ class Nav extends React.Component {
     }
 
     this.toggleNav = this.toggleNav.bind(this)
-  }
-
-  componentDidMount () {
-    // Render email address
-    const emailLink = $('.rj4kj325jn88dJ3HwwlP')[0]
-    if (emailLink) {
-      let email = emailLink.rel.replace('/', '@').replace('*', '.')
-      const part = ['m', 'a', 'i', 'l', 't', 'o', ':']
-      emailLink.href = part.join('') + email
-      $(emailLink).text(email)
-    }
   }
 
   toggleNav () {
@@ -36,7 +27,7 @@ class Nav extends React.Component {
   }
 
   render () {
-    const { location, contactHtml } = this.props
+    const { location } = this.props
     const path = location.pathname
 
     const btnClasses = ' py-1 px-1 py-md-2 px-md-1 svg-wrapper'
@@ -76,10 +67,8 @@ class Nav extends React.Component {
               <Link className='link' to='/bio'>
                 Bio
               </Link>
-              <div
-                className='contact'
-                dangerouslySetInnerHTML={{ __html: contactHtml }}
-              />
+
+              <Contact />
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@ pm2.connect(function () {
   pm2.start(
     {
       script: './server.js',
-      name: 'heroku-production-app', // ----> THESE ATTRIBUTES ARE OPTIONAL:
+      name: 'gcloud-production-app', // ----> THESE ATTRIBUTES ARE OPTIONAL:
       exec_mode: 'cluster', // ----> https://github.com/Unitech/PM2/blob/master/ADVANCED_README.md#schema
       instances: instances,
       max_memory_restart: maxMemory + 'M' // Auto restart if process taking more than XXmo

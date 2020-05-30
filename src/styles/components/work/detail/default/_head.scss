@@ -2,6 +2,7 @@
   position: relative;
   overflow: hidden;
   height: 110vw;
+  user-select: none;
 
   @include media-breakpoint-up(sm) {
     height: 100vw;
@@ -21,7 +22,7 @@
 
   @import 'head/scroll-down';
   @import 'head/simple-scroll';
-  @import 'head/video';
+  @import 'head/video-cover';
   @import 'head/header';
   @import 'head/shadow';
   @import 'head/glass';
@@ -43,25 +44,6 @@
   .iframe-container,
   .video-container {
     z-index: 2;
-  }
-
-  // Hide video if videoautoplayer by default
-  .video-container {
-    display: none;
-  }
-
-  .bg.video-fallback {
-    display: block;
-  }
-
-  // If autoplay is available, show video
-  @at-root .videoautoplay & {
-    .video-container {
-      display: block !important;
-    }
-    // .bg.video-fallback {
-    //   display: none !important;
-    // }
   }
 
   .video-container,

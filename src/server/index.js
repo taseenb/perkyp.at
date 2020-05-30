@@ -12,7 +12,6 @@ const port = normalizePort(config.port)
 app.set('port', port)
 
 const server = http.createServer(app)
-
 server.listen(app.get('port'))
 server.on('error', onError)
 server.on('listening', onListening)
@@ -59,10 +58,4 @@ function onListening () {
   const addr = server.address()
   const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
   debug('Listening on ' + bind)
-
-  // NGINX configuration
-  if (process.env.DYNO) {
-    console.log('This is on Heroku..!')
-    fs.openSync('/tmp/app-initialized', 'w')
-  }
 }

@@ -2,9 +2,8 @@
   $cliiqColor: white;
   $borderRadius: 5px;
 
-  .images {
+  .visuals {
     .image {
-
       &.zoomed .img {
         border-radius: 0 !important;
       }
@@ -40,16 +39,15 @@
       //   background-color: rgba(0, 0, 0, 0.06);
       // }
     }
-    
+
     .overlay.border {
-      background-color: rgba(0,0,0,0.1);
+      background-color: rgba(0, 0, 0, 0.1);
 
       @include media-breakpoint-up(md) {
         background: none;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
       }
-
     }
 
     .bg {

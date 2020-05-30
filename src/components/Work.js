@@ -1,19 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import ListItem from './work/ListItem'
 import Detail from './work/Detail'
 
-class Work extends React.Component {
-  render () {
-    if (this.props.isDetail) {
-      const seo = this.props.router.match.params.seo
-      const work = this.props.works.find(w => w.seo === seo)
+function Work (props) {
+  const { isDetail, router, works } = props
 
-      return <Detail seo={seo} data={work} {...this.props} />
-    } else {
-      return <ListItem {...this.props} />
-    }
+  if (isDetail) {
+    const seo = router.match.params.seo
+    const work = works.find(w => w.seo === seo)
+
+    return <Detail seo={seo} work={work} {...props} />
+  } else {
+    return <ListItem {...props} />
   }
 }
 
