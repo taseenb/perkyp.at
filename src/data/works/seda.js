@@ -6,7 +6,7 @@ export default {
   // className: 'dark',
   head: {
     type: 'image',
-    src: '/assets/work/seda/main.jpg'
+    src: '/static/work/seda/main.jpg'
   },
   credits: (
     <>
@@ -36,17 +36,17 @@ export default {
   ],
   visuals: [
     {
-      src: '/assets/work/seda/screenshot-1.jpg',
+      src: '/static/work/seda/screenshot-1.jpg',
       caption: 'Interactive table.',
       noZoom: false
     },
     {
-      src: '/assets/work/seda/screenshot-2.jpg',
+      src: '/static/work/seda/screenshot-2.jpg',
       caption: 'Interactive map and table.',
       noZoom: false
     },
     {
-      src: '/assets/work/seda/screenshot-3.jpg',
+      src: '/static/work/seda/screenshot-3.jpg',
       caption: 'Compare functionality.',
       noZoom: false
     }

@@ -10,7 +10,7 @@ export default {
   metaDescription: 'Digital artist, front end developer based in London',
   ogTitle: 'Perky Pat',
   ogDescription: 'Computational design, front end development, visual art',
-  ogImage: '/assets/main.jpg',
+  ogImage: '/static/main.jpg',
   works: getWorks(options),
   pages: getPages(options)
 }

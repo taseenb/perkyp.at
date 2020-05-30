@@ -20,7 +20,7 @@ export default function Detail ({ work }) {
   // Html head
   const title = `${displayName} by Perky Pat`
   const desc = intro || data.metaDescription
-  const ogImage = `/assets/work/${seo}/${image}`
+  const ogImage = `/static/work/${seo}/${image}`
 
   return (
     <>

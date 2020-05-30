@@ -5,7 +5,7 @@ const { targetBlank } = C
 export default {
   head: {
     type: 'simple-scroll',
-    image: '/assets/work/cliiq/scroll.jpg'
+    image: '/static/work/cliiq/scroll.jpg'
   },
   credits: 'SSR front-end architecture design and developement, UX/UI.',
   title: null, // use displayName from the work item
@@ -27,27 +27,27 @@ export default {
   links: [{ url: 'https://cliiq.com/about/', label: 'More info' }],
   visuals: [
     {
-      src: '/assets/work/cliiq/main.jpg',
+      src: '/static/work/cliiq/main.jpg',
       caption: 'Home feed: three different views.',
       noZoom: false
     },
     {
-      src: '/assets/work/cliiq/profile-1.jpg',
+      src: '/static/work/cliiq/profile-1.jpg',
       caption: 'Profile view.',
       noZoom: false
     },
     {
-      src: '/assets/work/cliiq/profile-2.jpg',
+      src: '/static/work/cliiq/profile-2.jpg',
       caption: 'Profile view, scrolled.',
       noZoom: false
     },
     {
-      src: '/assets/work/cliiq/edit-1.jpg',
+      src: '/static/work/cliiq/edit-1.jpg',
       caption: 'Editing an image.',
       noZoom: false
     },
     {
-      src: '/assets/work/cliiq/edit-2.jpg',
+      src: '/static/work/cliiq/edit-2.jpg',
       caption: 'Editing tools.',
       noZoom: false
     }

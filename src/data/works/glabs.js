@@ -6,7 +6,7 @@ export default {
   // className: 'dark',
   head: {
     type: 'image',
-    src: '/assets/work/glabs/main.jpg'
+    src: '/static/work/glabs/main.jpg'
   },
   credits: (
     <>
@@ -29,29 +29,29 @@ export default {
   ),
   links: [
     {
-      url: '/assets/work/glabs/pages/spotify/',
+      url: '/static/work/glabs/pages/spotify/',
       label: 'Spotify'
     },
     {
-      url: '/assets/work/glabs/pages/history-of-coffee/',
+      url: '/static/work/glabs/pages/history-of-coffee/',
       label: 'History of coffee'
     },
     {
-      url: '/assets/work/glabs/pages/airport-of-the-future/',
+      url: '/static/work/glabs/pages/airport-of-the-future/',
       label: 'The airport of the future'
     },
     {
-      url: '/assets/work/glabs/pages/downsizing/',
+      url: '/static/work/glabs/pages/downsizing/',
       label: 'Downsizing'
     }
   ],
   visuals: [
     {
-      src: '/assets/work/glabs/spot.jpg',
+      src: '/static/work/glabs/spot.jpg',
       caption: (
         <>
           2017 in music (Spotify,{' '}
-          <a href='/assets/work/glabs/pages/spotify/' {...targetBlank}>
+          <a href='/static/work/glabs/pages/spotify/' {...targetBlank}>
             link
           </a>
           ).
@@ -59,12 +59,12 @@ export default {
       )
     },
     {
-      src: '/assets/work/glabs/coffee.jpg',
+      src: '/static/work/glabs/coffee.jpg',
       caption: (
         <>
           The history of coffee (Nespresso,{' '}
           <a
-            href='/assets/work/glabs/pages/history-of-coffee/'
+            href='/static/work/glabs/pages/history-of-coffee/'
             {...targetBlank}
           >
             link
@@ -74,12 +74,12 @@ export default {
       )
     },
     {
-      src: '/assets/work/glabs/airport.jpg',
+      src: '/static/work/glabs/airport.jpg',
       caption: (
         <>
           The airport of the future (Heathrow,{' '}
           <a
-            href='/assets/work/glabs/pages/airport-of-the-future/'
+            href='/static/work/glabs/pages/airport-of-the-future/'
             {...targetBlank}
           >
             link
@@ -89,11 +89,11 @@ export default {
       )
     },
     {
-      src: '/assets/work/glabs/down.jpg',
+      src: '/static/work/glabs/down.jpg',
       caption: (
         <>
           If you were 13cm tall (Downsizing,{' '}
-          <a href='/assets/work/glabs/pages/downsizing/' {...targetBlank}>
+          <a href='/static/work/glabs/pages/downsizing/' {...targetBlank}>
             link
           </a>
           ).

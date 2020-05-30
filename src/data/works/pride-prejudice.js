@@ -6,7 +6,7 @@ export default {
   // className: 'dark',
   head: {
     type: 'image',
-    src: '/assets/work/pride-prejudice/main.jpg',
+    src: '/static/work/pride-prejudice/main.jpg',
     border: true
   },
   credits: (
@@ -52,18 +52,18 @@ export default {
   ],
   visuals: [
     {
-      src: '/assets/work/pride-prejudice/streamgraph-1.jpg',
+      src: '/static/work/pride-prejudice/streamgraph-1.jpg',
       caption:
         'A portion of the streamgraph representing a question from the survey (top) and the answers (left).',
       noZoom: false
     },
     {
-      src: '/assets/work/pride-prejudice/chart.jpg',
+      src: '/static/work/pride-prejudice/chart.jpg',
       caption: 'Pie chart.',
       noZoom: false
     },
     {
-      src: '/assets/work/pride-prejudice/map.jpg',
+      src: '/static/work/pride-prejudice/map.jpg',
       caption: 'Interactive map.',
       noZoom: false
     }

@@ -6,8 +6,8 @@ export default {
   className: 'dark',
   head: {
     type: 'video-cover',
-    src: '/assets/work/fan-beat/wall-HD.mp4',
-    fallbackImg: '/assets/work/fan-beat/bg.jpg',
+    src: '/static/work/fan-beat/wall-HD.mp4',
+    fallbackImg: '/static/work/fan-beat/bg.jpg',
     allowFullscreen: true,
     originalVideoSize: {
       width: 1920,
@@ -60,24 +60,24 @@ export default {
   ],
   visuals: [
     {
-      src: '/assets/work/fan-beat/dashboard.jpg',
+      src: '/static/work/fan-beat/dashboard.jpg',
       caption:
         'The touchscreen: a companion app for the wall where people can find details and visualize data about the creatures and the social interactions they represent.',
       noZoom: false
     },
     {
-      src: '/assets/work/fan-beat/dashboard-overview.jpg',
+      src: '/static/work/fan-beat/dashboard-overview.jpg',
       caption:
         'Data viz showing statistics, geographical origin, hashtags, etc.',
       noZoom: false
     },
     {
-      src: '/assets/work/fan-beat/dashboard-transition.jpg',
+      src: '/static/work/fan-beat/dashboard-transition.jpg',
       caption: 'The dashboard blur effect used for transitions.',
       noZoom: false
     },
     {
-      src: '/assets/work/fan-beat/dashboard-zoom.jpg',
+      src: '/static/work/fan-beat/dashboard-zoom.jpg',
       caption: 'Creatures zoomed in.',
       noZoom: false
     }

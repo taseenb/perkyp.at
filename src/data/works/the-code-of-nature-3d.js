@@ -9,7 +9,7 @@ export default {
     src:
       'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html?no-ui=1&demo-mode=1&show-grid=1&camera-distance=60',
 
-    fallbackImg: '/assets/work/the-code-of-nature-3d/flow-field.jpg',
+    fallbackImg: '/static/work/the-code-of-nature-3d/flow-field.jpg',
     allowFullscreen: true
   },
   credits: (
@@ -44,22 +44,22 @@ export default {
   ],
   visuals: [
     {
-      src: '/assets/work/the-code-of-nature-3d/follow-path.jpg',
+      src: '/static/work/the-code-of-nature-3d/follow-path.jpg',
       caption: 'Follow path',
       noZoom: false
     },
     {
-      src: '/assets/work/the-code-of-nature-3d/flocking.jpg',
+      src: '/static/work/the-code-of-nature-3d/flocking.jpg',
       caption: 'Flocking',
       noZoom: false
     },
     {
-      src: '/assets/work/the-code-of-nature-3d/a-s.jpg',
+      src: '/static/work/the-code-of-nature-3d/a-s.jpg',
       caption: 'Alignment and separation',
       noZoom: false
     },
     {
-      src: '/assets/work/the-code-of-nature-3d/flow-field.jpg',
+      src: '/static/work/the-code-of-nature-3d/flow-field.jpg',
       caption: 'Flow field',
       noZoom: false
     }

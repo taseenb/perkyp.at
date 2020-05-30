@@ -6,8 +6,8 @@ export default {
   className: 'dark',
   head: {
     type: 'iframe',
-    src: '/assets/work/the-hunt/iframe/index.html',
-    fallbackImg: '/assets/work/the-hunt/main.jpg',
+    src: '/static/work/the-hunt/iframe/index.html',
+    fallbackImg: '/static/work/the-hunt/main.jpg',
     allowFullscreen: true
   },
   credits: (
@@ -31,19 +31,19 @@ export default {
   ],
   visuals: [
     {
-      src: '/assets/work/the-hunt/hunt-1.jpg',
+      src: '/static/work/the-hunt/hunt-1.jpg',
       noZoom: false
     },
     {
-      src: '/assets/work/the-hunt/hunt-2.jpg',
+      src: '/static/work/the-hunt/hunt-2.jpg',
       noZoom: false
     },
     {
-      src: '/assets/work/the-hunt/hunt-3.jpg',
+      src: '/static/work/the-hunt/hunt-3.jpg',
       noZoom: false
     },
     {
-      src: '/assets/work/the-hunt/hunt-4.jpg',
+      src: '/static/work/the-hunt/hunt-4.jpg',
       noZoom: false
     }
   ]

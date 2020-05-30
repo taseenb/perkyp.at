@@ -1,10 +1,13 @@
 const path = require('path')
 const nodeExternals = require('webpack-node-externals')
-const NodemonPlugin = require('nodemon-webpack-plugin')
 
 module.exports = env => {
-  // const mode = options.isProduction ? 'production' : 'development'
   const isProd = env.NODE_ENV === 'production'
+  
+  let NodemonPlugin
+  if (!isProd) {
+    NodemonPlugin = require('nodemon-webpack-plugin')
+  }
 
   return {
     entry: './src/server/index.js',

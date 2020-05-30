@@ -10,7 +10,7 @@ const ListItem = ({ seo, displayName, preview, intro }) => {
       className='list-item col-12 col-sm-6 col-xl-4 mb-2 mb-md-4'
     >
       <span className='image-wrapper'>
-        <img src={`assets/work/${seo}/${preview}`} alt='' />
+        <img src={`/static/work/${seo}/${preview}`} alt='' />
       </span>
 
       <span className='details'>

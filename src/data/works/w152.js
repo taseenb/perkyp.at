@@ -5,7 +5,7 @@ const { targetBlank } = C
 export default {
   head: {
     type: 'iframe',
-    src: '/assets/work/w152/iframe/index.html'
+    src: '/static/work/w152/iframe/index.html'
     // attrs: {}
   },
   credits: (
@@ -45,12 +45,12 @@ export default {
   ],
   visuals: [
     {
-      src: '/assets/work/w152/scroll-parts.jpg',
+      src: '/static/work/w152/scroll-parts.jpg',
       caption: null,
       noZoom: false
     },
     {
-      src: '/assets/work/w152/scroll-techinfo.jpg',
+      src: '/static/work/w152/scroll-techinfo.jpg',
       caption: null,
       noZoom: false
     },

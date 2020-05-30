@@ -14,13 +14,13 @@ export default function FullscreenIcon ({ setFullscreen, fullscreen }) {
     <div className='fullscreen-icon' onClick={toggle}>
       {fullscreen ? (
         <img
-          src='/assets/img/fullscreen-off.svg'
+          src='/static/img/fullscreen-off.svg'
           className='fullscreen-off'
           alt=''
         />
       ) : (
         <img
-          src='/assets/img/fullscreen-on.svg'
+          src='/static/img/fullscreen-on.svg'
           className='fullscreen-on'
           alt=''
         />

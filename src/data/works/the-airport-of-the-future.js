@@ -6,7 +6,7 @@ export default {
   // className: 'dark',
   head: {
     type: 'image',
-    src: '/assets/work/the-airport-of-the-future/bg.jpg',
+    src: '/static/work/the-airport-of-the-future/bg.jpg',
     className: 'bg-align-left bg-align-bottom',
     shadow: true
   },
@@ -37,34 +37,34 @@ export default {
   ),
   links: [
     {
-      url: '/assets/work/glabs/pages/airport-of-the-future/',
+      url: '/static/work/glabs/pages/airport-of-the-future/',
       label: 'Link'
     }
   ],
   visuals: [
     {
-      src: '/assets/work/the-airport-of-the-future/page.jpg',
+      src: '/static/work/the-airport-of-the-future/page.jpg',
       caption:
         'The page on The Guardian website (now removed) with the main animation.',
       noZoom: false
     },
     {
-      src: '/assets/work/the-airport-of-the-future/scene-3-a.jpg',
+      src: '/static/work/the-airport-of-the-future/scene-3-a.jpg',
       caption: 'The landing scene (frame).',
       noZoom: false
     },
     {
-      src: '/assets/work/the-airport-of-the-future/scene-3-b.jpg',
+      src: '/static/work/the-airport-of-the-future/scene-3-b.jpg',
       caption: 'The landing scene (frame).',
       noZoom: false
     },
     {
-      src: '/assets/work/the-airport-of-the-future/sprite-demo.jpg',
+      src: '/static/work/the-airport-of-the-future/sprite-demo.jpg',
       caption: 'One of the spritesheets used to build the landing scene.',
       noZoom: false
     },
     {
-      src: '/assets/work/the-airport-of-the-future/scene-6.jpg',
+      src: '/static/work/the-airport-of-the-future/scene-6.jpg',
       caption: 'The taxi scene (frame).',
       noZoom: false
     },

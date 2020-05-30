@@ -48,8 +48,6 @@ router.get('*', (req, res) => {
       delimiter: '%',
       openDelimiter: '{{',
       closeDelimiter: '}}'
-      // openDelimiter: '<!--{',
-      // closeDelimiter: '}-->'
     }
     const template = ejs.compile(indexHtmlTemplate, ejsOptions)
     const html = template({

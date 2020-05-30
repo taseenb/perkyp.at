@@ -50,12 +50,6 @@ function initRoutes () {
     })
   )
   app.use(
-    '/assets',
-    express.static('build/assets', {
-      maxAge: isProd ? onDay : oneSec
-    })
-  )
-  app.use(
     '/static',
     express.static('build/static', {
       maxAge: isProd ? onDay : oneSec
