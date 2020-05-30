@@ -4,12 +4,13 @@ const NodemonPlugin = require('nodemon-webpack-plugin')
 
 module.exports = env => {
   // const mode = options.isProduction ? 'production' : 'development'
+  const isProd = env.NODE_ENV === 'production'
 
   return {
     entry: './src/server/index.js',
     output: {
       path: path.join(__dirname, './'),
-      filename: env.NODE_ENV === 'production' ? 'server.js' : 'server-dev.js'
+      filename: isProd ? 'server.js' : 'server-dev.js'
     },
     mode: env.NODE_ENV || 'development',
     // devtool: 'cheap-module-inline-source-map',
@@ -48,6 +49,6 @@ module.exports = env => {
         }
       ]
     },
-    plugins: [new NodemonPlugin()]
+    plugins: isProd ? [] : [new NodemonPlugin()]
   }
 }

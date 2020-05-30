@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "build": "concurrently \"yarn:build-*\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev-react": "react-scripts start",
     "dev-node": "webpack --config ./webpack-node.config.js --env development --colors --watch",
     "build-react": "react-scripts build",
     "build-node": "webpack --config ./webpack-node.config.js --env.NODE_ENV=production --colors --progress",
-    "postinstall": "concurrently \"yarn:build-*\""
+    "postinstall": "yarn build"
   },
   "dependencies": {
     "@babel/core": "^7.10.1",
@@ -29,7 +30,6 @@
     "emotion": "^10.0.27",
     "express": "^4.17.1",
     "node-sass": "^4.14.1",
-    "nodemon-webpack-plugin": "^4.3.1",
     "pm2": "^4.4.0",
     "raw-loader": "^4.0.1",
     "react": "^16.13.1",
@@ -41,6 +41,7 @@
     "webpack-node-externals": "^1.7.2"
   },
   "devDependencies": {
+    "nodemon-webpack-plugin": "^4.3.1",
     "webpack-cli": "^3.3.11"
   },
   "eslintConfig": {
