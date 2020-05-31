@@ -1,5 +1,4 @@
 import config from './config'
-import state from './state'
 import express from 'express'
 import compression from 'compression'
 import path from 'path'

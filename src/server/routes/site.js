@@ -1,5 +1,4 @@
 import config from '../config'
-import state from '../state'
 import express from 'express'
 import d from 'debug'
 import ejs from 'ejs'

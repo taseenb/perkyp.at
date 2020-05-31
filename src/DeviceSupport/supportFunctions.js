@@ -1,4 +1,5 @@
 import canAutoPlay from 'can-autoplay'
+import isFunction from 'lodash/isFunction'
 
 export function tryTouchevents () {
   // No touch support by default
@@ -22,4 +23,33 @@ export function tryAutoplay () {
       resolve({ canAutoplay: !!result })
     })
   })
+}
+
+export function tryIntersectionObserver () {
+  return new Promise((resolve, reject) => {
+    let hasIntersectionObserver = true
+
+    if (
+      'IntersectionObserver' in window &&
+      'IntersectionObserverEntry' in window &&
+      'intersectionRatio' in window.IntersectionObserverEntry.prototype
+    ) {
+      if (!('isIntersecting' in window.IntersectionObserverEntry.prototype)) {
+        hasIntersectionObserver = false
+      }
+    } else {
+      hasIntersectionObserver = false
+    }
+
+    resolve({ hasIntersectionObserver })
+  })
+}
+
+export function tryNativeLazyLoading () {
+  return 'loading' in HTMLImageElement.prototype
+}
+
+export function tryImageDecode () {
+  const i = new Image()
+  return isFunction(i.decode)
 }

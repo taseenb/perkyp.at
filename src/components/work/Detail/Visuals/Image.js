@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import { cx } from 'emotion'
 
+import LazyImage from '../../../shared/LazyImage'
+
+import imageDimensions from '../../../../data/image-dimensions'
+
 export default function Image ({ noZoom, caption, src }) {
   const [zoom, setZoom] = useState(false)
+  const dimensions = imageDimensions[src]
 
   function toggleZoom () {
     setZoom(!zoom)
@@ -21,13 +26,12 @@ export default function Image ({ noZoom, caption, src }) {
           className={cx('row-zoom', zoom ? '' : 'row no-gutters px-2 px-md-4')}
         >
           <div className={cx('col-zoom', zoom ? '' : 'col-12 col-md-8')}>
-            <img
-              className='img'
+            <LazyImage
               src={src}
+              dimensions={dimensions}
+              caption={caption}
               onClick={!noZoom ? e => toggleZoom() : null}
-              alt=''
             />
-            {caption && <div className='caption'>{caption}</div>}
           </div>
         </div>
       </div>

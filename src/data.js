@@ -1,5 +1,6 @@
-import getWorks from './data/works'
-import getPages from './data/pages'
+import works from './data/works'
+import pages from './data/pages'
+import imageDimensions from './data/image-dimensions'
 
 const options = {}
 
@@ -11,6 +12,7 @@ export default {
   ogTitle: 'Perky Pat',
   ogDescription: 'Computational design, front end development, visual art',
   ogImage: '/static/main.jpg',
-  works: getWorks(options),
-  pages: getPages(options)
+  works,
+  pages,
+  imageDimensions
 }
