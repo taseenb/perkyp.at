@@ -14,7 +14,7 @@
     "build": "yarn build-react && yarn build-node",
     "build-react": "react-scripts build",
     "build-node": "webpack --config ./webpack-node.config.js --env.NODE_ENV=production --colors --progress",
-    "gcp-build": "yarn build",
+    "postinstall": "yarn build",
     "deploy": "gcloud app deploy"
   },
   "dependencies": {
