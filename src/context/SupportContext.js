@@ -1,9 +1,6 @@
 import { createContext } from 'react'
 
-const defaultValue = {
-  canAutoplayVideos: false,
-  isTouch: false
-}
+const defaultValue = {}
 
 const SupportContext = createContext(defaultValue)
 SupportContext.displayName = 'SupportContext'

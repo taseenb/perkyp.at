@@ -1,15 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Work from './Work'
+// import Work from './Work'
 
-function Works ({ works }) {
+import ListItem from './work/ListItem'
+
+function Works ({ works, shared }) {
   return (
     <div className='row no-gutters py-md-4 px-md-4 px-2 py-2 px-sm-4'>
       <div id='works' className='col-12 col-md-8'>
         <div className='spacer' />
         <div className='inner row'>
           {works.map(work => {
-            return <Work key={work.uid} {...work} isDetail={false} />
+            return (
+              <ListItem key={work.uid} {...work} shared={shared} />
+              // <Work key={work.uid} {...work} shared={shared} isDetail={false} />
+            )
           })}
         </div>
       </div>
@@ -18,7 +23,8 @@ function Works ({ works }) {
 }
 
 Works.propTypes = {
-  works: PropTypes.array.isRequired
+  works: PropTypes.array.isRequired,
+  shared: PropTypes.object.isRequired
 }
 
 export default Works

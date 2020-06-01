@@ -29,3 +29,4 @@ server-dev.js
 server.js.map
 server-dev.js.map
 build
+src/data/image-dimensions-dev.js

@@ -3,7 +3,7 @@ import { cx } from 'emotion'
 
 import FullscreenIcon from './FullscreenIcon'
 
-export default function Iframe ({ displayName, detail }) {
+export default function Iframe ({ seo, displayName, detail }) {
   const { head } = detail
   const { title, attrs, src, allowFullscreen } = head
 

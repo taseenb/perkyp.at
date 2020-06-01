@@ -2,8 +2,8 @@ import React from 'react'
 import Vimeo from './Visuals/Vimeo'
 import Image from './Visuals/Image'
 
-export default function Visuals ({ work }) {
-  const { visuals } = work.detail
+export default function Visuals ({ seo, detail }) {
+  const { visuals } = detail
 
   return (
     <div className='visuals'>
@@ -14,7 +14,8 @@ export default function Visuals ({ work }) {
           case 'vimeo':
             return <Vimeo key={visual.id} {...visual} />
           default:
-            return <Image key={visual.src} {...visual} />
+            // img
+            return <Image key={visual.src} {...visual} src={visual.src} />
         }
       })}
     </div>

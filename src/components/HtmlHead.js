@@ -7,7 +7,13 @@ import ReqContext from '../context/ReqContext'
 export default function HtmlHead ({ data }) {
   const { baseUrl } = useContext(ReqContext)
   const { pathname } = useLocation()
-  const { title, description, metaDescription, metaKeywords, ogImage } = data
+  const {
+    title,
+    description,
+    metaDescription,
+    metaKeywords,
+    ogImage
+  } = data.shared
   const canonicalUrl = 'https://perkyp.at' + pathname
 
   return (

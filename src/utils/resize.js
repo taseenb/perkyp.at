@@ -18,7 +18,7 @@ export default function onWindowResize (cb) {
     throw Error('Argument must be a callback function')
   }
 
-  console.log(listeners)
+  // console.log(listeners)
 
   // Create unique id
   const id = uuid()
@@ -26,7 +26,7 @@ export default function onWindowResize (cb) {
   // Window resize
   const fn = debounce(
     () => {
-      console.log('debounced set window size')
+      // console.log('debounced set window size')
       cb({
         width: window.innerWidth,
         height: window.innerHeight

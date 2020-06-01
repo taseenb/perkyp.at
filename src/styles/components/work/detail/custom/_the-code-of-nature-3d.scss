@@ -1,32 +1,25 @@
 #the-code-of-nature-3d {
-  $theHuntColor: #ddd;
+  $codeOfNatureColor: #cccccc;
 
-  background-color: $theHuntColor;
+  background-color: $codeOfNatureColor;
 
-  .border {
-    border-color: #ddd !important;
+  // .border {
+  //   border-color: #FFF !important;
+  // }
+
+  $border-color: #DDD;
+
+  .visuals {
+    .art {
+      &.zoomed {
+        .img {
+          border-left: 0px solid transparent !important;
+          border-right: 0px solid transparent !important;
+        }
+      }
+      .img {
+        border: 1px solid $border-color;
+      }
+    }
   }
-
-//   .head {
-//     .icons {
-//     //   bottom: 0;
-//     //   right: 0;
-//       .fullscreen-icon {
-//       }
-//     }
-//   }
-
-//   .visuals {
-//     .art {
-//       &.zoomed {
-//         .img {
-//           border-left: none !important;
-//           border-right: none !important;
-//         }
-//       }
-//       .img {
-//         border: 1px solid #ddd;
-//       }
-//     }
-//   }
 }

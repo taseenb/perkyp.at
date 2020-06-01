@@ -19,9 +19,16 @@ export function tryTouchevents () {
 
 export function tryAutoplay () {
   return new Promise((resolve, reject) => {
-    canAutoPlay.video({ timeout: 200, muted: true }).then((result, error) => {
-      resolve({ canAutoplay: !!result })
-    })
+    canAutoPlay
+      .video({ timeout: 200, muted: true })
+      .then((result, error) => {
+        if (error) {
+          reject(error)
+          return
+        }
+        resolve({ canAutoplay: !!result })
+      })
+      .catch(error => reject(error))
   })
 }
 

@@ -1,16 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import Img from '../shared/Img'
 
 function ListItem ({ seo, displayName, preview, intro }) {
   return (
     <Link
       to={`/work/${seo}`}
-      // id={`item-${seo}`}
       className='list-item col-12 col-sm-6 col-xl-4 mb-2 mb-md-4'
     >
       <span className='image-wrapper'>
-        <img src={`/static/work/${seo}/${preview}`} alt='' />
+        <Img src={preview} />
       </span>
 
       <span className='details'>
