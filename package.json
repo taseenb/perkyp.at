@@ -5,8 +5,9 @@
   "engines": {
     "node": ">=12.0.0"
   },
+  "main": "server.js",
   "scripts": {
-    "start": "node ./server.js",
+    "start": "node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev-react": "react-scripts start",
@@ -19,6 +20,7 @@
   },
   "dependencies": {
     "@vimeo/player": "^2.11.0",
+    "babel-loader": "^8.1.0",
     "can-autoplay": "^3.0.0",
     "ejs": "^3.1.3",
     "emotion": "^10.0.27",
