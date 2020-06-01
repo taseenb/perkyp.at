@@ -21,3 +21,4 @@ public/build
 server-dev.js
 server.js
 .env
+set-image-dimensions
