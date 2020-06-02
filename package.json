@@ -15,7 +15,8 @@
     "build-react": "react-scripts build",
     "build-node": "webpack --config ./webpack-node.config.js --env.NODE_ENV=production --colors --progress",
     "postinstall": "yarn build",
-    "deploy": "gcloud app deploy"
+    "deploy": "gcloud app deploy",
+    "browse": "gcloud app browse"
   },
   "dependencies": {
     "@vimeo/player": "^2.11.0",
