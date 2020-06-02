@@ -17,5 +17,7 @@
 node_modules/
 
 # perkyp.at
+.gitattributes
 .env
+nodemon.json
 set-image-dimensions

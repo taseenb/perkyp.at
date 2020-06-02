@@ -1,4 +1,5 @@
 import React, { useContext, useState, useEffect, useRef } from 'react'
+import isFunction from 'lodash/isFunction'
 import { css, cx } from 'emotion'
 import { useInView } from 'react-intersection-observer'
 // import { useImage } from 'react-image'
@@ -18,6 +19,10 @@ const Img = ({
   dimensions = { width: 1920, height: 1080 },
   placeholderBg = 'rgba(0,0,0,0.12)',
   className,
+  showLoading = true,
+  showError = true,
+  onLoad,
+  onError,
   ...rest
 }) => {
   const containerRef = useRef(null)
@@ -58,13 +63,20 @@ const Img = ({
     transition-property: opacity;
   `
 
-  function onLoad () {
+  function handleLoad () {
     cache[src] = true
     setLoaded(true)
+
+    if (isFunction(onLoad)) {
+      onLoad(src)
+    }
   }
 
-  function onError () {
+  function handleError () {
     setError(true)
+    if (isFunction(onError)) {
+      onError(src)
+    }
   }
 
   useEffect(() => {
@@ -82,22 +94,24 @@ const Img = ({
         <div ref={!hasNativeLazyLoading ? ref : undefined}>
           {!lazy || inView || hasNativeLazyLoading ? (
             <>
-              {error ? (
+              {error && showError ? (
                 <ErrorImg />
               ) : (
                 <img
                   src={src}
                   loading={lazy && hasNativeLazyLoading ? 'lazy' : null}
                   alt=''
-                  onLoad={onLoad}
-                  onError={onError}
+                  onLoad={handleLoad}
+                  onError={handleError}
                   className={cx('img', className, img)}
                   width={width}
                   height={height}
                   {...rest}
                 />
               )}
-              <LoadingAnimation show={!loaded && !error} />
+              {showLoading ? (
+                <LoadingAnimation show={!loaded && !error} />
+              ) : null}
             </>
           ) : null}
         </div>
