@@ -3,13 +3,13 @@ steps:
 - name: node:12
   entrypoint: yarn
   args: ['install']
-- name: node
+- name: node:12
   entrypoint: yarn
   args: ['add', 'webpack-cli']
-- name: node
+- name: node:12
   entrypoint: yarn
   args: ['run', 'build-react']
-- name: node
+- name: node:12
   entrypoint: yarn
   args: ['run', 'build-node']
 
@@ -19,5 +19,8 @@ steps:
   timeout: 1600s
 
 # GLOBAL OPTIONS
-- options:
+options:
   env: ['NODE_ENV=production']
+  logStreamingOption: STREAM_ON
+  logging: LEGACY
+
