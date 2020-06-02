@@ -4,8 +4,10 @@ const isBrowser = !!(
   window.document.createElement
 )
 
-export default {
+const C = {
   baseUrl: (isBrowser ? window.baseUrl : null) || '',
   isBrowser,
   targetBlank: { rel: 'noopener noreferrer', target: '_blank' }
 }
+
+export default C

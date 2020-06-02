@@ -1,6 +1,8 @@
 import React from 'react'
 
-const isWin = navigator.platform === 'Win32'
+import C from '../../const'
+
+const isWin = C.isBrowser ? navigator.platform === 'Win32' : false
 
 export default {
   className: 'dark',
