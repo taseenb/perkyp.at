@@ -12,24 +12,27 @@ export default function Contact () {
 
   return (
     <div>
-      <strong>Esteban ALMIRON</strong>
+      <div className='name-box'>
+        <div className='heading'>Esteban ALMIRON</div>
+        London E8
+      </div>
       <br />
-      London E8
       <br />
-      <br />
-      <a href={`mailto:${email}`}>{email}</a>
-      <br />
-      <a href='https://github.com/taseenb' {...blank}>
-        Github
-      </a>
-      <br />
-      <a href='https://twitter.com/perkyp_at' {...blank}>
-        Twitter
-      </a>
-      <br />
-      <a href='https://www.linkedin.com/in/estebanalmiron' {...blank}>
-        Linkedin
-      </a>
+      <div className='links-list'>
+        <a href={`mailto:${email}`}>{email}</a>
+        <br />
+        <a href='https://github.com/taseenb' {...blank}>
+          Github
+        </a>
+        <br />
+        <a href='https://twitter.com/perkyp_at' {...blank}>
+          Twitter
+        </a>
+        <br />
+        <a href='https://www.linkedin.com/in/estebanalmiron' {...blank}>
+          Linkedin
+        </a>
+      </div>
     </div>
   )
 }

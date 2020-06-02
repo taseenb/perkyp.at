@@ -3,7 +3,6 @@
   top: 0;
   left: 0;
   width: 100%;
-  user-select: none;
   z-index: $navZ;
 
   &.open {
@@ -42,6 +41,7 @@
       pointer-events: auto;
       transition-duration: 0.2s;
       transition-property: opacity;
+      border-color: transparent !important;
 
       &.hide {
         opacity: 0;
@@ -62,49 +62,39 @@
     overflow: hidden;
 
     background: rgba(255, 255, 255, 0.9);
-    // background: linear-gradient(
-    //   to bottom,
-    //   rgba(255, 255, 255, 1) 0%,
-    //   rgba(255, 255, 255, 1) 50%,
-    //   rgba(255, 255, 255, 0.9) 75%,
-    //   rgba(255, 255, 255, 0) 100%
-    // );
   }
 
-  .link {
-    // display: block;
+  .links > a {
     margin: 0 10px 0 -12px;
     font-size: 1.6em;
     padding: 3px 12px;
     cursor: pointer;
-    // line-height: 1.6em;
-    // padding-bottom: 1em;
-
     display: inline-block;
     margin-right: $spacer;
+    margin-bottom: $spacer * 0.5;
+    // border-color: transparent !important;
+    user-select: none;
 
-    // @media #{$landscape-s} {
-    //   display: inline-block;
-    //   margin-right: $spacer;
+    // &:hover {
+      // text-decoration: none !important;
+      // background-color: $black;
+      // color: white !important;
     // }
+  }
 
-    &:hover {
-      text-decoration: none !important;
-      background-color: $black;
-      color: white !important;
+  .links-list {
+    user-select: none;
+    a {
+      line-height: 1.95;
     }
+  }
+
+  .name-box {
+    line-height: 1.95;
   }
 
   .contact {
     padding: $spacer 0;
     font-size: 1.2em;
-
-    // @media #{$landscape-s} {
-    // font-size: 1.2em;
-    // }
-
-    // @media #{$l} {
-    //   font-size: $defaultFontSize;
-    // }
   }
 }

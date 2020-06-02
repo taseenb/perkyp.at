@@ -5,7 +5,13 @@ const { targetBlank } = C
 export default {
   head: {
     type: 'simple-scroll',
-    image: '/static/work/cliiq/scroll.jpg'
+    image: {
+      src: '/static/work/cliiq/scroll.jpg',
+      dimensions: {
+        width: 1250,
+        height: 2340
+      }
+    }
   },
   credits: 'SSR front-end architecture design and developement, UX/UI.',
   title: null, // use displayName from the work item

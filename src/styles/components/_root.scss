@@ -6,10 +6,8 @@ body {
 
 body {
   background-color: white;
-  // font-family: 'Scope One', serif;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: $font-family-sans-serif;
   line-height: 1.6;
-  font-size: $defaultFontSize;
   padding: 0;
   margin: 0;
   position: relative;
@@ -37,17 +35,34 @@ body {
     height: 100%;
   }
 
+  .small-heading {
+    font-family: $font-family-serif;
+    font-weight: 400;
+  }
+
+  .heading {
+    font-family: $font-family-serif;
+    font-weight: 600;
+  }
+
+  .img {
+    display: block;
+  }
+
   a,
-  .link {
-    color: $darkGrey;
+  .link a {
+    color: $black;
     text-decoration: none;
     transition-duration: 0.4s;
-    transition-property: color;
+    // transition-property: color;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
 
     .no-touchevents & {
       &:hover {
-        text-decoration: underline;
-        color: $black;
+        // text-decoration: underline;
+        border-color: $black;
+        // color: $black;
       }
     }
   }
@@ -56,7 +71,7 @@ body {
     color: white;
 
     a,
-    .link {
+    .link a {
       color: $mediumLightGrey;
       .no-touchevents & {
         &:hover {

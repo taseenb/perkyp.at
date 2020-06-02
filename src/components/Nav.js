@@ -60,14 +60,9 @@ class Nav extends React.Component {
 
         <div className='popup' onClick={this.toggleNav}>
           <div className='row no-gutters py-md-4 px-md-4 px-2 py-2'>
-            <div className='col-12 col-md-8'>
-              <Link className='link' to='/'>
-                Work
-              </Link>
-              <Link className='link' to='/bio'>
-                Bio
-              </Link>
-
+            <div className='col-12 col-md-8 links'>
+              <Link to='/'>Work</Link>
+              <Link to='/bio'>Bio</Link>
               <Contact />
             </div>
           </div>

@@ -26,28 +26,40 @@ function Bio (props) {
           <div className='col-12'>
             <div className='row no-gutters'>
               <div className='col-12 col-sm-10 col-md-8 col-lg-6 col-xl-4'>
-                <h2>Bio</h2>
+                <div className='intro'>
+                  <h2 className='heading'>Bio</h2>
 
-                <p className='sub'>
-                  Visual arts, computational design, front end development
-                </p>
-                <p>
-                  My name is Esteban. I am a freelance developer based in
-                  London. In 2005 I graduated in art and cinema studies at the
-                  University of Bologna, Italy. Today I create interactive
-                  applications in collaboration with creative studios,
-                  designers, artists.
-                </p>
+                  <p className=''>
+                    <strong>
+                      Front end development, computational design, visual arts
+                    </strong>
+                    <br />
+                    <br />
+                  </p>
+                  <p>
+                    I'm Esteban, a freelance developer based in London. In 2005
+                    I graduated in art and cinema studies at the University of
+                    Bologna, Italy. Today I create interactive applications in
+                    collaboration with creative studios, designers, artists.
+                    <br />
+                    <br />
+                  </p>
+                </div>
 
-                <h2>Tech</h2>
-                <p>
-                  Javascript, React, Node, Three.js / WebGL, canvas 2D, D3.js,
-                  Babel, Webpack, Browserify, etc.
-                </p>
+                <div className='tech'>
+                  <h2 className='heading'>Tech</h2>
+                  <p>
+                    Javascript, React, Node, Express, Three.js / WebGL, canvas
+                    2D, D3.js, Babel, Webpack, Browserify, AWS, Google Cloud,
+                    etc.
+                    <br />
+                    <br />
+                  </p>
+                </div>
 
-                <h2>Clients &amp; Partners</h2>
+                <h2 className='heading'>Clients &amp; Partners</h2>
                 {/* In the last years I have worked with:  */}
-                <ul>
+                <ul className='clients-list'>
                   <li>
                     <a href='http://www.unit9.com/' {...blank}>
                       Unit 9, London
@@ -111,11 +123,11 @@ function Bio (props) {
                         <a href='http://www.christianlouboutin.com/' {...blank}>
                           Christian Louboutin
                         </a>
-                        ,
+                        ,{' '}
                         <a href='http://www.industrialfacility.com/' {...blank}>
                           Industrial Facility
                         </a>
-                        ,
+                        ,{' '}
                         <a href='http://www.wastberg.com/' {...blank}>
                           Wastberg
                         </a>

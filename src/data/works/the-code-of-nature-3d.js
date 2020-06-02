@@ -10,7 +10,16 @@ export default {
       'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html?no-ui=1&demo-mode=1&show-grid=1&camera-distance=60',
 
     fallbackImg: '/static/work/the-code-of-nature-3d/flow-field.jpg',
-    allowFullscreen: true
+    allowFullscreen: true,
+    // backgroundColor: 'rgba(0,0,0, 0.12)',
+    overlayStyle: {
+      border: '1px solid #DDD',
+      position: 'absolute',
+      width: '100%',
+      height: '100%',
+      zIndex: 10,
+      pointerEvents: 'none'
+    }
   },
   credits: (
     <>
