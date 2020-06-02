@@ -12,7 +12,7 @@ module.exports = env => {
   return {
     entry: './src/server/index.js',
     output: {
-      path: path.join(__dirname, './'),
+      path: path.resolve(__dirname, './'),
       filename: isProd ? 'server.js' : 'server-dev.js'
     },
     mode: env.NODE_ENV || 'development',
