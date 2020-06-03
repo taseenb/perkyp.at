@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from 'react'
-import { cx } from 'emotion'
+import { css, cx } from 'emotion'
 
 import FullscreenIcon from './FullscreenIcon'
 
@@ -11,6 +11,7 @@ import onResize from '../../../../../utils/resize'
 import C from '../../../../../const'
 
 import DivImg from '../../../../shared/DivImg'
+import LoadingAnimation from '../../../../shared/LoadingAnimation'
 
 /**
  * Takes a video and a container and sets the size of the video as "cover" background in CSS.
@@ -18,7 +19,14 @@ import DivImg from '../../../../shared/DivImg'
  */
 export default function VideoCover ({ displayName, detail }) {
   const { head } = detail
-  const { attrs, src, fallbackImg, originalVideoSize, allowFullscreen } = head
+  const {
+    attrs,
+    src,
+    fallbackImg,
+    originalVideoSize,
+    allowFullscreen,
+    loaderColor
+  } = head
   const { width, height } = originalVideoSize
 
   const containerEl = useRef(null)
@@ -26,10 +34,22 @@ export default function VideoCover ({ displayName, detail }) {
 
   const { canAutoplay } = useContext(SupportContext)
   const [sizes, setSizes] = useState(null)
-  const [cover, setCover] = useState({ w: '100%', h: '100%' })
+  const [cover, setCover] = useState({
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%'
+  })
   const [windowSize, setWindowSize] = useState(null)
-
   const [fullscreen, setFullscreen] = useState(false)
+
+  const videoReady = cover.height !== '100%'
+
+  const videoVisibility = css`
+    opacity: ${videoReady ? 1 : 0};
+    transition-property: opacity;
+    transition-duration: 0.6s;
+  `
 
   // On window resize
   useEffect(() => {
@@ -82,11 +102,15 @@ export default function VideoCover ({ displayName, detail }) {
         )}
       </div>
 
+      <LoadingAnimation show={!videoReady} color={loaderColor} />
+
+      {/* color='white' */}
+
       {canAutoplay && (
         <div ref={containerEl} className='video-container'>
           <video
             ref={videoEl}
-            className='video cover'
+            className={cx('video cover', videoVisibility)}
             autoPlay
             muted
             loop

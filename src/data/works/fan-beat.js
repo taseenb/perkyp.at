@@ -8,6 +8,7 @@ export default {
     type: 'video-cover',
     src: '/static/work/fan-beat/wall-HD.mp4',
     fallbackImg: '/static/work/fan-beat/bg.jpg',
+    loaderColor: 'white',
     allowFullscreen: true,
     originalVideoSize: {
       width: 1920,

@@ -1,17 +1,17 @@
 # INSTALL
 steps:
-- name: node:12
-  entrypoint: yarn
-  args: ['install']
-- name: node:12
-  entrypoint: yarn
-  args: ['add', 'webpack-cli']
-- name: node:12
-  entrypoint: yarn
-  args: ['run', 'build-react']
-- name: node:12
-  entrypoint: yarn
-  args: ['run', 'build-node']
+# - name: node:12
+#   entrypoint: yarn
+#   args: ['install']
+# - name: node:12
+#   entrypoint: yarn
+#   args: ['add', 'webpack-cli']
+# - name: node:12
+#   entrypoint: yarn
+#   args: ['run', 'build-react']
+# - name: node:12
+#   entrypoint: yarn
+#   args: ['run', 'build-node']
 
 # DEPLOY to App Engine
 - name: 'gcr.io/cloud-builders/gcloud'

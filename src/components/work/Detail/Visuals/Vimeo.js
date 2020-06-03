@@ -31,9 +31,9 @@ export default function Vimeo ({
 
   const placeholder = css`
     position: ${vimeoReady ? 'absolute' : 'relative'};
-    
+    pointer-events: ${vimeoReady ? 'none' : 'auto'};
     width: 100%;
-    padding-bottom: ${ratio * 100 + '%'};
+    padding-bottom: ${vimeoReady ? 0 : ratio * 100 + '%'};
     background-color: rgba(0, 0, 0, 0.12);
     z-index: 10;
   `
