@@ -3,6 +3,16 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
+  uid: 4473,
+  seo: 'the-airport-of-the-future',
+  active: 1,
+  displayName: 'The airport of the future',
+  year: 2016,
+  intro: 'Scroll based 2D animations',
+  preview: '/static/work/the-airport-of-the-future/preview.jpg',
+  image: '/static/work/the-airport-of-the-future/page.jpg',
+  vimeoId: null,
+  external: 'https://labs.theguardian.com/2016/heathrow-airport-of-the-future/',
   // className: 'dark',
   head: {
     type: 'image',

@@ -2,9 +2,7 @@ import React from 'react'
 import Vimeo from './Visuals/Vimeo'
 import Image from './Visuals/Image'
 
-export default function Visuals ({ seo, detail }) {
-  const { visuals } = detail
-
+export default function Visuals ({ seo, visuals }) {
   return (
     <div className='visuals'>
       {visuals.map((visual, i) => {

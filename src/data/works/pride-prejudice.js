@@ -3,6 +3,16 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
+  uid: 8742,
+  seo: 'pride-prejudice',
+  active: 1,
+  displayName: 'Pride & Prejudice',
+  year: 2016,
+  intro: 'Looong interactive streamgraph',
+  preview: '/static/work/pride-prejudice/preview.jpg',
+  image: '/static/work/pride-prejudice/main.jpg',
+  vimeoId: null,
+  external: 'https://d1xso9gob5fu6y.cloudfront.net/',
   // className: 'dark',
   head: {
     type: 'image',

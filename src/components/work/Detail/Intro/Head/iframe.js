@@ -4,8 +4,7 @@ import { cx } from 'emotion'
 import FullscreenIcon from './FullscreenIcon'
 import LoadingAnimation from '../../../../shared/LoadingAnimation'
 
-export default function Iframe ({ seo, displayName, detail }) {
-  const { head } = detail
+export default function Iframe ({ seo, displayName, head }) {
   const {
     title,
     attrs,

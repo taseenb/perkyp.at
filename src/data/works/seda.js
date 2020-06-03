@@ -3,6 +3,17 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
+  uid: 5154,
+  seo: 'seda',
+  active: 1,
+  displayName: 'World economic development',
+  year: 2016,
+  intro: 'Interactive data visualisation',
+  preview: '/static/work/seda/preview.jpg',
+  image: '/static/work/seda/main.jpg',
+  vimeoId: null,
+  iframe: 'https://seda-dataviz.surge.sh/',
+  external: 'https://seda-dataviz.surge.sh/',
   // className: 'dark',
   head: {
     type: 'image',

@@ -2,9 +2,7 @@ import React from 'react'
 import C from '../../../../const'
 const { targetBlank } = C
 
-export default function Description ({ detail }) {
-  const { description, links } = detail
-
+export default function Description ({ description, links }) {
   return (
     <div className='description'>
       {description}

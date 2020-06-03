@@ -3,6 +3,17 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
+  uid: 5155,
+  seo: 'cliiq',
+  active: 1,
+  displayName: 'Cliiq',
+  year: 2019,
+  intro: 'Social network for creators',
+  preview: '/static/work/cliiq/preview.jpg',
+  image: '/static/work/cliiq/main.jpg',
+  vimeoId: null,
+  external: 'https://cliiq.com/',
+  // template: 'default', // can be 'default' or null (default is null)
   head: {
     type: 'simple-scroll',
     image: {

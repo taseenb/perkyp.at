@@ -3,8 +3,7 @@ import React from 'react'
 
 import DivImg from '../../../../shared/DivImg'
 
-export default function Image ({ displayName, detail }) {
-  const { head } = detail
+export default function Image ({ displayName, head }) {
   const { src, shadow, glass, border, className } = head
 
   return (

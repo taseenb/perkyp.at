@@ -5,6 +5,17 @@ import C from '../../const'
 const isWin = C.isBrowser ? navigator.platform === 'Win32' : false
 
 export default {
+  uid: 5153,
+  seo: 'the-hunt',
+  active: 1,
+  displayName: 'The hunt',
+  year: 2016,
+  intro: 'Octahedron hunted by lines',
+  preview: '/static/work/the-hunt/preview.jpg',
+  image: '/static/work/the-hunt/main.jpg',
+  vimeoId: null,
+  iframe: 'https://the-hunt.surge.sh/',
+  external: 'https://the-hunt.surge.sh/',
   className: 'dark',
   head: {
     type: isWin ? 'image' : 'iframe',

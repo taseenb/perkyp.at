@@ -3,6 +3,15 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
+  uid: 3277,
+  seo: 'fan-beat',
+  active: 1,
+  displayName: 'Fan Beat',
+  year: 2016,
+  intro: 'Interactive installation for concerts',
+  preview: '/static/work/fan-beat/preview.jpg',
+  image: '/static/work/fan-beat/dashboard.jpg',
+  vimeoId: null,
   className: 'dark',
   head: {
     type: 'video-cover',

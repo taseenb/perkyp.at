@@ -4,7 +4,7 @@ import Credits from './Intro/Credits'
 import Description from './Intro/Description'
 
 export default function Intro (props) {
-  const { displayName, detail } = props
+  const { displayName, title } = props
 
   return (
     <div className='intro row no-gutters py-md-4 px-md-4'>
@@ -23,7 +23,7 @@ export default function Intro (props) {
           <div className='py-2 px-2 px-md-0 py-md-0 col-12 col-md-8'>
             <div className='text'>
               <div className='inner'>
-                <span className='title'>{detail.title || displayName}</span>
+                <span className='title'>{title || displayName}</span>
 
                 {/* <span className="year">2015</span>  */}
 

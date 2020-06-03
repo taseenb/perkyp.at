@@ -4,7 +4,7 @@
   position: relative;
 
   // Default style
-  &.default {
+  &.default-template {
     @import 'detail/default/head';
     @import 'detail/default/text';
     @import 'detail/default/visuals';

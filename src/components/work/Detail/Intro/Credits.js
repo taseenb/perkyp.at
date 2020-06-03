@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function Credits ({ detail }) {
+export default function Credits ({ credits }) {
   return (
     <div className='credits'>
       <br />
-      {detail.credits}
+      {credits}
     </div>
   )
 }

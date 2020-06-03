@@ -3,8 +3,7 @@ import Img from '../../../../shared/Img'
 import ErrorImg from '../../../../shared/ErrorImg'
 import LoadingAnimation from '../../../../shared/LoadingAnimation'
 
-export default function SimpleScroll ({ displayName, detail }) {
-  const { title, head } = detail
+export default function SimpleScroll ({ displayName, title, head }) {
   const { src, dimensions } = head.image
   const [loaded, setLoaded] = useState(false)
   const [error, setError] = useState(false)

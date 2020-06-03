@@ -3,6 +3,15 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
+  uid: 4001,
+  seo: 'glabs',
+  active: 1,
+  displayName: 'The Guardian Labs',
+  year: 2016,
+  intro: 'Interactive pages for editorial content',
+  preview: '/static/work/glabs/preview.jpg',
+  image: '/static/work/glabs/main.jpg',
+  vimeoId: null,
   // className: 'dark',
   head: {
     type: 'image',

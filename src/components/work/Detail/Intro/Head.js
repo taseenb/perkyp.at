@@ -8,7 +8,7 @@ const types = {
 }
 
 export default function Head (props) {
-  const { type } = props.detail.head
+  const { type } = props.head
 
   return React.createElement(types[type], { ...props })
 }

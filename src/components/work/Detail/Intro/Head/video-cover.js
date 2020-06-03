@@ -17,8 +17,7 @@ import LoadingAnimation from '../../../../shared/LoadingAnimation'
  * Takes a video and a container and sets the size of the video as "cover" background in CSS.
  * @param {object} props
  */
-export default function VideoCover ({ displayName, detail }) {
-  const { head } = detail
+export default function VideoCover ({ displayName, head }) {
   const {
     attrs,
     src,

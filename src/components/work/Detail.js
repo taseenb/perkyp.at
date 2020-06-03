@@ -8,13 +8,11 @@ import Intro from './Detail/Intro'
 import Visuals from './Detail/Visuals'
 
 export default function Detail (props) {
-  const { seo, template, displayName, intro, image, detail, shared } = props
+  const { seo, template, displayName, intro, image, shared, className } = props
   const { metaDescription } = shared
-
   const { baseUrl } = useContext(ReqContext)
-
-  const templateClass = template === 'default' ? 'default' : null
-  const detailClass = detail.className || null
+  const templateClass =
+    template === 'default' || !template ? 'default-template' : template
 
   // Html head
   const title = `${displayName} by Perky Pat`
@@ -32,7 +30,7 @@ export default function Detail (props) {
         <meta property='og:image:width' content='1920' />
         <meta property='og:type' content='article' />
       </Helmet>
-      <div id={`${seo}`} className={cx('detail', templateClass, detailClass)}>
+      <div id={`${seo}`} className={cx('detail', templateClass, className)}>
         <Intro {...props} />
         <Visuals {...props} />
       </div>

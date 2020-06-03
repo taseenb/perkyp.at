@@ -3,7 +3,19 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
-  // className: 'dark',
+  uid: 2803,
+  seo: 'the-code-of-nature-3d',
+  active: 1,
+  displayName: 'The code of nature in 3D',
+  year: 2017,
+  intro: 'A study of autonomous agents',
+  preview: '/static/work/the-code-of-nature-3d/preview.jpg',
+  image: '/static/work/the-code-of-nature-3d/main.jpg',
+  vimeoId: null,
+  iframe:
+    'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
+  external:
+    'https://taseenb.github.io/NOC3D-chapter6/NOC_6_06_PathFollowing_MeshLine/public/index.html',
   head: {
     type: 'iframe',
     src:

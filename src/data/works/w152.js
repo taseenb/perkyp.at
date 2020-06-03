@@ -3,6 +3,15 @@ import C from '../../const'
 const { targetBlank } = C
 
 export default {
+  uid: 7344,
+  seo: 'w152',
+  active: 1,
+  displayName: 'Industrial Facility w152',
+  year: 2016,
+  intro: 'Scroll based 2D animations',
+  preview: '/static/work/w152/preview.jpg',
+  image: '/static/work/w152/main.jpg',
+  vimeoId: null,
   head: {
     type: 'iframe',
     src: '/static/work/w152/iframe/index.html'
