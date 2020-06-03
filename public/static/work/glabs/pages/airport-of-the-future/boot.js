@@ -3,7 +3,7 @@ define([], function () {
   'use strict';
 
   // Get paths for assets (css + js)
-  var rootPath = '/assets/work/glabs/pages/airport-of-the-future/';
+  var rootPath = '/static/work/glabs/pages/airport-of-the-future/';
 
   function addCSS(url) {
     var head = document.querySelector('head');

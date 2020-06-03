@@ -2,7 +2,7 @@ define([], function () {
   'use strict'
 
   // Get paths for assets (css + js)
-  var rootPath = '/assets/work/glabs/pages/downsizing/'
+  var rootPath = '/static/work/glabs/pages/downsizing/'
 
   function addCSS (url) {
     var head = document.querySelector('head')

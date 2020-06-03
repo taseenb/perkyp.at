@@ -3,9 +3,6 @@ steps:
 - name: node:12
   entrypoint: yarn
   args: ['install']
-# - name: node:12
-#   entrypoint: yarn
-#   args: ['add', 'webpack-cli']
 - name: node:12
   entrypoint: yarn
   args: ['run', 'build-react']
