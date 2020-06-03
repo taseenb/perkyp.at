@@ -28,7 +28,7 @@ function DeviceSupport () {
     // Video autoplay support
     tryAutoplay()
       .then(result => {
-        console.log(result)
+        // console.log(result)
         setCanAutoplay(result.canAutoplay)
       })
       .catch(error => {
