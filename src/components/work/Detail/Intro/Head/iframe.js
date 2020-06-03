@@ -18,7 +18,6 @@ export default function Iframe ({ seo, displayName, detail }) {
   const [loading, setLoading] = useState(true)
 
   function onLoad () {
-    console.log('iframe loaded')
     setLoading(false)
   }
 

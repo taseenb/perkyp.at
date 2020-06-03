@@ -16,8 +16,7 @@ export default function Visuals ({ seo, detail }) {
           case 'vimeo':
             return <Vimeo key={visual.id} {...visual} />
           default:
-            // img
-            return <Image key={visual.src} {...visual} src={visual.src} />
+            return <Image key={visual.src} {...visual} />
         }
       })}
     </div>

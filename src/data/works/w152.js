@@ -12,11 +12,11 @@ export default {
     <>
       <br />
       Agency: La Moulade
-      <br /> Design:
+      <br /> Design:{' '}
       <a href='http://www.wastberg.com/' {...targetBlank}>
         Wästberg
       </a>
-      <br /> Animation:
+      <br /> Animation:{' '}
       <a href='http://www.mickeyandjohnny.com/johnny/' {...targetBlank}>
         Johnny Kelly
       </a>
@@ -25,11 +25,11 @@ export default {
   title: null, // use displayName from the work item
   description: (
     <>
-      To present a lamp designed by
+      To present a lamp designed by{' '}
       <a href='http://www.industrialfacility.co.uk/' {...targetBlank}>
         Industrial Facility
       </a>{' '}
-      and
+      and{' '}
       <a href='http://www.wastberg.com/' {...targetBlank}>
         Wästberg
       </a>
@@ -57,7 +57,11 @@ export default {
     {
       type: 'vimeo',
       id: '241331200',
-      caption: 'Screen capture of the scroll.'
+      caption: 'Screen capture of the scroll.',
+      dimensions: {
+        width: 1280,
+        height: 720
+      }
     }
   ]
 }

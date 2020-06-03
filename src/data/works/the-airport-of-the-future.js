@@ -71,7 +71,11 @@ export default {
     {
       type: 'vimeo',
       id: '241347842',
-      caption: 'Nature scene.'
+      caption: 'Nature scene.',
+      dimensions: {
+        width: 1300,
+        height: 476
+      }
     }
   ]
 }

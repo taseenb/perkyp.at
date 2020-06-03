@@ -10,12 +10,12 @@ export default function SimpleScroll ({ displayName, detail }) {
   const [error, setError] = useState(false)
 
   function onLoad () {
-    console.log('image in simple scroll loaded')
+    // console.log('image in simple scroll loaded')
     setLoaded(true)
   }
 
   function onError () {
-    console.log('image in simple scroll loaded')
+    // console.log('image in simple scroll loaded')
     setError(true)
     setLoaded(false)
   }

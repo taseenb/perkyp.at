@@ -10,6 +10,8 @@ import onResize from '../../../../../utils/resize'
 
 import C from '../../../../../const'
 
+import DivImg from '../../../../shared/DivImg'
+
 /**
  * Takes a video and a container and sets the size of the video as "cover" background in CSS.
  * @param {object} props
@@ -98,10 +100,7 @@ export default function VideoCover ({ displayName, detail }) {
       )}
 
       {canAutoplay || (
-        <div
-          className='bg video-fallback'
-          style={{ backgroundImage: `url(${fallbackImg})` }}
-        ></div>
+        <DivImg className='bg video-fallback' src={fallbackImg} />
       )}
     </div>
   )
