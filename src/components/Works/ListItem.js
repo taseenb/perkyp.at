@@ -3,15 +3,18 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 import Img from '../shared/Img'
+import imageDimensions from '../../data/image-dimensions'
 
 function ListItem ({ seo, displayName, preview, intro }) {
+  const dimensions = imageDimensions[preview]
+
   return (
     <Link
       to={`/work/${seo}`}
       className='list-item col-12 col-sm-6 col-xl-4 mb-2 mb-md-4'
     >
       <span className='image-wrapper'>
-        <Img src={preview} />
+        <Img src={preview} dimensions={dimensions} />
       </span>
 
       <span className='details'>

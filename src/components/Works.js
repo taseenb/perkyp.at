@@ -1,8 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import Work from './Work'
-
-import ListItem from './work/ListItem'
+import ListItem from './Works/ListItem'
 
 function Works ({ works, shared }) {
   return (
@@ -11,10 +9,7 @@ function Works ({ works, shared }) {
         <div className='spacer' />
         <div className='inner row'>
           {works.map(work => {
-            return (
-              <ListItem key={work.uid} {...work} shared={shared} />
-              // <Work key={work.uid} {...work} shared={shared} isDetail={false} />
-            )
+            return <ListItem key={work.uid} {...work} shared={shared} />
           })}
         </div>
       </div>
