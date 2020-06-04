@@ -4,11 +4,10 @@
   position: relative;
 
   // Default style
-  &.default {
+  &.default-template {
     @import 'detail/default/head';
     @import 'detail/default/text';
-    @import 'detail/default/art';
-    @import 'detail/default/images';
+    @import 'detail/default/visuals';
     @import 'detail/default/iframe';
     @import 'detail/default/credits';
     @import 'detail/default/icons';

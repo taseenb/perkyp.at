@@ -1,11 +1,10 @@
 .text {
-
   .inner {
-
     .title {
       font-size: 28px;
       line-height: 1.3;
       padding-bottom: $spacer;
+      @extend .heading;
 
       @include media-breakpoint-up(md) {
         font-size: 36px;
@@ -33,9 +32,8 @@
     }
 
     .link {
-      display: inline-block;
       a {
-        display: inline-block;
+        // display: inline-block;
       }
     }
 

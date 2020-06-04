@@ -1,18 +1,21 @@
 {
   "verbose": true,
-  "watch": ["src/server", "src/data"],
+  "ignore": [
+    ".git",
+    "node_modules"
+  ],
+  "watch": [
+    "src/server/",
+    "src/data/"
+  ],
+  "execMap": {
+    "js": "node --trace-sync-io --inspect"
+  },
+  "delay": "0ms",
   "env": {
     "NODE_ENV": "development",
     "DEBUG": "app,app:*",
     "DEBUG_COLORS": 1
   },
-  "ext": "js json hbs html ejs",
-  "execMap": {
-    "js": "node --trace-sync-io"
-  },
-  "delay": "0ms",
-  "events": {
-    "restartOLD": "osascript -e 'display notification \"app restarted\" with title \"nodemon\"'",
-    "restart": "sh reload-chrome.sh 1"
-  }
+  "ext": "js,json,html,ejs"
 }

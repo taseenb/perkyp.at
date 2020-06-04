@@ -1,0 +1,20 @@
+{
+  "name": "set-image-dimensions",
+  "description": "Node script that reads the dimension of all images in Perky Pat portfolio data directory (works)",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "../node_modules/.bin/webpack --env development --colors --watch",
+    "build": "../node_modules/.bin/webpack --env.NODE_ENV=production --colors --progress"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "fs-extra": "^9.0.0",
+    "image-size": "^0.8.3"
+  }
+}

@@ -6,21 +6,18 @@ a.list-item {
   backface-visibility: hidden;
   cursor: pointer;
   display: block;
+  border-color: transparent !important;
 
   @at-root .no-touchevents & {
     &:hover {
       text-decoration: none !important;
-      // .image-wrapper {
-      //   filter: blur(0);
-      // }
-      // .image-wrapper img {
-      //   filter: blur(0);
-      // }
       .details {
-        .name,
+        .name {
+          transform: translate3D(0.75rem, 0, 0);
+        }
         .year,
         .intro {
-          transform: translate3D(15px, 0, 0);
+          transform: translate3D(1.5rem, 0, 0);
         }
 
         .name {
@@ -39,6 +36,7 @@ a.list-item {
     overflow: hidden;
     z-index: 5;
     position: relative;
+    font-size: 7px;
 
     img {
       display: block;
@@ -61,16 +59,19 @@ a.list-item {
     .intro {
       transition-duration: 0.4s;
       backface-visibility: hidden;
-      font-size: 13px;
+      font-size: 1rem;
       display: block;
     }
 
     .name {
+      padding-left: 0.75rem;
       color: $darkGrey;
+      line-height: 1.95;
+      @extend .heading;
     }
 
     .intro {
-      color: $mediumGrey;
+      color: $mediumDarkGrey;
       transition-delay: 0.2s;
 
       @at-root .no-touchevents & {

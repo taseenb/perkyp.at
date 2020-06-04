@@ -2,16 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-const ListItem = props => {
+import Img from '../shared/Img'
+
+function ListItem ({ seo, displayName, preview, intro }) {
   return (
-    <Link to={`/work/${props.seo}`} id={`item-${props.seo}`} className='list-item col-12 col-sm-6 col-xl-4 mb-2 mb-md-4'>
+    <Link
+      to={`/work/${seo}`}
+      className='list-item col-12 col-sm-6 col-xl-4 mb-2 mb-md-4'
+    >
       <span className='image-wrapper'>
-        <img src={`assets/work/${props.seo}/${props.preview}`} />
+        <Img src={preview} />
       </span>
 
       <span className='details'>
-        <span className='name'>{props.name}</span>
-        <span className='intro'>{props.intro}</span>
+        <span className='name'>{displayName}</span>
+        <span className='intro'>{intro}</span>
       </span>
     </Link>
   )
@@ -20,7 +25,7 @@ const ListItem = props => {
 ListItem.propTypes = {
   seo: PropTypes.string.isRequired,
   preview: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  displayName: PropTypes.string.isRequired,
   intro: PropTypes.string.isRequired
 }
 
