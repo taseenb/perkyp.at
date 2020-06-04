@@ -7,6 +7,7 @@ import engine from 'ejs'
 import util from 'util'
 import fs from 'fs'
 import siteRouter from './routes/site'
+import packageJson from '../../package.json'
 
 // Data
 import data from '../data'
@@ -54,6 +55,13 @@ function initRoutes () {
       maxAge: isProd ? onDay : oneSec
     })
   )
+
+  /**
+   * Get app version from package.json
+   */
+  app.get('/version', (req, res) => {
+    res.send(`Version: ${packageJson.version}`)
+  })
 
   // React app (routing is managed by React router, including 404)
   app.use('/', siteRouter)
