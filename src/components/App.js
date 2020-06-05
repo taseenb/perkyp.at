@@ -13,6 +13,7 @@ import C from '../const'
 import data from '../data'
 
 function App ({ baseUrl = C.baseUrl, location }) {
+  const { pathname } = location
   const { works, shared } = data
 
   useEffect(() => {
@@ -22,6 +23,7 @@ function App ({ baseUrl = C.baseUrl, location }) {
   return (
     <ReqContext.Provider value={{ baseUrl }}>
       <HtmlHead data={data} />
+      {/* <Works works={works} shared={shared} show={pathname === '/'} /> */}
       <Switch>
         <Route
           exact

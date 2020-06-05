@@ -1,8 +1,22 @@
 #works {
+  // pointer-events: none;
+
+  // &.show {
+  //   pointer-events: auto;
+  //   .works-inner {
+  //     transform: translate3d(0, 0, 0);
+  //   }
+  // }
+
+  // .works-inner {
+  //   transform: translate3d(-100%, 0, 0);
+  //   transition-property: transform;
+  //   transition-duration: 0.4s;
+  // }
 
   > .spacer {
     height: 75px;
-    
+
     @media #{$landscape-s} {
       height: 65px;
     }
@@ -16,5 +30,4 @@
     position: relative;
     z-index: $contentZ;
   }
-  
 }
