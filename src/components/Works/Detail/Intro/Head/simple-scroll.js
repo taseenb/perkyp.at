@@ -3,13 +3,16 @@ import Img from '../../../../shared/Img'
 import ErrorImg from '../../../../shared/ErrorImg'
 import LoadingAnimation from '../../../../shared/LoadingAnimation'
 
+const cache = []
+
 export default function SimpleScroll ({ displayName, title, head }) {
   const { src, dimensions } = head.image
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(cache[src])
   const [error, setError] = useState(false)
 
   function onLoad () {
     // console.log('image in simple scroll loaded')
+    cache[src] = true
     setLoaded(true)
   }
 

@@ -2,9 +2,14 @@ import React, { useContext, useState, useEffect, useRef } from 'react'
 import isFunction from 'lodash/isFunction'
 import { css, cx } from 'emotion'
 import { useInView } from 'react-intersection-observer'
+// import { useImage } from 'react-image'
+// import { useSpring, animated } from 'react-spring'
 import SupportContext from '../../context/SupportContext'
+
 import LoadingAnimation from './LoadingAnimation'
 import ErrorImg from './ErrorImg'
+
+// import Img from './Img'
 
 const cache = {}
 
@@ -23,10 +28,9 @@ const Img = ({
   const containerRef = useRef(null)
   const { caption } = rest
   const [loaded, setLoaded] = useState(cache[src])
-  const hasNativeLazyLoading = false
-  const { hasImageDecode } = useContext(SupportContext)
-  // const { hasNativeLazyLoading, hasImageDecode } = useContext(SupportContext)
+  const { hasNativeLazyLoading } = useContext(SupportContext)
   const [error, setError] = useState(false)
+  // const hasNativeLazyLoading = false
   const [ref, inView] = useInView({
     triggerOnce: true
   })
@@ -37,97 +41,71 @@ const Img = ({
   const container = css`
     position: relative;
     background-color: ${placeholderBg};
+    padding-bottom: ${loaded ? '0' : ratio * 100 + '%'};
     width: 100%;
-  `
-
-  const placeholder = css`
-    position: relative;
-    padding-bottom: ${ratio * 100 + '%'};
   `
 
   const img = css`
-    position: absolute;
-    top: 0;
-    left: 0;
+    position: ${loaded ? 'relative' : 'absolute'};
+    width: 100%;
+    height: ${loaded ? 'auto' : '100%'};
     opacity: ${loaded && (inView || hasNativeLazyLoading) ? 1 : 0};
     pointer-events: ${loaded ? 'auto' : 'none'};
-    width: 100%;
-    height: 100%;
     transition-duration: 0.6s;
     transition-property: opacity;
   `
 
-  // Get image container size
+  function handleLoad () {
+    cache[src] = true
+    setLoaded(true)
+
+    if (isFunction(onLoad)) {
+      onLoad(src)
+    }
+  }
+
+  function handleError () {
+    setError(true)
+    if (isFunction(onError)) {
+      onError(src)
+    }
+  }
+
   useEffect(() => {
     let w = containerWidth
+    // console.log(containerRef.current)
     if (containerRef.current) {
       w = containerRef.current.getBoundingClientRect().width
     }
     setContainerWidth(w)
   }, [containerRef, containerWidth])
 
-  // Decode or load
-  useEffect(() => {
-    if (loaded || hasNativeLazyLoading) return
-
-    function handleLoad () {
-      cache[src] = true
-      setLoaded(true)
-
-      if (isFunction(onLoad)) {
-        onLoad(src)
-      }
-    }
-
-    function handleError (err) {
-      setError(true)
-      if (isFunction(onError)) {
-        onError(src)
-      }
-    }
-
-    if (!lazy || inView) {
-      const i = new Image()
-      i.src = src
-
-      if (hasImageDecode) {
-        i.decode()
-          .then(handleLoad)
-          .catch(handleError)
-      } else {
-        i.onload = handleLoad
-        i.onerror = handleError
-      }
-    }
-  }, [
-    src,
-    inView,
-    lazy,
-    loaded,
-    hasNativeLazyLoading,
-    hasImageDecode,
-    onLoad,
-    onError
-  ])
-
   return (
     <>
       <div className={cx(container)} ref={containerRef}>
         <div ref={!hasNativeLazyLoading ? ref : undefined}>
-          <div className={placeholder} />
-          {inView || hasNativeLazyLoading || !lazy ? (
-            <img
-              src={src}
-              loading={lazy && hasNativeLazyLoading ? 'lazy' : null}
-              alt=''
-              className={cx('img', className, img)}
-              width={Math.round(containerWidth)}
-              height={Math.round(containerWidth * ratio)}
-              {...rest}
-            />
+          {!lazy || inView || hasNativeLazyLoading ? (
+            <>
+              {error && showError ? (
+                <ErrorImg />
+              ) : (
+                <img
+                  src={src}
+                  loading={lazy && hasNativeLazyLoading ? 'lazy' : null}
+                  alt=''
+                  onLoad={handleLoad}
+                  onError={handleError}
+                  className={cx('img', className, img)}
+                  width={width}
+                  height={height}
+                  {...rest}
+                />
+              )}
+              {showLoading ? (
+                <LoadingAnimation show={!loaded && !error} />
+              ) : null}
+            </>
           ) : null}
-          <LoadingAnimation show={showLoading && !loaded && !error} />
-          <ErrorImg show={error && showError} />
         </div>
       </div>
       {caption && <div className='caption'>{caption}</div>}

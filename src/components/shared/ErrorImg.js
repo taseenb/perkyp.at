@@ -7,7 +7,9 @@ const absFill = css`
   height: 100%;
 `
 
-export default function ErrorImg () {
+export default function ErrorImg ({ show }) {
+  if (!show) return null
+
   const errorImg = css`
     font-weight: bold;
     font-size: 2em;
