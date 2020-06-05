@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const blank = { rel: 'noopener noreferrer', target: '_blank' }
 
-export default function Contact () {
+export default function Contact ({ onClose }) {
   const [email, setEmail] = useState('')
 
   useEffect(() => {
@@ -13,7 +14,11 @@ export default function Contact () {
   return (
     <div className='nav-contact'>
       <div className='name-box'>
-        <div className='heading'>Esteban ALMIRON</div>
+        <div className='heading'>
+          <Link to='/bio' onClick={onClose}>
+            Esteban ALMIRON
+          </Link>
+        </div>
         London E8
       </div>
       <br />

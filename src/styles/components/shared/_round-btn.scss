@@ -1,0 +1,58 @@
+.round-btn {
+  .svg-icon {
+    $iconSize: 48px;//rem;
+    font-size: $iconSize;
+    height: $iconSize;
+    line-height: $iconSize;
+    width: $iconSize;
+
+    fill: white; //$black;
+
+    overflow: visible;
+
+    position: relative;
+    padding: 0.5rem;
+    display: block;
+    text-align: center;
+    transition-duration: 0.4s;
+    backface-visibility: hidden;
+
+    @include media-breakpoint-up(md) {
+      $iconSize: 42px;
+      font-size: $iconSize;
+      height: $iconSize;
+      line-height: $iconSize;
+      width: $iconSize;
+      // fill: $darkGrey;
+      padding: 0.5rem;
+
+      .svg-icon-bg {
+        // stroke-width: 1px;
+      }
+    }
+
+    .svg-icon-bg {
+      fill: $black;
+      stroke: white;
+      stroke-width: 4px;
+    }
+
+    .svg-icon-path {
+      transform-origin: 50% 50%;
+      transform: scale(0.75);
+      
+    }
+  }
+
+  .no-touchevents {
+    .round-btn:hover {
+      .svg-icon {
+        .svg-icon-path {
+        }
+        .svg-icon-bg {
+        }
+      }
+      // box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    }
+  }
+}

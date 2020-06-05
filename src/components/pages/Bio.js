@@ -31,11 +31,11 @@ function Bio (props) {
 
                   <p className=''>
                     <strong>
-                      Front end development
+                      Front end development (React, Node)
                       <br />
                       Computational design, UX/UI
                       <br />
-                      Visual art
+                      Interactive and visual arts
                     </strong>
                     <br />
                     <br />
@@ -45,9 +45,8 @@ function Bio (props) {
                     <br />
                     In 2005 I graduated in art and media studies at the
                     University of Bologna, Italy. Today I build interactive
-                    applications in collaboration with digital studios,
-                    designers, artists for companies, brands and other
-                    organisations.
+                    applications for companies, brands and other organisations
+                    in collaboration with digital studios, designers, artists.
                     <br />
                     <br />
                   </p>
@@ -56,9 +55,9 @@ function Bio (props) {
                 <div className='tech'>
                   <h2 className='heading'>Tech</h2>
                   <p>
-                    Javascript, React, Node.js, Express, Three.js / WebGL, canvas
-                    2D, HTML5, D3.js, Babel, Webpack, Browserify, AWS, Google
-                    Cloud, etc.
+                    Javascript / ES6+, React, Node.js, Express, Three.js / WebGL,
+                    canvas 2D, HTML5, D3.js, Babel, Webpack, Browserify, AWS,
+                    Google Cloud, etc.
                     <br />
                     <br />
                   </p>

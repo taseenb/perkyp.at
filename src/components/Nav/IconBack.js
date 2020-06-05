@@ -1,20 +1,37 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { cx } from 'emotion'
+import { css, cx } from 'emotion'
 
-export default function IconBack ({className}) {
+export default function IconBack ({ className, onClose }) {
   const { pathname } = useLocation()
+  const show = pathname !== '/'
 
-  if (pathname === '/') return null
+  const backBtn = css`
+    opacity: ${show ? 1 : 0};
+    pointer-events: ${show ? 'auto' : 'none'};
+    transform: translate3d(${show ? '0' : '0.5rem'}, 0, 0);
+    transition-duration: 0.2s;
+    transition-property: opacity transform;
+    border-color: transparent;
+    cursor: pointer;
+
+    &:hover {
+      border-color: transparent !important;
+    }
+  `
 
   return (
-    <Link className={cx(className, 'back')} to='/'>
+    <Link className={cx('round-btn back-btn', backBtn, className)} to='/' onClick={onClose}>
       <svg
         className='svg-icon'
         xmlns='http://www.w3.org/2000/svg'
         viewBox='0 0 50 50'
       >
-        <polygon points='40,5.8 34.3,0 10,25 34.3,50 40,44.2 21.4,25' />
+        <circle className='svg-icon-bg' r='40' cx='25' cy='25' />
+        <polygon
+          className='svg-icon-path'
+          points='37,5.8 31.3,0 7,25 31.3,50 37,44.2 18.4,25'
+        />
       </svg>
     </Link>
   )

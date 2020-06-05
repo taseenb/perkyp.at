@@ -16,10 +16,6 @@
 @import 'vendor/bootstrap/bootstrap-grid';
 @import 'vendor/bootstrap/utilities';
 
-// Common
-@import 'components/common/animations';
-@import 'components/common/svg-icon';
-
 // Components
 @import 'components/root';
 @import 'components/nav';
@@ -30,8 +26,9 @@
 
 // Shared
 @import 'components/shared/LoadingAnimation';
+@import 'components/shared/animations';
+@import 'components/shared/round-btn';
 
 // Pages
 @import 'components/pages/bio';
 @import 'components/pages/404';
-

@@ -9,12 +9,11 @@
 
   &.open {
     height: 100%;
+    
     .popup {
       transform: translate3D(0, 0, 0);
     }
-    .switch .svg-icon {
-      transform: rotate(45deg);
-    }
+
     .cover {
       display: block;
     }
@@ -32,24 +31,6 @@
     position: absolute;
     right: 0;
     z-index: 10;
-
-    .back,
-    .switch {
-      cursor: pointer;
-    }
-
-    .back {
-      opacity: 1;
-      pointer-events: auto;
-      transition-duration: 0.2s;
-      transition-property: opacity;
-      border-color: transparent !important;
-
-      &.hide {
-        opacity: 0;
-        pointer-events: none;
-      }
-    }
   }
 
   .popup {
