@@ -13,7 +13,6 @@ const rotate = keyframes`
 function LoadingAnimation ({
   show,
   radius = 32,
-  color = '#666',
   bg = 'transparent'
 }) {
   const animate = css`
@@ -21,10 +20,16 @@ function LoadingAnimation ({
   `
 
   const circle = css`
+    // stroke color set in css
     fill: none;
-    stroke: ${color};
     stroke-width: 0.75rem;
     stroke-linecap: round;
+  `
+
+  const bgCircle = css`
+    // stroke color set in css
+    fill: none;
+    stroke-width: 0.7rem;
   `
 
   const absFill = css`
@@ -55,7 +60,7 @@ function LoadingAnimation ({
   const strokeDasharray = (angle / 360) * circumference
 
   return (
-    <div className={cx(container, absFill)}>
+    <div className={cx(container, absFill, 'loading-animation')}>
       <Svg
         viewBox={`0 0 ${r * 4} ${r * 4}`}
         width={r * 2 + 'px'}
@@ -63,7 +68,13 @@ function LoadingAnimation ({
         className={animate}
       >
         <circle
-          className={circle}
+          className={cx('bg-circle', bgCircle)}
+          cx={r * 2}
+          cy={r * 2}
+          r={r}
+        />
+        <circle
+          className={cx('main-circle', circle)}
           cx={r * 2}
           cy={r * 2}
           r={r}

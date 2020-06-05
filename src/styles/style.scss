@@ -27,7 +27,9 @@
 @import 'components/works';
 @import 'components/work/list-item';
 @import 'components/work/detail';
-// @import 'components/webgl';
+
+// Shared
+@import 'components/shared/LoadingAnimation';
 
 // Pages
 @import 'components/pages/bio';

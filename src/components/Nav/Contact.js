@@ -11,7 +11,7 @@ export default function Contact () {
   }, [])
 
   return (
-    <div>
+    <div className='nav-contact'>
       <div className='name-box'>
         <div className='heading'>Esteban ALMIRON</div>
         London E8
@@ -19,19 +19,19 @@ export default function Contact () {
       <br />
       <br />
       <div className='links-list'>
-        <a href={`mailto:${email}`}>{email}</a>
-        <br />
         <a href='https://github.com/taseenb' {...blank}>
           Github
+        </a>
+        <br />
+        <a href='https://www.linkedin.com/in/estebanalmiron' {...blank}>
+          Linkedin
         </a>
         <br />
         <a href='https://twitter.com/perkyp_at' {...blank}>
           Twitter
         </a>
         <br />
-        <a href='https://www.linkedin.com/in/estebanalmiron' {...blank}>
-          Linkedin
-        </a>
+        <a href={`mailto:${email}`}>{email}</a>
       </div>
     </div>
   )

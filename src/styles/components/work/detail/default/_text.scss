@@ -6,6 +6,12 @@
       padding-bottom: $spacer;
       @extend .heading;
 
+      // background-color: black;
+      // color: white;
+      margin: 0.5rem 0rem 2rem -4rem;
+      padding: 0.5rem 0.5rem 0.5rem 4rem;
+      text-transform: uppercase;
+
       @include media-breakpoint-up(md) {
         font-size: 36px;
       }
@@ -13,9 +19,6 @@
       @include media-breakpoint-up(xl) {
         font-size: 48px;
       }
-    }
-
-    .year {
     }
 
     .description,
@@ -28,12 +31,6 @@
 
       @include media-breakpoint-up(xl) {
         font-size: 24px;
-      }
-    }
-
-    .link {
-      a {
-        // display: inline-block;
       }
     }
 

@@ -1,0 +1,19 @@
+.loading-animation {
+  .main-circle {
+    stroke: #666;
+  }
+
+  .bg-circle {
+    stroke: #dedede;
+  }
+
+  .dark & {
+    .main-circle {
+      stroke: #ccc;
+    }
+
+    .bg-circle {
+      stroke: #666;
+    }
+  }
+}

@@ -8,25 +8,35 @@ a.list-item {
   display: block;
   border-color: transparent !important;
 
+  $leftPadding: 0.62rem;
+
   @at-root .no-touchevents & {
     &:hover {
       text-decoration: none !important;
       .details {
         .name {
-          transform: translate3D(0.75rem, 0, 0);
+          transform: translate3D($leftPadding * 2, 0, 0);
         }
         .year,
         .intro {
-          transform: translate3D(1.5rem, 0, 0);
+          transform: translate3D($leftPadding * 2, 0, 0);
         }
 
         .name {
-          color: black;
+          // color: $pulp;
         }
 
         .intro {
           opacity: 1;
         }
+      }
+    }
+  }
+
+  @at-root .touchevents & {
+    .details {
+      .intro {
+        transform: translate3D($leftPadding, 0, 0);
       }
     }
   }
@@ -41,8 +51,6 @@ a.list-item {
     img {
       display: block;
       width: 100%;
-
-      // filter: blur(50px);
       transition-duration: 0.3s;
       transition-timing-function: linear;
     }
@@ -64,10 +72,13 @@ a.list-item {
     }
 
     .name {
-      padding-left: 0.75rem;
-      color: $darkGrey;
+      transform: translate3D($leftPadding, 0, 0);
+      // color: $darkGrey;
+      // color: $pulp;
       line-height: 1.95;
       @extend .heading;
+      text-transform: uppercase;
+      font-size: 1.1rem;
     }
 
     .intro {

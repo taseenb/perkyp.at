@@ -31,16 +31,23 @@ function Bio (props) {
 
                   <p className=''>
                     <strong>
-                      Front end development, computational design, visual arts
+                      Front end development
+                      <br />
+                      Computational design, UX/UI
+                      <br />
+                      Visual art
                     </strong>
                     <br />
                     <br />
                   </p>
                   <p>
-                    I'm Esteban, a freelance developer based in London. In 2005
-                    I graduated in art and cinema studies at the University of
-                    Bologna, Italy. Today I create interactive applications in
-                    collaboration with creative studios, designers, artists.
+                    Hello! I'm Esteban, a freelance developer based in London.
+                    <br />
+                    In 2005 I graduated in art and media studies at the
+                    University of Bologna, Italy. Today I build interactive
+                    applications in collaboration with digital studios,
+                    designers, artists for companies, brands and other
+                    organisations.
                     <br />
                     <br />
                   </p>
@@ -49,9 +56,9 @@ function Bio (props) {
                 <div className='tech'>
                   <h2 className='heading'>Tech</h2>
                   <p>
-                    Javascript, React, Node, Express, Three.js / WebGL, canvas
-                    2D, D3.js, Babel, Webpack, Browserify, AWS, Google Cloud,
-                    etc.
+                    Javascript, React, Node.js, Express, Three.js / WebGL, canvas
+                    2D, HTML5, D3.js, Babel, Webpack, Browserify, AWS, Google
+                    Cloud, etc.
                     <br />
                     <br />
                   </p>

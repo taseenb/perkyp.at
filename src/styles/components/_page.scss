@@ -1,11 +1,6 @@
 .page {
   z-index: $contentZ;
 
-  // .body {
-  //   max-width: 650px;
-  //   // margin: 0 auto;
-  // }
-
   h1 {
     padding: 0 0 20px 0;
     margin: 0;
@@ -15,24 +10,13 @@
 
   h2 {
     text-align: left;
-    font-weight: bold;
     padding: 20px 0 10px;
     margin: 0;
     font-size: 1.4em;
-    // text-transform: uppercase;
   }
 
   p {
     padding: 0;
     margin: 0;
   }
-
-  .sub {
-    margin-bottom: 10px;
-    font-style: italic;
-    font-weight: bold;
-    // font-size: 1.6em;
-    // font-family: Georgia, 'Times New Roman', Times, serif;
-  }
-
 }
