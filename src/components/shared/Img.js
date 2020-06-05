@@ -23,7 +23,7 @@ const Img = ({
   const containerRef = useRef(null)
   const { caption } = rest
   const [loaded, setLoaded] = useState(cache[src])
-  const hasNativeLazyLoading = false
+  // const hasNativeLazyLoading = false
   const { hasImageDecode } = useContext(SupportContext)
   // const { hasNativeLazyLoading, hasImageDecode } = useContext(SupportContext)
   const [error, setError] = useState(false)
@@ -49,13 +49,15 @@ const Img = ({
     position: absolute;
     top: 0;
     left: 0;
-    opacity: ${loaded && (inView || hasNativeLazyLoading) ? 1 : 0};
+    opacity: ${loaded ? 1 : 0};
     pointer-events: ${loaded ? 'auto' : 'none'};
     width: 100%;
     height: 100%;
     transition-duration: 0.6s;
     transition-property: opacity;
   `
+
+  // opacity: ${loaded || hasNativeLazyLoading ? 1 : 0};
 
   // Get image container size
   useEffect(() => {
@@ -68,7 +70,7 @@ const Img = ({
 
   // Decode or load
   useEffect(() => {
-    if (loaded || hasNativeLazyLoading) return
+    if (loaded) return
 
     function handleLoad () {
       cache[src] = true
@@ -99,26 +101,19 @@ const Img = ({
         i.onerror = handleError
       }
     }
-  }, [
-    src,
-    inView,
-    lazy,
-    loaded,
-    hasNativeLazyLoading,
-    hasImageDecode,
-    onLoad,
-    onError
-  ])
+  }, [src, inView, lazy, loaded, hasImageDecode, onLoad, onError])
 
   return (
     <>
       <div className={cx(container)} ref={containerRef}>
-        <div ref={!hasNativeLazyLoading ? ref : undefined}>
+        {/* <div ref={!hasNativeLazyLoading ? ref : undefined}> */}
+        <div ref={ref}>
           <div className={placeholder} />
-          {inView || hasNativeLazyLoading || !lazy ? (
+          {/* {inView || hasNativeLazyLoading || !lazy ? ( */}
+          {inView || !lazy ? (
             <img
               src={src}
-              loading={lazy && hasNativeLazyLoading ? 'lazy' : null}
+              // loading={lazy && hasNativeLazyLoading ? 'lazy' : null}
               alt=''
               className={cx('img', className, img)}
               width={Math.round(containerWidth)}

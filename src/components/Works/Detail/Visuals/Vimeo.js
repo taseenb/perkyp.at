@@ -30,20 +30,22 @@ export default function Vimeo ({
   })
 
   const placeholder = css`
-    position: ${vimeoReady ? 'absolute' : 'relative'};
-    pointer-events: ${vimeoReady ? 'none' : 'auto'};
+    position: relative;
     width: 100%;
-    padding-bottom: ${vimeoReady ? 0 : ratio * 100 + '%'};
+    padding-bottom: ${ratio * 100 + '%'};
     background-color: rgba(0, 0, 0, 0.12);
-    z-index: 10;
+    z-index: 1;
+  `
+
+  const iframeContainer = css`
+    position: relative;
   `
 
   const iframe = css`
-    position: ${vimeoReady ? 'relative' : 'absolute'};
+    position: absolute;
+    top: 0;
     opacity: ${vimeoReady ? 1 : 0};
-    pointer-events: ${vimeoReady ? 'auto' : 'none'};
-    transition-property: opacity;
-    transition-duration: 0.6s;
+    z-index: 2;
   `
 
   useEffect(() => {
@@ -103,26 +105,28 @@ export default function Vimeo ({
       <div className='col'>
         <div className='row-zoom row no-gutters px-2 px-md-4'>
           <div className='col-zoom col-12 col-md-8'>
-            <div className={placeholder}>
+            <div className={iframeContainer}>
+              <iframe
+                ref={vimeoIframe}
+                title={id}
+                id={`vimeo-${id}`}
+                className={cx('vimeo-iframe', iframe)}
+                src={
+                  inView
+                    ? `//player.vimeo.com/video/${id}?color=ffffff&title=0&byline=0&portrait=0`
+                    : null
+                }
+                width='100%'
+                height={iframeSize.height}
+                style={{ width: '100%', height: iframeSize.height }}
+                frameBorder='0'
+                allowFullScreen
+              ></iframe>
+
+              <div className={placeholder} />
+
               <LoadingAnimation show={!vimeoReady} />
             </div>
-
-            <iframe
-              ref={vimeoIframe}
-              title={id}
-              id={`vimeo-${id}`}
-              className={cx('vimeo-iframe', iframe)}
-              src={
-                inView
-                  ? `//player.vimeo.com/video/${id}?color=ffffff&title=0&byline=0&portrait=0`
-                  : null
-              }
-              width='100%'
-              height={iframeSize.height}
-              style={{ width: '100%', height: iframeSize.height }}
-              frameBorder='0'
-              allowFullScreen
-            ></iframe>
 
             {caption && <div className='caption'>{caption}</div>}
           </div>
