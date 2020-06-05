@@ -41,7 +41,7 @@ function Bio (props) {
                     <br />
                   </p>
                   <p>
-                    Hello! I'm Esteban, a freelance developer based in London.
+                    Hello! I'm Esteban, based in London.
                     <br />
                     In 2005 I graduated in art and media studies at the
                     University of Bologna, Italy. Today I build interactive

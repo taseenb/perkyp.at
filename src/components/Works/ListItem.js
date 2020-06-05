@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
-import Card from '../shared/Card'
+// import Card from '../shared/Card'
 import Img from '../shared/Img'
 import imageDimensions from '../../data/image-dimensions'
 

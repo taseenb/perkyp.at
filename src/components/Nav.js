@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { withRouter } from 'react-router'
 
 import Contact from './Nav/Contact'
 import IconBack from './Nav/IconBack'
