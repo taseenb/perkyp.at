@@ -34,7 +34,7 @@ export default {
   title: null, // use displayName from the work item
   description: (
     <>
-      To present a lamp designed by{' '}
+      We create a single page application to introduce a lamp designed by{' '}
       <a href='http://www.industrialfacility.co.uk/' {...targetBlank}>
         Industrial Facility
       </a>{' '}
@@ -42,8 +42,8 @@ export default {
       <a href='http://www.wastberg.com/' {...targetBlank}>
         Wästberg
       </a>
-      , a single page application was created. This consisted of several
-      animations based on scroll interaction, similar to the demo above.
+      . It consisted of several animations based on scroll interaction, similar
+      to the demo above.
     </>
   ),
   links: [
