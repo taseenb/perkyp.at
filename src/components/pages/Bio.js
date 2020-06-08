@@ -55,9 +55,9 @@ function Bio (props) {
                 <div className='tech'>
                   <h2 className='heading'>Tech</h2>
                   <p>
-                    Javascript / ES6+, React, Node.js, Express, Three.js / WebGL,
-                    canvas 2D, HTML5, D3.js, Babel, Webpack, Browserify, AWS,
-                    Google Cloud, etc.
+                    Javascript / ES6+, React / Redux, Node.js, Express, Three.js
+                    / WebGL, canvas 2D, HTML5, D3.js, Babel, Webpack,
+                    Browserify, Electron, AWS, Google Cloud, etc.
                     <br />
                     <br />
                   </p>
