@@ -44,7 +44,7 @@ function Bio (props) {
                     Hello! I'm Esteban, based in London.
                     <br />
                     In 2005 I graduated in art and media studies at the
-                    University of Bologna, Italy. Today I build interactive
+                    University of Bologna, Italy. I build interactive
                     applications for companies, brands and other organisations
                     in collaboration with digital studios, designers, artists.
                     <br />
