@@ -32,6 +32,7 @@ const Img = ({
   })
   const { width, height } = dimensions
   const ratio = height && width ? height / width : 1
+  const [removeLoader, setRemoveLoader] = useState(false)
 
   const container = css`
     position: relative;
@@ -91,6 +92,15 @@ const Img = ({
     }
   }, [src, inView, lazy, loaded, hasImageDecode, onLoad, onError])
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setRemoveLoader(true)
+    }, 1000)
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [loaded])
+
   return (
     <>
       <div className={cx(container)} ref={containerRef}>
@@ -111,7 +121,9 @@ const Img = ({
               {...rest}
             />
           ) : null}
-          <LoadingAnimation show={showLoading && !loaded && !error} />
+          {showLoading && !error && !removeLoader ? (
+            <LoadingAnimation show={!loaded} />
+          ) : null}
           <ErrorImg show={error && showError} />
         </div>
       </div>
