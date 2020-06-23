@@ -12,7 +12,7 @@
     "dev-react": "react-scripts start",
     "dev-node": "webpack --config ./webpack-node.config.js --env development --colors --watch",
     "build": "yarn build-react && yarn build-node",
-    "build-react": "react-scripts build && rm -r dist/build && mv build dist/build",
+    "build-react": "react-scripts build && rm -rf dist/build && mv build dist/build",
     "build-node": "webpack --config ./webpack-node.config.js --env.NODE_ENV=production --colors --progress",
     "OLDpostinstall": "yarn build",
     "deploy": "cd dist && gcloud app deploy --project=perkypat-portfolio",
