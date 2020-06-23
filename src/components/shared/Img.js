@@ -32,7 +32,6 @@ const Img = ({
   })
   const { width, height } = dimensions
   const ratio = height && width ? height / width : 1
-  const [containerWidth, setContainerWidth] = useState(width)
 
   const container = css`
     position: relative;
@@ -56,17 +55,6 @@ const Img = ({
     transition-duration: 0.6s;
     transition-property: opacity;
   `
-
-  // opacity: ${loaded || hasNativeLazyLoading ? 1 : 0};
-
-  // Get image container size
-  useEffect(() => {
-    let w = containerWidth
-    if (containerRef.current) {
-      w = containerRef.current.getBoundingClientRect().width
-    }
-    setContainerWidth(w)
-  }, [containerRef, containerWidth])
 
   // Decode or load
   useEffect(() => {
@@ -116,8 +104,10 @@ const Img = ({
               // loading={lazy && hasNativeLazyLoading ? 'lazy' : null}
               alt=''
               className={cx('img', className, img)}
-              width={Math.round(containerWidth)}
-              height={Math.round(containerWidth * ratio)}
+              width='100%'
+              height='100%'
+              // width={Math.round(containerWidth)}
+              // height={Math.round(containerWidth * ratio)}
               {...rest}
             />
           ) : null}
