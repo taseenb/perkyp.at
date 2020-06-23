@@ -3,27 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{%= data.title %}}</title>
-
-    <meta type="description" content="{{%= data.metaDescription %}}" />
-    <meta type="keywords" content="{{%= data.metaKeywords %}}" />
-
-    <!-- OG meta -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:creator" content="@taseenb" />
-    <meta name="twitter:image:alt" content="{{%= data.description %}}" />
-    <meta
-      property="og:image"
-      content="{{%- data.url %}}{{%= data.ogImage %}}"
-    />
-    <meta property="og:image:height" content="1080" />
-    <meta property="og:image:width" content="1920" />
-    <meta property="og:description" content="{{%= data.description %}}" />
-    <meta
-      property="og:title"
-      content="{{%= data.workName %}}{{%= data.ogTitle %}}"
-    />
-    <meta property="og:url" content="{{%- data.url -%}}" />
+    {{%- htmlHead -%}}
   </head>
   <body>
 <!-- IMPORTANT: remove all spaces around markup to avoid isomorphic react complaints -->
