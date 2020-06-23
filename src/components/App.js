@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { withRouter } from 'react-router'
 
 import Bio from './pages/Bio'
-import Contact from './pages/Contact'
+// import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
 import Works from './Works'
 import Detail from './Works/Detail.js'
@@ -45,7 +45,6 @@ function App ({ baseUrl = C.baseUrl, location }) {
           }}
         />
         <Route exact path='/bio' component={Bio} />
-        <Route exact path='/contact' component={Contact} />
         <Route component={NotFound} />
       </Switch>
       <Nav />

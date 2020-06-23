@@ -39,9 +39,22 @@ function Bio (props) {
             <br />
           </p>
           <p>
-            Hello! I'm Esteban, based in London.
-            <br />
-            In 2005 I graduated in art and media studies at the University of
+            Hello! I'm Esteban (Perky Pat is just a{' '}
+            <strong>
+              <a
+                href='https://scifi.stackexchange.com/questions/60900/what-is-the-story-or-metaphor-behind-perky-pat'
+                {...blank}
+              >
+                puppet
+              </a>
+            </strong>{' '}
+            from an{' '}
+            <strong>
+              <a href='https://www.goodreads.com/book/show/14185.The_Three_Stigmata_of_Palmer_Eldritch'>
+                illusory world
+              </a>
+            </strong>
+            ). In 2005 I graduated in art and media studies at the University of
             Bologna, Italy. I build interactive applications for companies,
             brands and other organisations in collaboration with digital
             studios, designers, artists.
