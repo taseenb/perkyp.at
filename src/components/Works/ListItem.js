@@ -12,7 +12,7 @@ function ListItem ({ seo, displayName, preview, intro }) {
   return (
     <Link
       to={`/work/${seo}`}
-      className='list-item col-12 col-sm-6 col-xl-4 mb-2 mb-md-4'
+      className='list-item col-12 col-sm-6 col-xl-4 mb-1 mb-lg-2'
     >
       <span className='image-wrapper'>
         <Img src={preview} dimensions={dimensions} />
