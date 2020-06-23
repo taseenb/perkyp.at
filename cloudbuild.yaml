@@ -10,13 +10,12 @@ steps:
   entrypoint: yarn
   args: ['run', 'build-node']
 
-# Change to the dist directory
-- name: bash
-  args: ['cd', 'dist']
 
 # DEPLOY to App Engine - Temp service
 - name: 'gcr.io/cloud-builders/gcloud'
   args: ['app', 'deploy', 'temp.yaml']
+  dir: 'dist' # /workspace/<dir>
+
 
 # GLOBAL OPTIONS
 options:
