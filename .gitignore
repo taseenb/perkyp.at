@@ -24,10 +24,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # perkyp.at
-server.js
-server-dev.js
-server.js.map
-server-dev.js.map
+
 build
-dist
+dist/server.**
+dist/server-dev.**
 src/data/image-dimensions-dev.js

@@ -13,7 +13,7 @@ module.exports = env => {
     entry: './src/server/index.js',
     output: {
       path: path.resolve(__dirname, './'),
-      filename: isProd ? 'server.js' : 'server-dev.js'
+      filename: isProd ? './dist/server.js' : './dist/server-dev.js'
     },
     mode: env.NODE_ENV || 'development',
     // devtool: 'cheap-module-inline-source-map',

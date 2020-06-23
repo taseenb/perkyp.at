@@ -1,0 +1,5 @@
+runtime: nodejs12
+
+service: temp
+
+entrypoint: node server.js

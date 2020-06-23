@@ -11,7 +11,7 @@ import { Helmet } from 'react-helmet'
 import App from '../../components/App.js'
 
 // Get index.html (also used by create-react-app)
-import indexHtmlTemplate from '../../../build/index.html'
+import indexHtmlTemplate from '../../../dist/build/index.html'
 
 const debug = d('app:site')
 

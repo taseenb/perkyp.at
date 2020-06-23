@@ -1,2 +1,2 @@
 User-agent: *
-Disallow: /assets/work/glabs/pages/*
+Disallow: /static/work/glabs/pages/*

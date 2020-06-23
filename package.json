@@ -6,16 +6,16 @@
     "node": ">=12.0.0"
   },
   "scripts": {
-    "start": "node ./server.js",
+    "start": "cd dist && node server.js",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev-react": "react-scripts start",
     "dev-node": "webpack --config ./webpack-node.config.js --env development --colors --watch",
     "build": "yarn build-react && yarn build-node",
-    "build-react": "react-scripts build",
+    "build-react": "react-scripts build && rm -r dist/build && mv build dist/build",
     "build-node": "webpack --config ./webpack-node.config.js --env.NODE_ENV=production --colors --progress",
     "OLDpostinstall": "yarn build",
-    "deploy": "gcloud app deploy",
+    "deploy": "cd dist && gcloud app deploy --project=perkypat-portfolio",
     "browse": "gcloud app browse"
   },
   "dependencies": {
