@@ -58,7 +58,7 @@ a.list-item {
 
   .details {
     display: block;
-    padding: 10px 0;
+    padding: 1rem 0;
     z-index: 10;
     position: relative;
 
@@ -75,7 +75,7 @@ a.list-item {
       transform: translate3D($leftPadding, 0, 0);
       // color: $darkGrey;
       // color: $pulp;
-      line-height: 1.95;
+      line-height: 1.5;
       @extend .heading;
       text-transform: uppercase;
       font-size: 1.1rem;
