@@ -50,7 +50,10 @@ function Bio (props) {
             </strong>{' '}
             from an{' '}
             <strong>
-              <a href='https://www.goodreads.com/book/show/14185.The_Three_Stigmata_of_Palmer_Eldritch'>
+              <a
+                href='https://www.goodreads.com/book/show/14185.The_Three_Stigmata_of_Palmer_Eldritch'
+                {...blank}
+              >
                 illusory world
               </a>
             </strong>
