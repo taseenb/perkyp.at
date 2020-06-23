@@ -33,6 +33,9 @@ function Nav () {
             <Link to='/bio' onClick={closeNav}>
               Bio
             </Link>
+            {/* <Link to='/contact' onClick={closeNav}>
+              Contact
+            </Link> */}
             <Contact onClose={closeNav} />
           </div>
         </div>

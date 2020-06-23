@@ -32,7 +32,7 @@
     right: 0;
     top: 0;
     z-index: 10;
-    pointer-events: auto !important;
+    pointer-events: none;
   }
 
   .popup {
@@ -56,11 +56,15 @@
     text-transform: uppercase;
     padding: 3px 1rem;
     cursor: pointer;
-    display: inline-block;
+    display: block;
     margin-right: $spacer;
     margin-bottom: $spacer * 0.5;
     font-weight: 900;
     border: 1px solid transparent;
+
+    @media (orientation: landscape) {
+      display: inline-block;
+    }
 
     .no-touchevents & {
       &:hover {
@@ -72,13 +76,24 @@
   .links-list {
     a {
       line-height: $line-height-lists;
+      display: block;
+
+      @media (orientation: landscape) {
+        display: inline-block;
+        margin-right: 2rem;
+      }
     }
   }
 
   .name-box {
+    margin-bottom: 2rem;
   }
 
   .nav-contact {
-    margin-top: 4rem;
+    margin-top: 5rem;
+
+    @media (orientation: landscape) {
+      margin-top: 3rem;
+    }
   }
 }

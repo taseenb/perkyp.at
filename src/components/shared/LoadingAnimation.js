@@ -1,57 +1,7 @@
 import React, { memo } from 'react'
-import { css, cx, keyframes } from 'emotion'
 import Svg from './Svg'
 
-const rotate = keyframes`
-  from {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }`
-
-function LoadingAnimation ({
-  show,
-  radius = 32,
-  bg = 'transparent'
-}) {
-  const animate = css`
-    animation: ${rotate} 0.6s linear infinite;
-  `
-
-  const circle = css`
-    // stroke color set in css
-    fill: none;
-    stroke-width: 0.75rem;
-    stroke-linecap: round;
-  `
-
-  const bgCircle = css`
-    // stroke color set in css
-    fill: none;
-    stroke-width: 0.7rem;
-  `
-
-  const absFill = css`
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-  `
-
-  const container = css`
-    display: flex;
-    transition-duration: 0.6s;
-    opacity: ${show ? 1 : 0};
-    pointer-events: ${show ? 'auto' : 'none'};
-    justify-content: center;
-    align-items: center;
-    z-index: 5;
-    color: blue;
-    background-color: ${bg};
-  `
-
+function LoadingAnimation ({ show, radius = 32, bg = 'transparent' }) {
   // Draw an arc with circle and
   const angle = 90
   const r = radius
@@ -59,22 +9,23 @@ function LoadingAnimation ({
   const strokeOffset = (1 / 4) * circumference
   const strokeDasharray = (angle / 360) * circumference
 
+  const style = {
+    opacity: show ? 1 : 0,
+    pointerEvents: show ? 'auto' : 'none',
+    backgroundColor: bg
+  }
+
   return (
-    <div className={cx(container, absFill, 'loading-animation')}>
+    <div className='loading-animation' style={style}>
       <Svg
         viewBox={`0 0 ${r * 4} ${r * 4}`}
         width={r * 2 + 'px'}
         height={r * 2 + 'px'}
-        className={animate}
+        className='svg'
       >
+        <circle className='bg-circle' cx={r * 2} cy={r * 2} r={r} />
         <circle
-          className={cx('bg-circle', bgCircle)}
-          cx={r * 2}
-          cy={r * 2}
-          r={r}
-        />
-        <circle
-          className={cx('main-circle', circle)}
+          className='main-circle'
           cx={r * 2}
           cy={r * 2}
           r={r}

@@ -21,21 +21,17 @@ export default function Contact ({ onClose }) {
         </div>
         London E8
       </div>
-      <br />
-      <br />
+      
       <div className='links-list'>
         <a href='https://github.com/taseenb' {...blank}>
           Github
         </a>
-        <br />
         <a href='https://www.linkedin.com/in/estebanalmiron' {...blank}>
           Linkedin
         </a>
-        <br />
         <a href='https://twitter.com/perkyp_at' {...blank}>
           Twitter
         </a>
-        <br />
         <a href={`mailto:${email}`}>{email}</a>
       </div>
     </div>

@@ -1,10 +1,31 @@
 .loading-animation {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  transition-duration: 0.6s;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  color: blue;
+
+  > .svg {
+    animation: loading-animation-rotate 0.6s linear infinite;
+  }
+
   .main-circle {
     stroke: #666;
+    fill: none;
+    stroke-width: 0.75rem;
+    stroke-linecap: round;
   }
 
   .bg-circle {
     stroke: #dedede;
+    fill: none;
+    stroke-width: 0.7rem;
   }
 
   .dark & {
@@ -15,5 +36,14 @@
     .bg-circle {
       stroke: #666;
     }
+  }
+}
+
+@keyframes loading-animation-rotate {
+  from {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }
