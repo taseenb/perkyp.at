@@ -15,7 +15,7 @@ function Contact (props) {
   const { displayName, description } = data.pages.contact
   const desc = description || metaDescription
 
-  console.log(description, metaDescription)
+  // console.log(description, metaDescription)
 
   useEffect(() => {
     // Do not render on the server

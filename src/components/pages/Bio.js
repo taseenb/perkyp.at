@@ -13,7 +13,7 @@ function Bio (props) {
   const { displayName, description } = data.pages.bio
   const desc = description || metaDescription
 
-  console.log(description, metaDescription)
+  // console.log(description, metaDescription)
 
   return (
     <>

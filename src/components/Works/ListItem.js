@@ -9,8 +9,6 @@ import imageDimensions from '../../data/image-dimensions'
 function ListItem ({ seo, displayName, preview, intro }) {
   const dimensions = imageDimensions[preview]
 
-  console.log(dimensions)
-
   return (
     <Link
       to={`/work/${seo}`}
