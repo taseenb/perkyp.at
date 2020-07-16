@@ -70,8 +70,8 @@ function Bio (props) {
           <h2 className='heading'>Tech</h2>
           <p>
             Javascript / ES6+, React / Redux, Node.js, Express, Three.js /
-            WebGL, canvas 2D, HTML5, D3.js, Babel, Webpack, Browserify,
-            Electron, AWS, Google Cloud, etc.
+            WebGL, A-Frame, canvas 2D, HTML5, D3.js, Babel, Webpack, Browserify,
+            Electron, AWS, Google Cloud, WebAssembly, etc.
             <br />
             <br />
           </p>
@@ -81,30 +81,32 @@ function Bio (props) {
         {/* In the last years I have worked with:  */}
         <ul className='clients-list'>
           <li>
-            <a href='http://www.unit9.com/' {...blank}>
-              Unit 9, London
+            <a href='https://www.happyfinish.com/' {...blank}>
+              Happy Finish, London
             </a>
-            <ul>
-              <li>Hugo Boss</li>
-            </ul>
           </li>
           <li>
-            <a href='http://www.field.io/' {...blank}>
+            <a href='https://www.unit9.com/' {...blank}>
+              Unit 9, London
+            </a>
+          </li>
+          <li>
+            <a href='https://www.field.io/' {...blank}>
               Field.io, London
             </a>
           </li>
           <li>
-            <a href='http://www.theguardian.com/uk/' {...blank}>
+            <a href='https://www.theguardian.com/uk/' {...blank}>
               The Guardian, London
             </a>
             <ul>
               <li>
-                Spotify, Nespresso, Paramount, Barclays, Natwest, Heathrow
+                Spotify, Paramount, Nespresso, Barclays, Natwest, Heathrow
               </li>
             </ul>
           </li>
           <li>
-            <a href='http://signal-noise.co.uk/' {...blank}>
+            <a href='https://signal-noise.co.uk/' {...blank}>
               Signal | Noise, London
             </a>
             <ul>
@@ -112,7 +114,7 @@ function Bio (props) {
             </ul>
           </li>
           <li>
-            <a href='http://www.toasterltd.com/' {...blank}>
+            <a href='https://www.toasterltd.com/' {...blank}>
               Toaster, London
             </a>
             <ul>
@@ -120,7 +122,7 @@ function Bio (props) {
             </ul>
           </li>
           <li>
-            <a href='http://www.artificialrome.com/' {...blank}>
+            <a href='https://www.artificialrome.com/' {...blank}>
               Artificial Rome, Berlin
             </a>
             <ul>
@@ -128,7 +130,7 @@ function Bio (props) {
             </ul>
           </li>
           <li>
-            <a href='http://www.agencepoupeesrusses.com/' {...blank}>
+            <a href='https://www.agencepoupeesrusses.com/' {...blank}>
               Poupées Russes, Paris
             </a>
             <ul>
@@ -139,22 +141,22 @@ function Bio (props) {
             La Moulade, London
             <ul>
               <li>
-                <a href='http://www.christianlouboutin.com/' {...blank}>
+                <a href='https://www.christianlouboutin.com/' {...blank}>
                   Christian Louboutin
                 </a>
                 ,{' '}
-                <a href='http://www.industrialfacility.com/' {...blank}>
+                <a href='https://www.industrialfacility.com/' {...blank}>
                   Industrial Facility
                 </a>
                 ,{' '}
-                <a href='http://www.wastberg.com/' {...blank}>
+                <a href='https://www.wastberg.com/' {...blank}>
                   Wastberg
                 </a>
               </li>
             </ul>
           </li>
           <li>
-            <a href='http://www.mazarine.com/' {...blank}>
+            <a href='https://www.mazarine.com/' {...blank}>
               Mazarine Digital, Paris
             </a>
             <ul>
@@ -162,7 +164,7 @@ function Bio (props) {
             </ul>
           </li>
           <li>
-            <a href='http://www.betc-life.com/fr/' {...blank}>
+            <a href='https://www.betc-life.com/fr/' {...blank}>
               BETC, Paris
             </a>
             <ul>
@@ -170,7 +172,7 @@ function Bio (props) {
             </ul>
           </li>
           <li>
-            <a href='http://www.buzzman.fr/' {...blank}>
+            <a href='https://www.buzzman.fr/' {...blank}>
               Buzzman, Paris
             </a>
             <ul>
@@ -179,27 +181,27 @@ function Bio (props) {
           </li>
 
           <li>
-            <a href='http://www.heineken.fr/' {...blank}>
+            <a href='https://www.heineken.fr/' {...blank}>
               Heineken France, Paris
             </a>
           </li>
-          <li>
+          {/* <li>
             <a href='http://www.alaincharlesperrot.com/' {...blank}>
               Alain Charles Perrot, Architecte - Paris
             </a>
-          </li>
+          </li> */}
           <li>
-            <a href='http://www.mademoisellechapeaux.com/' {...blank}>
+            <a href='https://www.mademoisellechapeaux.com/' {...blank}>
               Mademoiselle Chapeaux - Paris
             </a>
           </li>
           <li>
-            <a href='http://www.galeriecharlot.com/' {...blank}>
+            <a href='https://www.galeriecharlot.com/' {...blank}>
               Galerie Charlot - Paris
             </a>
           </li>
           <li>
-            <a href='http://www.ponctuelle.fr/' {...blank}>
+            <a href='https://www.ponctuelle.com/' {...blank}>
               Ponctuelle Light Design - Paris
             </a>
           </li>
