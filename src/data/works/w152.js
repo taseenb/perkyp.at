@@ -2,7 +2,7 @@ import React from 'react'
 import C from '../../const'
 const { targetBlank } = C
 
-export default {
+const work = {
   uid: 7344,
   seo: 'w152',
   active: 1,
@@ -42,7 +42,7 @@ export default {
       <a href='http://www.wastberg.com/' {...targetBlank}>
         Wästberg
       </a>
-      . The  consisted of several animations based on scroll interaction, similar
+      . The consisted of several animations based on scroll interaction, similar
       to the demo above.
     </>
   ),
@@ -74,3 +74,5 @@ export default {
     }
   ]
 }
+
+export default work

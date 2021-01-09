@@ -2,7 +2,7 @@ import React from 'react'
 import C from '../../const'
 const { targetBlank } = C
 
-export default {
+const work = {
   uid: 2803,
   seo: 'the-code-of-nature-3d',
   active: 1,
@@ -86,3 +86,5 @@ export default {
     }
   ]
 }
+
+export default work

@@ -2,7 +2,7 @@ import works from './data/works'
 import pages from './data/pages'
 import imageDimensions from './data/image-dimensions'
 
-export default {
+const data = {
   shared: {
     title: 'Perky Pat',
     metaKeywords:
@@ -21,3 +21,5 @@ export default {
   pages,
   imageDimensions
 }
+
+export default data

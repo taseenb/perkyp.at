@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { cx } from 'emotion'
+import { cx } from '@emotion/css'
 
 import { Helmet } from 'react-helmet'
 

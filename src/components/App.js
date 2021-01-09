@@ -14,7 +14,7 @@ import C from '../const'
 import data from '../data'
 
 function App ({ baseUrl = C.baseUrl, location }) {
-  const { pathname } = location
+  // const { pathname } = location
   const { works, shared } = data
 
   useEffect(() => {

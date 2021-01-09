@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import VimeoPlayer from '@vimeo/player'
-import { css, cx } from 'emotion'
+import { css, cx } from '@emotion/css'
 
 import { useInView } from 'react-intersection-observer'
 

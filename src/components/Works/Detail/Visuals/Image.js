@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { cx } from 'emotion'
+import { cx } from '@emotion/css'
 
 import Img from '../../../shared/Img'
 

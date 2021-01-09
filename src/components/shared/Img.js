@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from 'react'
 import isFunction from 'lodash/isFunction'
-import { css, cx } from 'emotion'
+import { css, cx } from '@emotion/css'
 import { useInView } from 'react-intersection-observer'
 import SupportContext from '../../context/SupportContext'
 import LoadingAnimation from './LoadingAnimation'

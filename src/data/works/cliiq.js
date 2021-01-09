@@ -2,7 +2,7 @@ import React from 'react'
 import C from '../../const'
 const { targetBlank } = C
 
-export default {
+const work = {
   uid: 5155,
   seo: 'cliiq',
   active: 1,
@@ -70,3 +70,5 @@ export default {
     }
   ]
 }
+
+export default work

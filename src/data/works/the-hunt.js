@@ -4,7 +4,7 @@ import C from '../../const'
 
 const isWin = C.isBrowser ? navigator.platform === 'Win32' : false
 
-export default {
+const work = {
   uid: 5153,
   seo: 'the-hunt',
   active: 1,
@@ -74,3 +74,5 @@ export default {
     }
   ]
 }
+
+export default work

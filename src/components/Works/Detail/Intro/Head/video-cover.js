@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, useContext } from 'react'
-import { css, cx } from 'emotion'
+import { css, cx } from '@emotion/css'
 
 import FullscreenIcon from './FullscreenIcon'
 

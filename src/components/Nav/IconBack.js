@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { css, cx } from 'emotion'
+import { css, cx } from '@emotion/css'
 
 export default function IconBack ({ className, onClose }) {
   const { pathname } = useLocation()
