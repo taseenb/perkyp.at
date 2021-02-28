@@ -16,7 +16,7 @@
     "build-react": "react-scripts build && mv build dist/build",
     "build-node": "webpack --config ./webpack-node.config.js --env NODE_ENV=production --color --progress",
     "postinstall": "yarn build",
-    "deploy": "cd dist && gcloud app deploy --project=perkypat-portfolio",
+    "deploy": "JUST_PUSH_TO_MASTER_TO_DEPLOY or RUN_TRIGGER_IN_GCP",
     "browse": "gcloud app browse"
   },
   "dependencies": {
