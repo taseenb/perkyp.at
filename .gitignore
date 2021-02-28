@@ -29,3 +29,4 @@ build
 dist/server.**
 dist/server-dev.**
 src/data/image-dimensions-dev.js
+.eslintcache
