@@ -186,22 +186,22 @@ function Bio (props) {
             </ul>
           </li>
 
-          <li>
+          {/* <li>
             <a href='https://www.heineken.fr/' {...blank}>
               Heineken France, Paris
             </a>
           </li>
-          {/* <li>
+           <li>
             <a href='http://www.alaincharlesperrot.com/' {...blank}>
               Alain Charles Perrot, Architecte - Paris
             </a>
-          </li> */}
+          </li>  
           <li>
             <a href='https://www.mademoisellechapeaux.com/' {...blank}>
               Mademoiselle Chapeaux - Paris
             </a>
-          </li>
-          <li>
+          </li> 
+           <li>
             <a href='https://www.galeriecharlot.com/' {...blank}>
               Galerie Charlot - Paris
             </a>
@@ -210,7 +210,7 @@ function Bio (props) {
             <a href='https://www.ponctuelle.com/' {...blank}>
               Ponctuelle Light Design - Paris
             </a>
-          </li>
+          </li> */}
           <li>
             <a href='http://www.dancityfestival.com/' {...blank}>
               Dancity Festival - Italy
