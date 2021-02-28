@@ -69,8 +69,9 @@ function Bio (props) {
         <div className='tech'>
           <h2 className='heading'>Tech</h2>
           <p>
-            Javascript / ES6+, React, MobX, Redux, Three.js /
-            WebGL, Node.js, Express, A-Frame, canvas 2D, HTML5, D3.js, Babel, Webpack, Browserify, AWS, Google Cloud, Electron, etc.
+            Javascript / ES6+, React, MobX, Redux, Three.js / WebGL, Node.js,
+            Express, A-Frame, canvas 2D, HTML5, D3.js, Babel, Webpack,
+            Browserify, AWS, Google Cloud, Electron, etc.
             <br />
             <br />
           </p>
@@ -120,6 +121,12 @@ function Bio (props) {
               <li>Google</li>
             </ul>
           </li>
+          <li>
+            <a href='https://www.cubitts.com/' {...blank}>
+              Cubitts, London
+            </a>
+          </li>
+
           <li>
             <a href='https://www.artificialrome.com/' {...blank}>
               Artificial Rome, Berlin
